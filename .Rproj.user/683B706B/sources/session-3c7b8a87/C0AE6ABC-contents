@@ -3,11 +3,14 @@ project:
 
 website:
   title: "Пространственный анализ урбанизированных территорий"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  sidebar:
+    style: "docked"
+    search: false
+    contents:
+      - text: "О курсе"
+        href: index.qmd
+      - section: "Анализ точечных паттернов"
+        href: 01-point-pattern-analysis.qmd
 
 format:
   html:
