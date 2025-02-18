@@ -1,0 +1,22 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Пространственный анализ урбанизированных территорий",
+    "section": "",
+    "text": "Материалы для практических занятий по курсу “Пространственный анализ урбанизированных территорий”, весна 2024/2025.\nМатериалы лекций по темам:\n\nанализ точечных паттернов и кластеризация - https://baltti.github.io/point-pattern/\nгравитационные модели\nпространственные веса, пространственная автокорреляция\nпространственная регрессия",
+    "crumbs": [
+      "О курсе"
+    ]
+  },
+  {
+    "objectID": "01-point-pattern-analysis.html",
+    "href": "01-point-pattern-analysis.html",
+    "title": "Анализ точечных паттернов и кластеризация",
+    "section": "",
+    "text": "Материалы лекции\n\nОткрыть лекцию в новой вкладке\nДля практической работы по теме используется геоинформационная система QGIS.\n\n\n\n\n\n\nNote\n\n\n\nВесь приведенный ниже порядок действий показан для версии QGIS 3.34, поэтому возможны небольшие расхождения в названиях функций/инструментов, если у вас установлена другая версия.\n\n\n\nИсходные данные\nВ качестве исходных данных для работы будут использованы сведения о преступлениях в Сан-Франциско.\nВсе наборы данных доступен по ссылке.\nВ скачанном архиве вы найдете две папки:\n\nCrime events - векторные слои точечных объектов в формате shapefile для нескольких типов преступлений;\nSF PD Plots - агрегированные по округам данные.\n\nТак как темой занятия является анализ точечных паттернов, то вам понадобится один из слоев из папки Crime events:\n\nsf_cartheft.shp - угоны машин;\nsf_drugs.shp - случаи торговли наркотиками;\nsf_roberry.shp - ограбления;\nsf_vandalism.shp - случаи вандализма.\n\n\n\n\n\n\n\nWarning\n\n\n\nНе забывайте, что shapefile - это коварный формат и вам нужен не только файл с расширением .shp, но и все другие с таким же именем, но другими расширениями.\n\n\n\n\n\n\n\n\n\n\nVariable\nDescription\nОписание атрибута\n\n\n\n\nIncidntNum\nUnique identifier for each incident report\nИдентификатор инцидента\n\n\nX_pr\nProjected X-coordinates\nКоордината Х в прямоугнольной системе координат\n\n\nY_pr\nProjected Y-coordinates\nКоордината Y в прямоугнольной системе координат\n\n\nCategory\nCrime classification (robberies, drugs/narcotics possession or sale, vehicle theft, and vandalism)\nТип преступления\n\n\nDescript\nDescription of the crime\nОписание\n\n\nDayOfWeek\nDay of the week that crime was reported\nДень недели, в который было подано заявление\n\n\nDate\nDate of the report\nДата заявления\n\n\nTime\nTime of report\nВремя заявления\n\n\nPdDistrict\nPolice district\nПолицейский участок\n\n\nResolution\nOutcome of the report, e.g. None, Arrest, Unfounded, etc\nРезультат работы по заявлению\n\n\nLocation\nStreet address where the crime occurred\nНазвание улицы, где произошло преступление\n\n\nX\nX-Coordinates of crime location\nДолгота\n\n\nY\nY-Coordinates of crime location\nШирота\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nОткрыть данные вы можете, просто перетащив файл с расширением .shp в пустое окно QGIS или через строку меню Слой \\(\\longrightarrow\\) Добавить слой \\(\\longrightarrow\\) Добавить векторный слой.\n\n\nПосле добавления векторного слоя и открытия подложки (опционально), вы должны увидеть что-то похожее на картинку ниже.\n\n\n\n\n\n\n\nЯдерная оценка плотности",
+    "crumbs": [
+      "Анализ точечных паттернов"
+    ]
+  }
+]
