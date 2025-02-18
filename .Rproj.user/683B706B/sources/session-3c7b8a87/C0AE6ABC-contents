@@ -11,6 +11,8 @@ website:
         href: index.qmd
       - section: "Анализ точечных паттернов"
         href: 01-point-pattern-analysis.qmd
+        contents:
+          - 01-point-pattern-analysis.qmd
 
 format:
   html:
