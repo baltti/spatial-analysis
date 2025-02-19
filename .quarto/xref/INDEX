@@ -4,5 +4,11 @@
   },
   "index.qmd": {
     "index.html": "dd48f612"
+  },
+  "02-location-allocation.qmd": {
+    "02-location-allocation.html": "9f7be528"
+  },
+  "References.qmd": {
+    "References.html": "9d09ac64"
   }
 }

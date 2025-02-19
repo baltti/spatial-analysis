@@ -9,16 +9,26 @@ website:
     contents:
       - text: "О курсе"
         href: index.qmd
-      - section: "Анализ точечных паттернов"
+      - section: "Анализ точечных паттернов и кластеризация"
         href: 01-point-pattern-analysis.qmd
-        contents:
+        contents: 
           - 01-point-pattern-analysis.qmd
+      - section: "Литература"
+        href: References.qmd
+        contents:
+          - References.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    number-sections: true
+    number-depth: 3
+    
+    shift-heading-level-by: 1
+    anchor-sections: true
+    link-external-icon: true
 
 editor: visual
 

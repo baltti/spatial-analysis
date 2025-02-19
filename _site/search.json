@@ -1,5 +1,25 @@
 [
   {
+    "objectID": "References.html",
+    "href": "References.html",
+    "title": "Список литературы и дополнительные источники",
+    "section": "",
+    "text": "Самсонов Т.Е. Основы геоинформатики: курс лекций : сайт. 2025. — URL: https://tsamsonov.github.io/gis-course/. Дата публикации: 14.02.2025. DOI: 10.5281/zenodo.7902351\nSergio Rey, Dani Arribas-Bel, Levi John Wolf Geographic Data Science with Python - URL: https://geographicdata.science/book/\nManuel Gimond Intro to GIS and Spatial Analysis - URL: https://mgimond.github.io/Spatial/index.html\nYuan, Y., Qiang, Y., Bin Asad, K., and Chow, T. E. (2020). Point Pattern Analysis. The Geographic Information Science & Technology Body of Knowledge (1st Quarter 2020 Edition), John P. Wilson (ed.). DOI: 10.22224/gistbok/2020.1.13.\nPoint pattern analysis - URL: https://arcg.is/0nO0bH",
+    "crumbs": [
+      "Литература"
+    ]
+  },
+  {
+    "objectID": "References.html#использованная-литература",
+    "href": "References.html#использованная-литература",
+    "title": "Список литературы и дополнительные источники",
+    "section": "",
+    "text": "Самсонов Т.Е. Основы геоинформатики: курс лекций : сайт. 2025. — URL: https://tsamsonov.github.io/gis-course/. Дата публикации: 14.02.2025. DOI: 10.5281/zenodo.7902351\nSergio Rey, Dani Arribas-Bel, Levi John Wolf Geographic Data Science with Python - URL: https://geographicdata.science/book/\nManuel Gimond Intro to GIS and Spatial Analysis - URL: https://mgimond.github.io/Spatial/index.html\nYuan, Y., Qiang, Y., Bin Asad, K., and Chow, T. E. (2020). Point Pattern Analysis. The Geographic Information Science & Technology Body of Knowledge (1st Quarter 2020 Edition), John P. Wilson (ed.). DOI: 10.22224/gistbok/2020.1.13.\nPoint pattern analysis - URL: https://arcg.is/0nO0bH",
+    "crumbs": [
+      "Литература"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Пространственный анализ урбанизированных территорий",
@@ -14,9 +34,49 @@
     "href": "01-point-pattern-analysis.html",
     "title": "Анализ точечных паттернов и кластеризация",
     "section": "",
-    "text": "Материалы лекции\n\nОткрыть лекцию в новой вкладке\nДля практической работы по теме используется геоинформационная система QGIS.\n\n\n\n\n\n\nNote\n\n\n\nВесь приведенный ниже порядок действий показан для версии QGIS 3.34, поэтому возможны небольшие расхождения в названиях функций/инструментов, если у вас установлена другая версия.\n\n\n\nИсходные данные\nВ качестве исходных данных для работы будут использованы сведения о преступлениях в Сан-Франциско.\nВсе наборы данных доступен по ссылке.\nВ скачанном архиве вы найдете две папки:\n\nCrime events - векторные слои точечных объектов в формате shapefile для нескольких типов преступлений;\nSF PD Plots - агрегированные по округам данные.\n\nТак как темой занятия является анализ точечных паттернов, то вам понадобится один из слоев из папки Crime events:\n\nsf_cartheft.shp - угоны машин;\nsf_drugs.shp - случаи торговли наркотиками;\nsf_roberry.shp - ограбления;\nsf_vandalism.shp - случаи вандализма.\n\n\n\n\n\n\n\nWarning\n\n\n\nНе забывайте, что shapefile - это коварный формат и вам нужен не только файл с расширением .shp, но и все другие с таким же именем, но другими расширениями.\n\n\n\n\n\n\n\n\n\n\nVariable\nDescription\nОписание атрибута\n\n\n\n\nIncidntNum\nUnique identifier for each incident report\nИдентификатор инцидента\n\n\nX_pr\nProjected X-coordinates\nКоордината Х в прямоугнольной системе координат\n\n\nY_pr\nProjected Y-coordinates\nКоордината Y в прямоугнольной системе координат\n\n\nCategory\nCrime classification (robberies, drugs/narcotics possession or sale, vehicle theft, and vandalism)\nТип преступления\n\n\nDescript\nDescription of the crime\nОписание\n\n\nDayOfWeek\nDay of the week that crime was reported\nДень недели, в который было подано заявление\n\n\nDate\nDate of the report\nДата заявления\n\n\nTime\nTime of report\nВремя заявления\n\n\nPdDistrict\nPolice district\nПолицейский участок\n\n\nResolution\nOutcome of the report, e.g. None, Arrest, Unfounded, etc\nРезультат работы по заявлению\n\n\nLocation\nStreet address where the crime occurred\nНазвание улицы, где произошло преступление\n\n\nX\nX-Coordinates of crime location\nДолгота\n\n\nY\nY-Coordinates of crime location\nШирота\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nОткрыть данные вы можете, просто перетащив файл с расширением .shp в пустое окно QGIS или через строку меню Слой \\(\\longrightarrow\\) Добавить слой \\(\\longrightarrow\\) Добавить векторный слой.\n\n\nПосле добавления векторного слоя и открытия подложки (опционально), вы должны увидеть что-то похожее на картинку ниже.\n\n\n\n\n\n\n\nЯдерная оценка плотности",
+    "text": "Материалы лекции\nОткрыть лекцию в новой вкладке\nДля практической работы по теме используется геоинформационная система QGIS.",
     "crumbs": [
-      "Анализ точечных паттернов"
+      "Анализ точечных паттернов и кластеризация"
+    ]
+  },
+  {
+    "objectID": "01-point-pattern-analysis.html#data",
+    "href": "01-point-pattern-analysis.html#data",
+    "title": "Анализ точечных паттернов и кластеризация",
+    "section": "1 Исходные данные",
+    "text": "1 Исходные данные\nВ качестве исходных данных для работы будут использованы сведения о преступлениях в Сан-Франциско.\nВсе наборы данных доступен по ссылке.\nВ скачанном архиве вы найдете две папки:\n\nCrime events - векторные слои точечных объектов в формате shapefile для нескольких типов преступлений;\nSF PD Plots - агрегированные по округам данные.\n\nТак как темой занятия является анализ точечных паттернов, то вам понадобится один из слоев из папки Crime events:\n\nsf_cartheft.shp - угоны машин;\nsf_drugs.shp - случаи торговли наркотиками;\nsf_roberry.shp - ограбления;\nsf_vandalism.shp - случаи вандализма.\n\n\n\n\n\n\n\nWarning\n\n\n\nНе забывайте, что shapefile - это коварный формат и вам нужен не только файл с расширением .shp, но и все другие с таким же именем, но другими расширениями.\n\n\n\n\n\n\n\n\n\n\nVariable\nDescription\nОписание атрибута\n\n\n\n\nIncidntNum\nUnique identifier for each incident report\nИдентификатор инцидента\n\n\nX_pr\nProjected X-coordinates\nКоордината Х в прямоугнольной системе координат\n\n\nY_pr\nProjected Y-coordinates\nКоордината Y в прямоугнольной системе координат\n\n\nCategory\nCrime classification (robberies, drugs/narcotics possession or sale, vehicle theft, and vandalism)\nТип преступления\n\n\nDescript\nDescription of the crime\nОписание\n\n\nDayOfWeek\nDay of the week that crime was reported\nДень недели, в который было подано заявление\n\n\nDate\nDate of the report\nДата заявления\n\n\nTime\nTime of report\nВремя заявления\n\n\nPdDistrict\nPolice district\nПолицейский участок\n\n\nResolution\nOutcome of the report, e.g. None, Arrest, Unfounded, etc\nРезультат работы по заявлению\n\n\nLocation\nStreet address where the crime occurred\nНазвание улицы, где произошло преступление\n\n\nX\nX-Coordinates of crime location\nДолгота\n\n\nY\nY-Coordinates of crime location\nШирота\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nОткрыть данные вы можете, просто перетащив файл с расширением .shp в пустое окно QGIS или через строку меню Слой \\(\\longrightarrow\\) Добавить слой \\(\\longrightarrow\\) Добавить векторный слой.\n\n\nПосле добавления векторного слоя и открытия подложки (опционально), вы должны увидеть что-то похожее на картинку ниже.\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nЛокальная оценка плотности по квадрантам рассмотрена по ссылке",
+    "crumbs": [
+      "Анализ точечных паттернов и кластеризация"
+    ]
+  },
+  {
+    "objectID": "01-point-pattern-analysis.html#kde",
+    "href": "01-point-pattern-analysis.html#kde",
+    "title": "Анализ точечных паттернов и кластеризация",
+    "section": "2 Ядерная оценка плотности",
+    "text": "2 Ядерная оценка плотности\n\n\n\n\n\n\nTip\n\n\n\nВизуальную оценка ядерной плотности можно выполнить с помощью стилизации слоя точечных объектов в виде тепловой карты, о чем рассказано по ссылке. Однако в этом случае следует помнить, что полученная карта не является статичной и будет изменяться в зависимости от масштаба на экране, тогда как описанный ниже метод расчета даст статичную карту.\n\n\nДля построения карты ядерной оценки плотности воспользуемся инструментом Тепловая карта (оценка плотности ядер) из панели инструментов анализа.\n\n\n\n\n\n\nTip\n\n\n\nЕсли у вас закрыта Панель инструментов анализа, то вы можете открыть ее заново из строки меню Вид \\(\\longrightarrow\\) Панели \\(\\longrightarrow\\) Инструменты анализа.\n\n\nВ открывшемся окне инструмента следует выбрать параметры расчета1.\n\n\n\n\n\nРассмотрим основные параметры подробнее:\n\nточечный слой - это векторный слой точечных объектов, для которого будет выполняться оценка плотности;\nрадиус - расстояние, в пределах которого будет рассчитываться значение функции плотности;\nпараметры размера растра - так как полученный результат будет представлен в виде непрерывных значений, он будет сформирован в виде растра, поэтому необходимо задать его основные параметры (чем больше строк и полей или чем меньше размер пикселя вы зададите, тем более подробным и качественным получится ваш результат).\n\nОстальные параметры являются не обязательными для настройки, поэтому мы оставим их без изменений.\nПо умолчанию ваш результат будет сохранен в виде временного слоя, но вы можете настроить его сохранение в файл перед выполнением алгоритма или сохранить уже полученный временный слой.\n\n\n\n\n\n\nWarning\n\n\n\nЗдесь при оценке плотности будут рассчитаны значения функции плотности только в пределах заданного радиуса, поэтому, если вы выберете слишком маленькую его величину, карта может быть не построена.\n\n\nВ результате построения тепловой карты, вы получите следующее изображение (здесь радиус был взят 1000 футов и размер растра примерно 1000 на 1000).",
+    "crumbs": [
+      "Анализ точечных паттернов и кластеризация"
+    ]
+  },
+  {
+    "objectID": "01-point-pattern-analysis.html#footnotes",
+    "href": "01-point-pattern-analysis.html#footnotes",
+    "title": "Анализ точечных паттернов и кластеризация",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nБолее подробно почитать про параметры можно по [ссылке](https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/interpolation.html)↩︎",
+    "crumbs": [
+      "Анализ точечных паттернов и кластеризация"
+    ]
+  },
+  {
+    "objectID": "01-point-pattern-analysis.html#оценка-точечного-паттерна",
+    "href": "01-point-pattern-analysis.html#оценка-точечного-паттерна",
+    "title": "Анализ точечных паттернов и кластеризация",
+    "section": "3 Оценка точечного паттерна",
+    "text": "3 Оценка точечного паттерна\nДля того, чтобы количественно оценить тип точечного паттерна, можно оценить разницу между ожидаемым средним расстоянием до ближашего соседа и фактическим",
+    "crumbs": [
+      "Анализ точечных паттернов и кластеризация"
     ]
   }
 ]
