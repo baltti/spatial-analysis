@@ -109,7 +109,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-point-pattern-analysis.html">Анализ точечных паттернов</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-point-pattern-analysis.html">Анализ точечных паттернов и кластеризация</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -132,10 +132,18 @@ window.Quarto = {
  <span class="menu-text">О курсе</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Анализ точечных паттернов</span></span>
-  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-point-pattern-analysis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Анализ точечных паттернов и кластеризация</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./References.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Список литературы и дополнительные источники</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -146,8 +154,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link active" data-scroll-target="#исходные-данные">Исходные данные</a></li>
-  <li><a href="#ядерная-оценка-плотности" id="toc-ядерная-оценка-плотности" class="nav-link" data-scroll-target="#ядерная-оценка-плотности">Ядерная оценка плотности</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">1</span> Исходные данные</a></li>
+  <li><a href="#kde" id="toc-kde" class="nav-link" data-scroll-target="#kde"><span class="header-section-number">2</span> Ядерная оценка плотности</a></li>
+  <li><a href="#оценка-точечного-паттерна" id="toc-оценка-точечного-паттерна" class="nav-link" data-scroll-target="#оценка-точечного-паттерна"><span class="header-section-number">3</span> Оценка точечного паттерна</a></li>
+  <li><a href="#кластеризация-к-средних" id="toc-кластеризация-к-средних" class="nav-link" data-scroll-target="#кластеризация-к-средних"><span class="header-section-number">4</span> Кластеризация К-средних</a></li>
+  <li><a href="#кластеризация-dbscan" id="toc-кластеризация-dbscan" class="nav-link" data-scroll-target="#кластеризация-dbscan"><span class="header-section-number">5</span> Кластеризация DBSCAN</a></li>
   </ul>
 </nav>
     </div>
@@ -190,21 +201,21 @@ Note
 <p>Весь приведенный ниже порядок действий показан для версии QGIS 3.34, поэтому возможны небольшие расхождения в названиях функций/инструментов, если у вас установлена другая версия.</p>
 </div>
 </div>
-<section id="исходные-данные" class="level1">
-<h1>Исходные данные</h1>
+<section id="data" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Исходные данные</h2>
 <p>В качестве исходных данных для работы будут использованы сведения о преступлениях в Сан-Франциско.</p>
 <p>Все наборы данных доступен по <a href="https://geodacenter.github.io/data-and-lab/SFcrimes_vars/">ссылке</a>.</p>
 <p>В скачанном архиве вы найдете две папки:</p>
 <ul>
-<li><p>Crime events - векторные слои точечных объектов в формате shapefile для нескольких типов преступлений;</p></li>
-<li><p>SF PD Plots - агрегированные по округам данные.</p></li>
+<li><p><strong>Crime events</strong> - векторные слои точечных объектов в формате shapefile для нескольких типов преступлений;</p></li>
+<li><p><strong>SF PD Plots</strong> - агрегированные по округам данные.</p></li>
 </ul>
 <p>Так как темой занятия является анализ точечных паттернов, то вам понадобится один из слоев из папки <em>Crime events</em>:</p>
 <ul>
-<li><p>sf_cartheft.shp - угоны машин;</p></li>
-<li><p>sf_drugs.shp - случаи торговли наркотиками;</p></li>
-<li><p>sf_roberry.shp - ограбления;</p></li>
-<li><p>sf_vandalism.shp - случаи вандализма.</p></li>
+<li><p><em>sf_cartheft.shp</em> - угоны машин;</p></li>
+<li><p><em>sf_drugs.shp</em> - случаи торговли наркотиками;</p></li>
+<li><p><em>sf_roberry.shp</em> - ограбления;</p></li>
+<li><p><em>sf_vandalism.shp</em> - случаи вандализма.</p></li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -221,9 +232,9 @@ Warning
 </div>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 50%">
-<col style="width: 24%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -319,14 +330,328 @@ Tip
 <p><img src="images/Снимок экрана 2025-02-18 в 11.23.06.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Локальная оценка плотности по квадрантам рассмотрена по <a href="https://baltti.github.io/gis-itmo/spatial-basics.html#%D0%B0%D0%B3%D1%80%D0%B5%D0%B3%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2">ссылке</a></p>
+</div>
+</div>
 </section>
-<section id="ядерная-оценка-плотности" class="level1">
-<h1>Ядерная оценка плотности</h1>
+<section id="kde" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="kde"><span class="header-section-number">2</span> Ядерная оценка плотности</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Визуальную оценка ядерной плотности можно выполнить с помощью стилизации слоя точечных объектов в виде тепловой карты, о чем рассказано по <a href="https://baltti.github.io/gis-itmo/basics.html#%D1%82%D0%B5%D0%BF%D0%BB%D0%BE%D0%B2%D0%B0%D1%8F-%D0%BA%D0%B0%D1%80%D1%82%D0%B0">ссылке</a>. Однако в этом случае следует помнить, что полученная карта не является статичной и будет изменяться в зависимости от масштаба на экране, тогда как описанный ниже метод расчета даст статичную карту.</p>
+</div>
+</div>
+<p>Для построения карты ядерной оценки плотности воспользуемся инструментом <em>Тепловая карта (оценка плотности ядер)</em> из панели инструментов анализа.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Если у вас закрыта Панель инструментов анализа, то вы можете открыть ее заново из строки меню <em>Вид</em> <span class="math inline">\(\longrightarrow\)</span> <em>Панели</em> <span class="math inline">\(\longrightarrow\)</span> <em>Инструменты анализа</em>.</p>
+</div>
+</div>
+<p>В открывшемся окне инструмента следует выбрать параметры расчета<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-19 в 10.45.03.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Рассмотрим основные параметры подробнее:</p>
+<ul>
+<li><p><strong>точечный слой</strong> - это векторный слой точечных объектов, для которого будет выполняться оценка плотности;</p></li>
+<li><p><strong>радиус</strong> - расстояние, в пределах которого будет рассчитываться значение функции плотности;</p></li>
+<li><p>параметры размера растра - так как полученный результат будет представлен в виде непрерывных значений, он будет сформирован в виде растра, поэтому необходимо задать его основные параметры (чем больше строк и полей или чем меньше размер пикселя вы зададите, тем более подробным и качественным получится ваш результат).</p></li>
+</ul>
+<p>Остальные параметры являются не обязательными для настройки, поэтому мы оставим их без изменений.</p>
+<p>По умолчанию ваш результат будет сохранен в виде временного слоя, но вы можете настроить его сохранение в файл перед выполнением алгоритма или сохранить уже полученный временный слой.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Здесь при оценке плотности будут рассчитаны значения функции плотности только в пределах заданного радиуса, поэтому, если вы выберете слишком маленькую его величину, карта может быть не построена.</p>
+</div>
+</div>
+<p>В результате построения тепловой карты, вы получите следующее изображение (здесь радиус был взят 1000 футов и размер растра примерно 1000 на 1000).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-19 в 11.03.19.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-19 в 11.39.09.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="оценка-точечного-паттерна" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="оценка-точечного-паттерна"><span class="header-section-number">3</span> Оценка точечного паттерна</h2>
+<p>Для того, чтобы количественно оценить тип точечного паттерна, можно оценить разницу между ожидаемым средним расстоянием до ближашего соседа и фактическим.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/AM07_Fig9.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>По результатам оценки наиболее важными параметрами являются:</p>
+<ul>
+<li><p><em>p-value</em> - вероятность того, что процесс является пространственно случайным;</p></li>
+<li><p><em>z-score</em> - стандартное отклонение распределения.</p></li>
+</ul>
+<p>Как правило, высокие положительные значения <em>z-score</em> говорят о том, что точечный паттерн является регулярным, а низкие отрицательные значения - о том, что точечный паттерн кластеризован.</p>
+<p>В QGIS эта оценка выполняется с помощью инструмента <em>Анализ ближайших соседей</em> из Панели инструментов анализа.</p>
+<p>Для расчетов с его использованием достаточно только выбрать векторный точечный слой и вариант сохранения результата.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обратите внимание, что здесь сохранение результата будет происходить в формате html файла, а не уже привычного нам векторного или растрового слоя, так как здесь просто дается результат расчета численных показателей.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-19 в 11.39.09.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Полученный результат в текстовом виде будет выглядеть вот так:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-19 в 11.43.40.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Рассмотрим полученные результаты:</p>
+<ul>
+<li><p><em>наблюдаемое среднее расстояние</em> - это среднее расстояние до ближайшего соседа;</p></li>
+<li><p><em>ожидаемое среднее расстояние</em> - это среднее расстояние до ближайшего соседа, которое было бы при случайном распределении точек;</p></li>
+<li><p><em>индекс ближайшего соседа</em> - отношение наблюдаемого расстояния к ожидаемому;</p></li>
+<li><p><em>число точек</em> - количество объектов в точечном слое;</p></li>
+<li><p><em>z-счет</em> - стандартное отклонение.</p></li>
+</ul>
+<p>В соответствии с <a href="https://docs.qgis.org/3.34/ru/docs/user_manual/processing_algs/qgis/vectoranalysis.html#nearest-neighbour-analysis">документацией</a>, отрицательные значения говорят о том, что точечный паттерн не является результатом пространственно случайного процесса, тогда как положительные значения могут говорить о том, что процесс скорее регулярен.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-19 в 16.20.54.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Полученный результат только говорит о возможности пространственной неслучайности процесса. Наличие конкретных кластеров или регулярность паттерна требует дальнейшей проверки и интерпретации.</p>
+</div>
+</div>
+<p>В нашем случае, было получено значение <em>z-score</em> = -90.5, что говорит о том, что точечный паттерн скорее всего является кластеризованным.</p>
+</section>
+<section id="кластеризация-к-средних" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="кластеризация-к-средних"><span class="header-section-number">4</span> Кластеризация К-средних</h2>
+<p>Как было рассмотрено в лекции, кластеризация методом К-средних позволяет получить обособленные друг от друга кластеры, внутри которых будет минимизироваться расстояние от каждого из объектов до центроида кластера (при этом центроид не будет является одним из исходных объектов, а просто будет центром массы всего кластера).</p>
+<p>В QGIS этот метод реализован в виде инструмента <em>Кластеризация K-means</em> в Панели инструментов анализа.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 11.26.20.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Для выполнения алгоритма достаточно просто выбрать векторный слой с точечными данными для кластеризации и необходимое количество кластеров.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для кластеризации не обязательно использовать только точечные объекты, ее можно выполнить также для линейных и полигональных объектов, но в этих случаях кластеризация будет выполняться не непосредственно для них, а для их центроидов.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>В нашем случае количество кластеров выбирается произвольно, однако существуют определенные методы расчета наиболее оптимального числа кластеров. Почитать про эти методы можно почитать, например, <a href="https://habr.com/ru/companies/jetinfosystems/articles/467745/">здесь</a>.</p>
+</div>
+</div>
+<p>В качестве дополнительных параметров алгоритма можно задать свои имена для полей с номером кластера и размером кластера.</p>
+<p>По результатам кластеризации вы получите точечный слой, главным отличием которого от исходного будут являться два новых поля:</p>
+<ul>
+<li><em>CLUSTER_ID -</em> порядковый номер кластера (начинаются с 0, так как индексация здесь унаследована от языка программирования);</li>
+<li><em>CLUSTER-SIZE</em> - размер кластера (количество точек в нем).</li>
+</ul>
+<p>Для того, чтобы показать, где расположены точки каждого из кластеров на карте, настроим их символы в окне Свойств слоя. В качестве типа стиля следует выбрать <em>Символизация по уникальным значениям</em>, а в качестве значения - <em>CLUSTER_ID.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 11.35.25.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>После этого каждый кластер получит свой цвет на карте.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 11.36.58.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Кластеризация методом К-средних позволяет сформировать обособленные и компактные кластеры. Проверим, действительно ли это так. Для проверки впишем каждый кластер в выпуклый многоугольник.</p>
+<p>Если кластеры действительно компактны и обособлены друг от друга, то полученные многоугольники не будут соприкасаться или пересекаться.</p>
+<p>Для построения выпуклых многоугольников воспользуемся инструментом <em>Минимальная охватывающая геометрия</em> из Панели инструментов анализа. Он позволяет построить нужный тип минимальной охватывающей геометрии.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 11.53.46.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В качестве параметров здесь следует выбрать</p>
+<ul>
+<li><p>слой, для объектов которого будет строиться минимальная охватывающая геометрия;</p></li>
+<li><p>поле классификации - то поле/атрибут, на основе которого объекты будут объединяться в группы для построения минимальной охватывающей геометрии;</p></li>
+<li><p>тип геометрии - так как мы хотим получить выпуклые многоугольники вокруг каждого кластера, то нужный тип геометрии - выпуклая оболочка; другие типы геометрии - <em>охват</em> (прямоугольник по минимальным и максимальным координатам слоя), <em>минимальный ориентированный прямоугольник</em> (прямоугольник, ориентированный с учетом разброса наблюдений), <em>минимальная описывающая окружность</em>.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 11.53.59.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В результате будет построен новый векторный слой с полигонами - выпуклыми многоугольниками, описывающими каждый кластер.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 11.58.43.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>На этой карте вы можете заметить еще и то, что некоторые обособленные точки (например, на острове в правом верхнем углу или в левой части) перетягивают в свою сторону центроиды кластеров, что может разбить некоторые довольно плотные группы.</p>
+</div>
+</div>
+</section>
+<section id="кластеризация-dbscan" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="кластеризация-dbscan"><span class="header-section-number">5</span> Кластеризация DBSCAN</h2>
+<p>Ввиду того, что метод кластеризации К-средних всегда все точки отнесет к тому или иному кластеру, что может привести к некорректной разбивке на группы, он может показывать неудовлетворительные результаты на реальных данных, в которых может присутствовать шум и выбросы.</p>
+<p>В этих случаях более оптимальным методом кластеризации будет основанный на плотности DBSCAN (Density-based spatial clustering of applications with noise).</p>
+<p>В QGIS этот алгоритм реализован в виде инструмента <em>Кластеризация DBSCAN</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 12.18.50.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Основными параметрами являются:</p>
+<ul>
+<li><em>векторный слой</em> с объектами, для которых выполняется кластеризация;</li>
+<li><em>минимальный размер кластера</em> - минимальное количество соседей в пределах заданного расстояния, при котором точка будет включена в ядро кластера;</li>
+<li><em>максимальное расстояние между кластеризованными точками</em> - расстояние, в пределах которого будет осуществляться поиск соседей для каждой их точек.</li>
+</ul>
+<p>Дополнительными параметрами так же, как и для кластеризации К-средних будут являться <em>CLUSTER_ID</em> и <em>CLUSTER-SIZE</em>, а кроме того - возможность рассматривать граничные точки в качестве шума.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Как и для кластеризации методом К-средних параметры в нашем случае были выбраны произвольно, но в случае реального исследования они должны быть обоснованы, исходя из знания предметной области и природы простраственного процесса.</p>
+</div>
+</div>
+<p>В результате снова получим векторный слой с точечными объектами и двумя новыми атрибутами <em>CLUSTER_ID</em> и <em>CLUSTER-SIZE.</em> Обратите внимание, что для некоторых из точек будут пропущены значения этих полей, это значит, что точка не попала ни в один из кластеров и является точкой шума.</p>
+<p>Аналогично предыдущему разделу покажем кластеры на карте разными цветами.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 12.29.58.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>На карте видно, что в результате нами были получены небольшие кластеры в местах с наибольшей плотностью наблюдений, тогда как значительное число точек было отнесено к точкам шума, то есть не вошло ни в один из кластеров.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 12.33.12.png" class="img-fluid figure-img"></p>
+<figcaption>Кластеры</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-20 в 12.33.27.png" class="img-fluid figure-img"></p>
+<figcaption>Точки шума</figcaption>
+</figure>
+</div>
+<p>Для проверки наличия пересечений между кластерами можно аналогично предыдущему разделу построить минимальные охватывающие геометрии каждого из кластеров.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Также имеющаяся в стандартном наборе Панели инструментов анализа кластеризация ST-DBSCAN является вариацией метода DBSCAN, в котором дополнительно учитывается время события. Такой метод кластеризации полезен, если вы знаете или предполагаете, что точечный процесс происходит с разной интенсивностью в разные временные периоды или происходит преимущественно в определенные периоды времени.</p>
+<p>Подробно метод описан в <a href="https://www.sciencedirect.com/science/article/abs/pii/S0169023X06000218">статье</a></p>
+</div>
+</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Более подробно почитать про параметры можно по <a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/interpolation.html">ссылке</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Источник изображения: <a href="https://gistbok-topics.ucgis.org/AM-03-007" class="uri">https://gistbok-topics.ucgis.org/AM-03-007</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -433,6 +758,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // default icon
+          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

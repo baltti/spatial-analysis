@@ -103,23 +103,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">О курсе</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./01-point-pattern-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Анализ точечных паттернов</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-point-pattern-analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Анализ точечных паттернов и кластеризация</span></a>
   </div>
 </li>
-      </ul>
-  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./References.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Список литературы и дополнительные источники</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -151,6 +146,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Материалы для практических занятий по курсу “Пространственный анализ урбанизированных территорий”, весна 2024/2025.</p>
+<p>Курс является продолжением курса по Геоиинформатике и геоинформационным системам и нацелен на более глубокое изучение методов пространственного анализа территорий с использованием геоинформационных систем.</p>
+<p>Основное программное обеспечение, используемое в курсе:</p>
+<ul>
+<li><p><a href="https://qgis.org/">QGIS</a></p></li>
+<li><p><a href="https://geodacenter.github.io/">GeoDa</a></p></li>
+</ul>
 <p>Материалы лекций по темам:</p>
 <ul>
 <li><p>анализ точечных паттернов и кластеризация - <a href="https://baltti.github.io/point-pattern/" class="uri">https://baltti.github.io/point-pattern/</a></p></li>
@@ -158,6 +159,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>пространственные веса, пространственная автокорреляция</p></li>
 <li><p>пространственная регрессия</p></li>
 </ul>
+<p>Материалы в работе</p>
 
 
 
@@ -268,6 +270,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // default icon
+          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

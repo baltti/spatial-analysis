@@ -9,14 +9,11 @@ website:
     contents:
       - text: "О курсе"
         href: index.qmd
-      - section: "Анализ точечных паттернов и кластеризация"
+      - text: "Анализ точечных паттернов и кластеризация"
         href: 01-point-pattern-analysis.qmd
-        contents: 
-          - 01-point-pattern-analysis.qmd
-      - section: "Литература"
+      - Text: "Литература"
         href: References.qmd
-        contents:
-          - References.qmd
+
 
 format:
   html:
