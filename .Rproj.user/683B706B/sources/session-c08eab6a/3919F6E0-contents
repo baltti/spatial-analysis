@@ -44,7 +44,7 @@ format: html
 :::
 
 | **Variable** | **Description** | Описание атрибута |
-|:---|:---|----|
+|:-----------------------|:-----------------------|------------------------|
 | IncidntNum | Unique identifier for each incident report | Идентификатор инцидента |
 | X_pr | Projected X-coordinates | Координата Х в прямоугнольной системе координат |
 | Y_pr | Projected Y-coordinates | Координата Y в прямоугнольной системе координат |

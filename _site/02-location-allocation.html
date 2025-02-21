@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>02-location-allocation – Пространственный анализ урбанизированных территорий</title>
+<title>Анализ размещения-распределения – Пространственный анализ урбанизированных территорий</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -80,9 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Пространственный анализ урбанизированных территорий
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-location-allocation.html">Анализ размещения-распределения</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -113,6 +140,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./02-location-allocation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Анализ размещения-распределения</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Список литературы и дополнительные источники</span></a>
   </div>
@@ -122,15 +155,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#общие-сведения" id="toc-общие-сведения" class="nav-link active" data-scroll-target="#общие-сведения"><span class="header-section-number">1</span> Общие сведения</a></li>
+  <li><a href="#определение-ближайшего-сервиса-на-основе-матрицы-старт-назначение" id="toc-определение-ближайшего-сервиса-на-основе-матрицы-старт-назначение" class="nav-link" data-scroll-target="#определение-ближайшего-сервиса-на-основе-матрицы-старт-назначение"><span class="header-section-number">2</span> Определение ближайшего сервиса на основе матрицы старт-назначение</a>
+  <ul class="collapse">
+  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link" data-scroll-target="#исходные-данные"><span class="header-section-number">2.1</span> Исходные данные</a></li>
+  <li><a href="#расчет-матрицы-старт-назначение" id="toc-расчет-матрицы-старт-назначение" class="nav-link" data-scroll-target="#расчет-матрицы-старт-назначение"><span class="header-section-number">2.2</span> Расчет матрицы старт-назначение</a></li>
+  <li><a href="#определение-ближайшего-объекта-сервиса" id="toc-определение-ближайшего-объекта-сервиса" class="nav-link" data-scroll-target="#определение-ближайшего-объекта-сервиса"><span class="header-section-number">2.3</span> Определение ближайшего объекта сервиса</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">02-location-allocation</h1>
+<h1 class="title">Анализ размещения-распределения</h1>
 </div>
 
 
@@ -147,10 +192,232 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="общие-сведения" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="общие-сведения"><span class="header-section-number">1</span> Общие сведения</h2>
+<p>Анализ размещения-распределения (location-allocation analysis) необходим для решения двух основных задач:</p>
+<ul>
+<li><p>поиск <strong>оптимального размещения</strong> объекта относительно точек спроса с учетом минимизации транспортных расходов (времени в пути или затрат на перевозку), например, размещение экстренных служб, которые должны располагаться так, чтобы время их прибытия было минимальным;</p></li>
+<li><p>поиск <strong>оптимального распределения</strong> от размещаемого нового объекта до точек спроса с учетом минимизации транспортных расходов, например, размещение склада, с которого осуществляется доставка, или размещение даркстора службы доставки, чтобы максимально охватывать зоной доставки ближайшее окружение.</p></li>
+</ul>
+<p>Основная часть решения таких задач сводится к определению медианного расположения: необходимо таким образом разместить медианную точку, чтобы минимизировать среднюю стоимость транспортировки с учетом спроса или расстояние между точками спроса и сервисом<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Параметры решения будут зависеть от трех показателей:</p>
+<ul>
+<li><p>количество точек сервиса, которые необходимо разместить;</p></li>
+<li><p>количество, тип и размещение точек спроса - точки спроса могут представлять собой как индивидуальные локации, так и центры полигонов (например, административно-территориальных единиц), наиболее простым случаем здесь будет являться небольшое число равномерно распределенных по территории точек спроса;</p></li>
+<li><p>тип рассчитываемого расстояния.</p></li>
+</ul>
+<p>Фактически решение этой задачи сводится к линейной оптимизации.</p>
+<p><span class="math display">\[ Min: \sum_{a} \sum_{b}g(Q(a,b)),\ Q(a,b)\geq0
+\]</span></p>
+<p>где <span class="math inline">\(Q(a,b)\)</span> - трафик между источником <span class="math inline">\(a\)</span> и пунктом назначения <span class="math inline">\(b\)</span> , <span class="math inline">\(g\)</span> - функция стоимости.</p>
+<p>То есть <span class="math inline">\(g(Q(a,b))\)</span> - транспортные расходы, связанные с перевозками из точки <span class="math inline">\(a\)</span> в пункт назначения <span class="math inline">\(b\)</span>.</p>
+<p>Для анализа городской среды наиболее простым примером является поиск оптимального расположения объектов сервиса так, чтобы их зона обслуживания охватывала как можно больше горожан (потребителей этих сервисов) при минимальном до них расстоянии.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Map-Amazon-Density-and-Median-1.webp" class="img-fluid figure-img"></p>
+<figcaption>Размещение и площадь распределительных складов Amazon с учетом расселения<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Без заголовка.png" class="img-fluid figure-img"></p>
+<figcaption>Поиск наиболее оптимального расположения больниц<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></figcaption>
+</figure>
+</div>
+</section>
+<section id="определение-ближайшего-сервиса-на-основе-матрицы-старт-назначение" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="определение-ближайшего-сервиса-на-основе-матрицы-старт-назначение"><span class="header-section-number">2</span> Определение ближайшего сервиса на основе матрицы старт-назначение</h2>
+<p>В этой работе мы определим ближайшую локацию сервиса относительно жилых домов с использованием матрицы старт-назначение.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Матрица старт-назначение - таблица, содержащая в себе значения времени или расстояния перевозки между всеми возможными парами стартовых точек и точек назначения.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/generated_webp_full_reading-matrix.webp" class="img-fluid figure-img"></p>
+<figcaption>Пример матрицы старт-назначение<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></figcaption>
+</figure>
+</div>
+<p>Практическое занятие основано на <a href="https://www.qgistutorials.com/en/docs/3/origin_destination_matrix.html">туториале</a>.</p>
+<section id="исходные-данные" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">2.1</span> Исходные данные</h3>
+<p>Для расчетов нам необходимо три набора данных:</p>
+<ul>
+<li><p>жилые дома (полигоны) - точки спроса, которые будут служит стартовыми точками для расчета матрицы старт-назначение;</p></li>
+<li><p>точки сервиса (точки), которые будут служить конечными точками при расчете матрицы старт-назначение (вы можете выбрать точки сервиса, которые посчитаете нужным);</p></li>
+<li><p>улично-дорожная сеть (линейные объекты) для расчета расстояния или времени в пути.</p></li>
+</ul>
+<p>Все данные следует загрузить из OSM с использованием плагина QuickOSM.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Как пользоваться плагином описано по <a href="https://baltti.github.io/geoinformatics-2.0/osm.html#quickosm">ссылке</a></p>
+</div>
+</div>
+<p>Для загрузки жилых домов будет использован запрос <code>building=apartments</code>.</p>
+<p>Для точек сервиса можно использовать одно из значений ключа <code>amenity</code> (подробнее <a href="https://wiki.openstreetmap.org/wiki/RU:Key:amenity">здесь</a>) или <code>shop</code> (подробнее про него <a href="https://wiki.openstreetmap.org/wiki/RU:Key:shop">здесь</a>). Здесь будут использованы супермаркеты, поэтому был использован запрос <code>shop=supermarket</code> .</p>
+<p>Объекты улично-дорожной сети определялись по запросу <code>highway=primary or highway=secondary or highway=tertiary</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>В нашем пример для построения маршрутов будут учитываться только наиболее крупные городские магистрали для ускорения и упрощения расчетов, что может привести к не очень реалистичной картине доступности сервисов. Если вы хотите выполнить расчет более корректно, лучше будет включить в него и более мелкие улицы. Полный перечень типов дорог и значений ключей для них приведен по <a href="https://wiki.openstreetmap.org/wiki/RU:Key:highway">ссылке</a>.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 12.52.58.png" class="img-fluid figure-img"></p>
+<figcaption>Подготовленный для анализа проект с загруженными слоями</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Чем больше будет ваша территория для анализа, тем дольше будет осуществляться расчет. То же самое касается и количества объектов: чем больше у вас домов или точек сервиса, тем дольше будут идти расчеты.</p>
+</div>
+</div>
+</section>
+<section id="расчет-матрицы-старт-назначение" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="расчет-матрицы-старт-назначение"><span class="header-section-number">2.2</span> Расчет матрицы старт-назначение</h3>
+<p>Для расчета матрицы воспользуемся уже знакомым нам по прошлому семестру плагином QNEAT3.</p>
+<p>Но предварительно нужно подготовить наши данные о жилых домах: пока они у нас представлены в виде полигонов, но плагин может осуществлять расчеты только между двумя слоями точечных объектов, поэтому необходимо из полигонов получить точки.</p>
+<p>Перейти от точек к полигонам мы можем либо построив центроиды, либо воспользовавшись инструментом <em>Точка на поверхности</em>.</p>
+<p>В первом варианте мы получим геометрические центры полигонов, но в случае сложной формы зданий, они могу лежать за его пределами, тогда как при использовании инструмента <em>Точка на поверхность</em> полученные точечные объекты будут гарантированно размещены внутри полигонов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 13.06.51.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В данном случае было выбрано создавать точки для каждой части мультиполигонов, чтобы не были потеряны отдельные части зданий.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 13.09.45.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для улучшения качества расчетов можно воспользоваться не просто центром здания, а точками подъездов.</p>
+</div>
+</div>
+<p>Далее построим матрицу старт-назначение. Для этого воспользуемся инструментом <em>OD Matrix from Layers as Lines (m:n)</em>. В данном случае мы построим не просто таблицу, а векторный линейный слой, в котором будут соединяться все возможные пары дом-супермаркет.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 13.11.57.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В качестве необходимых параметров следует указать:</p>
+<ul>
+<li><p><em>network layer</em> - слой, содержащий объекты улично-дорожной сети;</p></li>
+<li><p><em>from-point layer</em> - слой стартовых точек;</p></li>
+<li><p><em>unique point ID field</em> - <strong>уникальный идентификатор</strong> стартовых точек;</p></li>
+<li><p><em>to-point layer</em> - слой конечных точек;</p></li>
+<li><p><em>unique point ID field</em> - <strong>уникальный идентификатор</strong> конечных точек;</p></li>
+<li><p><em>optimization criterion</em> - показатель, минимизируемый при расчете маршрута: кратчайший или быстрейший).</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 13.12.24.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В дополнительных параметрах укажем среднюю скорость пешехода - 5 км/ч (<em>default speed</em>) и стиль генерации линий - по прямой (<em>generated matrix geometry style</em>). Второй вариант генерации линий будет повторять сегменты улично-дорожной сети, но такое построение требует большего времени и ресурса компьютера, поэтому остановимся на более простом варианте.</p>
+<p>По результатам расчета вы получите довольно неясную картинку, в которой будет много пересекающихся между собой линий - это графическая интерпретация матрицы старт-назначение.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 13.22.40.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Если вы откроете таблицу атрибутов полученного слоя, вы увидите собственно матрицу старт-назначение.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 13.24.25.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Обратите внимание, что расстояние в пути (cost) представлено сразу четырьмя атрибутами:</p>
+<ul>
+<li><p><em>entry_cost</em> - расстояние, которое нужно пройти, чтобы от стартовой точки попасть на ближайший сегмент улично-дорожной сети;</p></li>
+<li><p><em>network_cost</em> - расстояние, которое будет пройдено только по сегментам улично-дорожной сети;</p></li>
+<li><p><em>exit_cost -</em> расстояние, которое нужно пройти от ближайшего к конечной точке сегмента улично-дорожной сети до конечной точки;</p></li>
+<li><p><em>total_cost</em> - сумма перечисленных выше расстояний.</p></li>
+</ul>
+</section>
+<section id="определение-ближайшего-объекта-сервиса" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="определение-ближайшего-объекта-сервиса"><span class="header-section-number">2.3</span> Определение ближайшего объекта сервиса</h3>
+<p>Последний шаг нашего расчета - это из всех возможных пар жилой дом-супермаркет найти те, которые расположены ближе всего друг к другу. Для этого мы выполним SQL-запрос.</p>
+<p>В качестве источника данных следует выбрать вычисленную матрицу старт-назначение (в моем случае это слой <em>Output OD matrix</em>), а сам запрос будет выглядеть следующим образом:</p>
+<pre><code>select origin_id, destination_id, min(total_cost) as shortest_distance, geometry
+from input1 group by origin_id</code></pre>
+<p>Так как структура матрицы стандартна, то и запрос будет выглядеть у всех одинаково.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обратите внимание на то, что в запросе использован поиск минимального значения для поля <em>total_cost</em>, так как нам необходимо найти ближайшие к жилым домам супермаркеты, кроме того здесь использован псевдоним этого поля (задается с помощью <em>as</em>).</p>
+<p>Также следует отметить, что необходимо включать в запрос поле <em>geometry</em>, так как без него будет осуществлен только поиск прочих атрибутов и геометрия будет исключена.</p>
+</div>
+</div>
+<p>В результате выполнения запроса будет получен новый слой, показывающий жители каких домов наиболее вероятно будут ходить в какие магазины, так как эти магазины являются к ним ближайшими. Также этот результат можно рассматривать как зоны обслуживания магазинов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 13.40.26.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 
 
+</section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Один из классических методов решения медианной задачи описан по <a href="https://transportgeography.org/contents/chapter2/transport-and-location/weber-location-triangle/">ссылке</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Источник: <a href="https://transportgeography.org/contents/methods/location-allocation-models/weighted-median-location-amazon-distribution-facilities/" class="uri">https://transportgeography.org/contents/methods/location-allocation-models/weighted-median-location-amazon-distribution-facilities/</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Источник: <a href="https://www.esri.com/about/newsroom/wp-content/uploads/2018/10/solving-a-public-health-problem.pdf" class="uri">https://www.esri.com/about/newsroom/wp-content/uploads/2018/10/solving-a-public-health-problem.pdf</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Источник: <a href="https://docs.platform-xyzt.ai/articles/origin-destination/introduction.html" class="uri">https://docs.platform-xyzt.ai/articles/origin-destination/introduction.html</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -11,9 +11,10 @@ website:
         href: index.qmd
       - text: "Анализ точечных паттернов и кластеризация"
         href: 01-point-pattern-analysis.qmd
+      - text: "Анализ размещения-распределения"
+        href: 02-location-allocation.qmd
       - Text: "Литература"
         href: References.qmd
-
 
 format:
   html:
