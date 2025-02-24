@@ -1,0 +1,31 @@
+{
+    "id": "9C1E95F2",
+    "path": "~/Desktop/gravity model/spatial-analysis/03-gravity-model.qmd",
+    "project_path": "03-gravity-model.qmd",
+    "type": "quarto_markdown",
+    "hash": "3857841602",
+    "contents": "",
+    "dirty": false,
+    "created": 1740398167913.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "144,0",
+        "scrollLine": "208",
+        "docOutlineVisible": "0",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "11597:16500.5"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1740401524,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1740401524314,
+    "read_only": false,
+    "read_only_alternatives": []
+}
