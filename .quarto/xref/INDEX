@@ -13,5 +13,17 @@
   },
   "03-gravity-model.qmd": {
     "03-gravity-model.html": "6c9f555c"
+  },
+  "Homework.qmd": {
+    "Homework.html": "5b2ad92e"
+  },
+  "Exam.qmd": {
+    "Exam.html": "7495bfee"
+  },
+  "05-spatial-autocorrelation.qmd": {
+    "05-spatial-autocorrelation.html": "814d0f20"
+  },
+  "04-spatial-weights.qmd": {
+    "04-spatial-weights.html": "0033b4b0"
   }
 }

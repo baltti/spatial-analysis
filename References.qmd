@@ -14,8 +14,7 @@ format: html
 9.  **Location-allocation analysis** - URL: <https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/location-allocation.htm>
 10. **Guide to Network Analysis (Part 6 - Solve Location Allocation)** - URL: <https://developers.arcgis.com/python/latest/guide/part6-solve-location-allocation/>
 11. **Exercise 9: Choosing optimal store locations using location-allocation** - URL: <https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/exercise-9-choosing-optimal-store-sites-using-location-allocation.htm>
-12. Haynes, K.E., & Fotheringham, A.S. (1985). Gravity and Spatial Interaction Models. Reprint. Edited by Grant
-    Ian Thrall. WVU Research Repository, 2020. - URL: <https://researchrepository.wvu.edu/cgi/viewcontent.cgi?article=1010&context=rri-web-book>
+12. Haynes, K.E., & Fotheringham, A.S. (1985). Gravity and Spatial Interaction Models. Reprint. Edited by Grant Ian Thrall. WVU Research Repository, 2020. - URL: <https://researchrepository.wvu.edu/cgi/viewcontent.cgi?article=1010&context=rri-web-book>
 13. Friske, Wesley & Choi, Sunhee. (2013). Another Look at Retail Gravitation Theory: History, Analysis, and Future Considerations. Academy of Business Disciplines Journal. 5. 88-106.
 14. Arhipova, I., Berzins, G., Erglis, A., Ansonska, E., Binde, J. and Kovalcuks, A. Huff Model for Shopping Centre Assessment using Aggregated Mobile Phone Data. DOI: 10.5220/0009361400910097 In Proceedings of the 2nd International Conference on Finance, Economics, Management and IT Business (FEMIB 2020), pages 91-97. - URL: <https://www.scitepress.org/Papers/2020/93614/93614.pdf>
 15. Sam Marshall **Gravity Model of Spatial Interaction in QGIS.** - URL: <https://gsmarshall.github.io/gravity/gravity.html>
