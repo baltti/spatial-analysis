@@ -13,6 +13,14 @@ format: html
 
 [Открыть лекцию в новой вкладке](https://baltti.github.io/gravity-model/){target="_blank"}
 
+Материалы лекции (eng.)
+
+```{=html}
+<iframe src="https://baltti.github.io/gravity-model-eng/" width="1000" height="500"></iframe>
+```
+
+[Открыть лекцию в новой вкладке](https://baltti.github.io/gravity-model-eng/){target="_blank"}
+
 # Исходные данные
 
 В качестве исходных данных нам необходимы:

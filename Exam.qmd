@@ -40,13 +40,12 @@ format: html
 1.  Что такое пространственные веса?
 2.  Методы расчета пространственных весов.
 3.  Основное применение пространственных весов.
-4.  Свойства матриц пространственных весов.
-5.  Что такое пространственная автокорреляция?
-6.  В чем разница между глобальной и локальной пространственной автокорреляцией?
-7.  Что такое пространственный лаг?
-8.  Кластеры, выявляемые при расчете локальной пространственной автокорреляции.
-9.  Графическая интерпретация индекса Морана.
-10. 
+4.  Что такое пространственная автокорреляция?
+5.  В чем разница между глобальной и локальной пространственной автокорреляцией?
+6.  Что такое пространственный лаг?
+7.  Кластеры, выявляемые при расчете локальной пространственной автокорреляции.
+8.  Графическая интерпретация индекса Морана.
+9.  
 
 ## Пространственная регрессия
 
@@ -54,8 +53,43 @@ format: html
 
 ## Point pattern analysis and clusterisation
 
+1.  What is point pattern?
+2.  Name types of point patterns.
+3.  Main types of spatial effects in point process.
+4.  Main approaches in point pattern analysis.
+5.  Difference between global and local spatial density.
+6.  Density based point pattern analysis.
+7.  Distance based point pattern analysis.
+8.  Quadrant local density estimation.
+9.  Kernel density estimation.
+10. Nearest neighbour analysis.
+11. $k$-function and its variations.
+12. What is clusterisation?
+13. Hierarchical clusterisation methods.
+14. Partitioning clusterisation methods.
+15. Density based clusterisation methods.
+
 ## Gravity models
 
+1.  First law of geography.
+2.  What is distance decay?
+3.  What is time-space compression?
+4.  Foundation for gravity models.
+5.  Huff's gravity model.
+6.  What types of gravity models exist?
+7.  How gravity models can be applied?
+8.  In Huff's model, what parameters does probability depend on?
+9.  
+
 ## Spatial weights and spatial autocorrelation
+
+1.  What are spatial weights?
+2.  Spatial weights calculation methods.
+3.  Main application of spatial weights.
+4.  What is spatial autocorrelation?
+5.  Difference between global and local spatial autocorrelation?
+6.  What is spatial lag?
+7.  Clusters calculated through local spatial autocorrelation.
+8.  Moran graph.
 
 ## Spatial regression

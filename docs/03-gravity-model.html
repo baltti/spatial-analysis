@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -80,9 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Пространственный анализ урбанизированных территорий
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-gravity-model.html">Гравитационная модель Хаффа</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -119,6 +146,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03-gravity-model.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Гравитационная модель Хаффа</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Список литературы и дополнительные источники</span></a>
   </div>
@@ -128,8 +161,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#теория" id="toc-теория" class="nav-link active" data-scroll-target="#теория"><span class="header-section-number">1</span> Теория</a></li>
+  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link" data-scroll-target="#исходные-данные"><span class="header-section-number">2</span> Исходные данные</a></li>
+  <li><a href="#geomodel" id="toc-geomodel" class="nav-link" data-scroll-target="#geomodel"><span class="header-section-number">3</span> Построение геомодели</a>
+  <ul class="collapse">
+  <li><a href="#входные-данные" id="toc-входные-данные" class="nav-link" data-scroll-target="#входные-данные"><span class="header-section-number">3.1</span> Входные данные</a></li>
+  <li><a href="#расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" id="toc-расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" class="nav-link" data-scroll-target="#расчет-матрицы-старт-назначение-между-потребителями-и-сервисами"><span class="header-section-number">3.2</span> Расчет матрицы старт-назначение между потребителями и сервисами</a></li>
+  <li><a href="#расчет-вероятности-посещения-конкретного-сервиса" id="toc-расчет-вероятности-посещения-конкретного-сервиса" class="nav-link" data-scroll-target="#расчет-вероятности-посещения-конкретного-сервиса"><span class="header-section-number">3.3</span> Расчет вероятности посещения конкретного сервиса</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -153,11 +199,418 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="теория" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="теория"><span class="header-section-number">1</span> Теория</h2>
 <p>Материалы лекции</p>
 <iframe src="https://baltti.github.io/gravity-model/" width="1000" height="500"></iframe>
 <p><a href="https://baltti.github.io/gravity-model/" target="_blank">Открыть лекцию в новой вкладке</a></p>
+<p>Материалы лекции (eng.)</p>
+<iframe src="https://baltti.github.io/gravity-model-eng/" width="1000" height="500"></iframe>
+<p><a href="https://baltti.github.io/gravity-model-eng/" target="_blank">Открыть лекцию в новой вкладке</a></p>
+</section>
+<section id="исходные-данные" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">2</span> Исходные данные</h2>
+<p>В качестве исходных данных нам необходимы:</p>
+<ul>
+<li><p>жилые дома - место жизни наших потенциальных покупателей;</p></li>
+<li><p>улично-дорожная сеть, которая будет использоваться для расчета времени в пути от жилого дома до магазина;</p></li>
+<li><p>слой с локациями торговых точек.</p></li>
+</ul>
+<p>Первые два слоя необходимо скачать из OSM аналогично <a href="https://baltti.github.io/spatial-analysis/02-location-allocation.html#%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5">исходным данным в предыдущей работе</a> или же можно взять из предыдущей работы готовые данные.</p>
+<p>Слой с локациями торговых точек мы создадим самостоятельно. Для этого в строке меню необходимо выбрать <em>Слой</em> <span class="math inline">\(\longrightarrow\)</span> <em>Создать слой</em> <span class="math inline">\(\longrightarrow\)</span> <em>Создать слой GeoPackage</em>.</p>
+<p>Далее в открывшемся окне следует указать характеристики слоя:</p>
+<ul>
+<li><p>база данных - это путь к файлу, в котором будет храниться слой;</p></li>
+<li><p>имя таблицы - название слоя, которое будет отображаться в панели слоев;</p></li>
+<li><p>тип геометрии - нам нужны точечные объекты;</p></li>
+<li><p>система координат - можно оставить географическую систему координат по умолчанию, она будет совпадать с системой координат данных, скачанных из OSM;</p></li>
+<li><p>список полей, который будет включать два обязательных для нас поля - <strong>name</strong> (название магазина, текстовый формат данных) и <strong>area</strong> (площадь магазина в метрах квадратных, целое число).</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-21 в 17.15.27.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>После создания слоя, его необходимо будет сделать редактируемым и нарисовать на карте несколько точек в разных частях исследуемой территории и заполнить для них атрибутивные данные - название магазина и площадь.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Названия точек должны быть уникальными, в противном случае модель не будет работать.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.04.14.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="geomodel" class="level2 section" data-number="3">
+<h2 class="section anchored" data-number="3" data-anchor-id="geomodel"><span class="header-section-number">3</span> Построение геомодели</h2>
+<p>В этой работе мы будем оценивать вероятность посещения того или иного магазина, исходя из их доступности и площади (как прокси-метрики разнообразия ассортимента), с использованием гравитационной модели Хаффа.</p>
+<p><span class="math display">\[P_{ij} = \frac{\frac{S_{j}}{T^\lambda_{ij}}}{\sum_{j}^{n}\frac{S_{j}}{T^\lambda_{ij}}}\]</span></p>
+<ul>
+<li><span class="math inline">\(P_{ij}\)</span> - вероятность того, что покупатель из локации <span class="math inline">\(i\)</span> пойдет в магазин <span class="math inline">\(j\)</span>;</li>
+<li><span class="math inline">\(S_{j}\)</span> - площадь магазина <span class="math inline">\(j\)</span>;</li>
+<li><span class="math inline">\(T_{ij}\)</span> - время/расстояние, которое нужно преодолеть, чтобы попасть в магазин;</li>
+<li><span class="math inline">\(\lambda\)</span> - параметр, отражающий влияние времени в пути на покупателя.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Мы воспользуемся упрощенной моделью, приняв параметр <span class="math inline">\(\lambda\)</span> равным единице, так как у нас нет подробных данных о предпочтениях покупателей.</p>
+</div>
+</div>
+<p>Для построения моделей будем использовать редактор моделей.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Редактор моделей позволяет выстроить последовательный процесс вычислений из цепочки операций с помощью простого графического интерфейса.</p>
+<p>Полученная геомодель позволяет автоматизировать вычисления и избежать вывода промежуточных результатов.</p>
+<p>Подробнее про построение геомоделей можно в <a href="https://docs.qgis.org/3.34/en/docs/user_manual/processing/modeler.html">документации</a></p>
+</div>
+</div>
+<p>Открыть редактор моделей можно из строки меню <em>Анализ данных</em> <span class="math inline">\(\longrightarrow\)</span> <em>Конструктор моделей</em> или по клику на кнопку <em>Модели</em> в Панели инструментов анализа.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.07.26.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В открывшемся новом окне основная часть предназначена для отображения модели в графическом виде, слева панель данных и алгоритмов (переключаются по вкладкам внизу панели), свойства и переменные модели, а также история команд.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.08.29.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<section id="входные-данные" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="входные-данные"><span class="header-section-number">3.1</span> Входные данные</h3>
+<p>В первую очередь зададим для нашей модели входные данные. В нашем случае все входные данные будут представлены в виде векторных слоев:</p>
+<ul>
+<li><p>здания - обязательный параметр, полигоны;</p></li>
+<li><p>магазины - обазятельный параметр, точки;</p></li>
+<li><p>улично-дорожная сеть - обязательный параметр, линии.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обязательный параметр - это тот, без включения которого в исходные данные запуск модели осуществляться не будет.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Желательно называть входные данные буквами английского алфавита, так как иногда они могут не добавляться в модель или работать некорректно при использовании кириллицы.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.15.30.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Входные данные в модели обозначаются зеленым плюсом перед названием.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.16.30.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="расчет-матрицы-старт-назначение-между-потребителями-и-сервисами"><span class="header-section-number">3.2</span> Расчет матрицы старт-назначение между потребителями и сервисами</h3>
+<p>Также как и для анализа размещения-распределения нам необходимо преобразовать полигональные здания в точечные объекты с помощью инструмента <em>Точка на поверхности</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.20.56.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В модели появится первый шаг, соединенный с одним из исходных параметров.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.21.30.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Далее мы можем непосредственно рассчитать матрицу старт-назначение с использованием плагина QNEAT3.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.23.16.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Параметры здесь указываются аналогично тому, как указывались просто в инструменте для построения матрицы.</p>
+<p>Так как нам здесь нет необходимости впоследствии визуально отображать пути покупателей от жилых домов до магазинов, то строить матрицу будем просто в виде таблицы на основе двух слоев.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Идентификаторы объектов стартовых и конечных точек должны быть уникальными (внутри слоя естественно).</p>
+<p>В нашем случае для стартовых точек (домов) будет использовать <em>osm_id</em>, который всегда будет уникальным и есть в этом слое, так как данные брались из OSM, а для магазинов будет использоваться поле имени <em>name</em> (поэтому нам очень важно, чтобы в этом слое названия магазинов были уникальными).</p>
+</div>
+</div>
+<p>Так как в качестве стартовых точек мы используем не непостредственно здания, а результат применения инструмента <em>Точки на поверхности</em>, то необходимо выбрать, что здесь мы хотим использовать результаты выхода этого алгоритма.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.28.29.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Полученный результат будет представлен только в виде <strong>таблицы без атрибутов</strong>, которую можно присоединить к одному из векторных слоев.</p>
+<p>Так как мы будет рассчитывать вероятность посещения того или иного магазина для каждого из жилых домов, то основной расчет вероятности будет осуществляться внутри атрибутов жилых домов. Поэтому значения времени или расстояния из матрицы старт-назначение присоединим к слою жилых домов.</p>
+<p>Присоединение будет осуществляться по совпадающим значениям полей: у исходного слоя есть <em>osm_id</em>, а в матрице есть <em>origin_id</em> - идентификатор стартовой точки, который был взят из <em>osm_id</em> исходного слоя.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.36.08.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="расчет-вероятности-посещения-конкретного-сервиса" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="расчет-вероятности-посещения-конкретного-сервиса"><span class="header-section-number">3.3</span> Расчет вероятности посещения конкретного сервиса</h3>
+<p>Если мы обратимся к формуле в начале раздела, то увидим, что в формуле используется не только расстояние между потребителями и сервисом, но и площадь сервиса.</p>
+<p>Поэтому атрибуты магазинов тоже следует присоединить к слою жилых домов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 13.50.17.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Присоединение здесь будет осуществляться по названию магазина к результатам предыдущего шага, поэтому в качестве связыющих полей будет использовано <em>destination_id</em> и поле <em>name</em> слоя с магазинами.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обратите внимание, что тип объединения здесь один-ко-многим, то есть если с объектом исходного слоя совпадет более одного объекта присоединяемого слоя, то исходный объект будет продублирован и к нему присоединен атрибут второго совпавшего объекта.</p>
+<p>В нашем случае это необходимо так как нужно рассчитать вероятность для всех магазинов и, если мы присоединим только первый совпавший по атрибуту, то в расчет мы сможем включить только его и таким образом получим безальтернативную вероятность посещения только одного магазина.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для того, чтобы не запутаться в однотипных операциях в одинаковыми названиями, вы можете менять его в графе <em>Описание</em> (<em>Description</em>).</p>
+</div>
+</div>
+<p>Следующим шагом рассчитаем числитель в формуле: <span class="math inline">\(\frac{S_{j}}{T^\lambda_{ij}}\)</span>, разделив площадь каждого магазина на время в пути до него с помощью калькулятора полей.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.08.55.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Калькулятор полей здесь устроен почти также как и стандартный калькулятор в таблице атрибутов. Все функции и формулы стандратны.</p>
+<p><em>Обязательно здесь необходимо указать название нового поля и тип данных</em>.</p>
+</div>
+</div>
+<p>Следующим шагом нужно рассчитать знаменатель модели: <span class="math inline">\(\sum_{j}^{n}\frac{S_{j}}{T^\lambda_{ij}}\)</span>.</p>
+<p>Для этого необходимо фактически просуммировать все полученные нами на предыдущем шаге значения, но только для каждого жилого дома и соответствующих магазинов. То есть нам нужно просуммировать не все значения по столбцу, а только значения соответствующие одному жилому дому.</p>
+<p>Расчет осуществим с использованием SQL-запроса и оконной функции внутри него.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Оконная функция в SQL</strong> - функция, которая работает с выделенным набором строк (окном, партицией) и выполняет вычисление для этого набора строк в отдельном столбце.</p>
+<p>Основное отличие оконной функции от группировки по параметру состоит в том, что количество строк в запросе не уменьшается по сравнении с исходной таблицей.</p>
+<p>Подробнее можно почитать по <a href="https://habr.com/ru/articles/664000/">ссылке</a>.</p>
+</div>
+</div>
+<p>Получается, что в нашем запросе сначала таблица будет поделена на группы строк, соответствующие одному и тому же жилому дому (имеющие один и тот же индентификатор дома), а потом суммирование значений будет производиться только в пределах этих групп строк.</p>
+<p>Структура запроса:</p>
+<pre><code>select origin_id, destination_id, total_cost, area, area_time, geometry,  sum(area_time) over (partition by origin_id) as summa from input1</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.18.07.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>И последним шагом рассчитаем вероятность посещения того или иного магазина, еще раз использовав калькулятор полей и поделив друг на друга два полученных нами на последних шагах значения.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.21.46.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Этот результат уже можно рассматривать как итоговый и ввести его название, чтобы это считалось выводом всей модели.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.22.19.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Полученная схема модели показана на рисунке ниже.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.23.30.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Перед запуском модель можно проверить командой из строки меню <em>Модель</em> <span class="math inline">\(\longrightarrow\)</span> <em>Проверить модель</em>.</p>
+<p>Запуск модели осуществляется либо по кнопке <img src="images/Снимок экрана 2025-02-24 в 15.25.27.png" class="img-fluid" width="21">, либо из строки меню <em>Модель</em> <span class="math inline">\(\longrightarrow\)</span> <em>Запустить модель.</em></p>
+<p>После запуска модель выглядит практически как стандартный инструмент из Панели инструментов анализа.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.26.48.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Полученный результат на карте будет выглядеть идентично исходному слою жилых зданий, так как использовалась их неизмененная геометрия.</p>
+<p>Самая интересная часть результатов - это атрибутивная таблица со всеми значениями.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.32.37.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В этой таблице как раз можно увидеть повторяемость каждого из зданий (обратите внимание, что в колонке <em>origin_id</em> значения повторяются столько раз, сколько у вас было магазинов в примере):</p>
+<ul>
+<li><p><em>origin_id</em> - идентификатор дома из исходных данных;</p></li>
+<li><p><em>destination_id</em> - идентификатор (название) магазина из исходных данных;</p></li>
+<li><p><em>total_cost</em> - расстояние от конкретного дома до магазина из матрицы старт-назначение;</p></li>
+<li><p><em>area</em> - площадь магазина из исходных данных;</p></li>
+<li><p><em>area_time -</em> отношение площади магазина к расстоянию, рассчитанное на промежуточном этапе;</p></li>
+<li><p><em>summa -</em> сумма всех предыдущих значение для каждого дома;</p></li>
+<li><p><em>probability</em> - вероятность посещения конкретного магазина жителями этого дома.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Проверить корректность своих расчетов можно проверив два условия:</p>
+<ul>
+<li><p>вероятность (последняя колонка может находиться только в пределах от нуля до единицы);</p></li>
+<li><p>сумма вероятностей для каждого дома должна равняться единице.</p></li>
+</ul>
+</div>
+</div>
+<p>В качестве финального этапа можем разделить полученный в итоге слой так, чтобы для каждого из магазинов был свой отдельный слой.</p>
+<p>Для этого воспользуемся инструментом <em>Разбить векторный слой</em> и разобьем его на отдельные слои по идентификаторам магазинов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.40.16.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Здесь результат тоже будет выводиться как конечный.</p>
+<p>Таким образом, по результату запуска модели будет выводиться слой, содержащий вероятности по всем домам и магазинам, и слои, содержащие вероятности по отдельным магазинам (этих слоев будет столько, сколько было магазинов в исходном слое).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При необходимости вы можете сделать столько выводов из модели, сколько посчитаете нужным.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.44.05.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Окно запуска модели немного изменится: в нем появится возможность выбора папки для сохранения наших результатов разделения слоя.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.44.38.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В выбранной папке по результатам работы модели появятся файлы с префиксом <em>destination_id_</em> и названием магазина: <img src="images/Снимок экрана 2025-02-24 в 15.46.44.png" class="img-fluid">.</p>
+<p>Атрибутивная таблица сохранит свою структуру, но, естественно будет содержать только данные по одному из магазинов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.48.24.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Полученная модель может быть сохранена как отдельный файл в формате <em>.model3</em> (<em>Модель</em> <span class="math inline">\(\longrightarrow\)</span> <em>Сохранить модель как</em>) или как часть проекта (<em>Модель</em> <span class="math inline">\(\longrightarrow\)</span> <em>Сохранить модель в проекте).</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-02-24 в 15.49.45.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Если бы было известно количество жителей в каждом доме, то можно было бы рассчитать потенциальное число покупателей для каждого из магазинов по формуле:</p>
+<p><span class="math display">\[
+E_{ij} = P_{ij}C_{i}
+\]</span></p>
+<p>где <span class="math inline">\(E_{ij}\)</span> - предполагаемое количество покупателей из локации <span class="math inline">\(i\)</span>, которые пойдут в магазин <span class="math inline">\(j\)</span>;</p>
+<p><span class="math inline">\(P_{ij}\)</span> - вероятность того, что покупатель из локации <span class="math inline">\(i\)</span> пойдет в магазин <span class="math inline">\(j\)</span>;</p>
+<p><span class="math inline">\(C_{i}\)</span> - количество покупателей в локации <span class="math inline">\(i\)</span>.</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

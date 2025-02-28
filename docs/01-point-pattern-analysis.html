@@ -146,6 +146,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03-gravity-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Гравитационная модель Хаффа</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Список литературы и дополнительные источники</span></a>
   </div>
@@ -160,11 +166,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">1</span> Исходные данные</a></li>
-  <li><a href="#kde" id="toc-kde" class="nav-link" data-scroll-target="#kde"><span class="header-section-number">2</span> Ядерная оценка плотности</a></li>
-  <li><a href="#оценка-точечного-паттерна" id="toc-оценка-точечного-паттерна" class="nav-link" data-scroll-target="#оценка-точечного-паттерна"><span class="header-section-number">3</span> Оценка точечного паттерна</a></li>
-  <li><a href="#кластеризация-к-средних" id="toc-кластеризация-к-средних" class="nav-link" data-scroll-target="#кластеризация-к-средних"><span class="header-section-number">4</span> Кластеризация К-средних</a></li>
-  <li><a href="#кластеризация-dbscan" id="toc-кластеризация-dbscan" class="nav-link" data-scroll-target="#кластеризация-dbscan"><span class="header-section-number">5</span> Кластеризация DBSCAN</a></li>
+  <li><a href="#теория" id="toc-теория" class="nav-link active" data-scroll-target="#теория"><span class="header-section-number">1</span> Теория</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Исходные данные</a></li>
+  <li><a href="#kde" id="toc-kde" class="nav-link" data-scroll-target="#kde"><span class="header-section-number">3</span> Ядерная оценка плотности</a></li>
+  <li><a href="#оценка-точечного-паттерна" id="toc-оценка-точечного-паттерна" class="nav-link" data-scroll-target="#оценка-точечного-паттерна"><span class="header-section-number">4</span> Оценка точечного паттерна</a></li>
+  <li><a href="#кластеризация-к-средних" id="toc-кластеризация-к-средних" class="nav-link" data-scroll-target="#кластеризация-к-средних"><span class="header-section-number">5</span> Кластеризация К-средних</a></li>
+  <li><a href="#кластеризация-dbscan" id="toc-кластеризация-dbscan" class="nav-link" data-scroll-target="#кластеризация-dbscan"><span class="header-section-number">6</span> Кластеризация DBSCAN</a></li>
   </ul>
 </nav>
     </div>
@@ -190,9 +197,14 @@ window.Quarto = {
 </header>
 
 
+<section id="теория" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="теория"><span class="header-section-number">1</span> Теория</h2>
 <p>Материалы лекции</p>
 <iframe src="https://baltti.github.io/point-pattern/" width="1000" height="500"></iframe>
 <p><a href="https://baltti.github.io/point-pattern/" target="_blank">Открыть лекцию в новой вкладке</a></p>
+<p>Материалы лекции (eng.)</p>
+<iframe src="https://baltti.github.io/point-pattern-eng/" width="1000" height="500"></iframe>
+<p><a href="https://baltti.github.io/point-pattern/" target="_blank">Открыть лекцию в новой</a><a href="https://baltti.github.io/point-pattern-eng/" target="_blank">вкладке</a></p>
 <p>Для практической работы по теме используется геоинформационная система <a href="https://qgis.org/">QGIS</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -207,8 +219,9 @@ Note
 <p>Весь приведенный ниже порядок действий показан для версии QGIS 3.34, поэтому возможны небольшие расхождения в названиях функций/инструментов, если у вас установлена другая версия.</p>
 </div>
 </div>
-<section id="data" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Исходные данные</h2>
+</section>
+<section id="data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Исходные данные</h2>
 <p>В качестве исходных данных для работы будут использованы сведения о преступлениях в Сан-Франциско.</p>
 <p>Все наборы данных доступен по <a href="https://geodacenter.github.io/data-and-lab/SFcrimes_vars/">ссылке</a>.</p>
 <p>В скачанном архиве вы найдете две папки:</p>
@@ -350,8 +363,8 @@ Note
 </div>
 </div>
 </section>
-<section id="kde" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="kde"><span class="header-section-number">2</span> Ядерная оценка плотности</h2>
+<section id="kde" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="kde"><span class="header-section-number">3</span> Ядерная оценка плотности</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -418,8 +431,8 @@ Warning
 </figure>
 </div>
 </section>
-<section id="оценка-точечного-паттерна" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="оценка-точечного-паттерна"><span class="header-section-number">3</span> Оценка точечного паттерна</h2>
+<section id="оценка-точечного-паттерна" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="оценка-точечного-паттерна"><span class="header-section-number">4</span> Оценка точечного паттерна</h2>
 <p>Для того, чтобы количественно оценить тип точечного паттерна, можно оценить разницу между ожидаемым средним расстоянием до ближашего соседа и фактическим.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -488,8 +501,8 @@ Warning
 </div>
 <p>В нашем случае, было получено значение <em>z-score</em> = -90.5, что говорит о том, что точечный паттерн скорее всего является кластеризованным.</p>
 </section>
-<section id="кластеризация-к-средних" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="кластеризация-к-средних"><span class="header-section-number">4</span> Кластеризация К-средних</h2>
+<section id="кластеризация-к-средних" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="кластеризация-к-средних"><span class="header-section-number">5</span> Кластеризация К-средних</h2>
 <p>Как было рассмотрено в лекции, кластеризация методом К-средних позволяет получить обособленные друг от друга кластеры, внутри которых будет минимизироваться расстояние от каждого из объектов до центроида кластера (при этом центроид не будет является одним из исходных объектов, а просто будет центром массы всего кластера).</p>
 <p>В QGIS этот метод реализован в виде инструмента <em>Кластеризация K-means</em> в Панели инструментов анализа.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -577,12 +590,25 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Факт того, что полученные выпуклые многоугольники не пересекаются между собой, говорит о том, что кластеры обособлены друг от друга.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>На этой карте вы можете заметить еще и то, что некоторые обособленные точки (например, на острове в правом верхнем углу или в левой части) перетягивают в свою сторону центроиды кластеров, что может разбить некоторые довольно плотные группы.</p>
 </div>
 </div>
 </section>
-<section id="кластеризация-dbscan" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="кластеризация-dbscan"><span class="header-section-number">5</span> Кластеризация DBSCAN</h2>
+<section id="кластеризация-dbscan" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="кластеризация-dbscan"><span class="header-section-number">6</span> Кластеризация DBSCAN</h2>
 <p>Ввиду того, что метод кластеризации К-средних всегда все точки отнесет к тому или иному кластеру, что может привести к некорректной разбивке на группы, он может показывать неудовлетворительные результаты на реальных данных, в которых может присутствовать шум и выбросы.</p>
 <p>В этих случаях более оптимальным методом кластеризации будет основанный на плотности DBSCAN (Density-based spatial clustering of applications with noise).</p>
 <p>В QGIS этот алгоритм реализован в виде инструмента <em>Кластеризация DBSCAN</em>.</p>
