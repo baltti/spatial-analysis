@@ -8,7 +8,7 @@ format: html
 Материалы лекции
 
 ```{=html}
-<iframe src="https://baltti.github.io/gravity-model/" width="1000" height="500"></iframe>
+<iframe src="https://baltti.github.io/gravity-model/" width="800" height="400"></iframe>
 ```
 
 [Открыть лекцию в новой вкладке](https://baltti.github.io/gravity-model/){target="_blank"}
@@ -16,7 +16,7 @@ format: html
 Материалы лекции (eng.)
 
 ```{=html}
-<iframe src="https://baltti.github.io/gravity-model-eng/" width="1000" height="500"></iframe>
+<iframe src="https://baltti.github.io/gravity-model-eng/" width="800" height="400"></iframe>
 ```
 
 [Открыть лекцию в новой вкладке](https://baltti.github.io/gravity-model-eng/){target="_blank"}
@@ -296,4 +296,10 @@ $$
 $P_{ij}$ - вероятность того, что покупатель из локации $i$ пойдет в магазин $j$;
 
 $C_{i}$ - количество покупателей в локации $i$.
+:::
+
+::: callout-tip
+Рабочий пример геомодели можно скачать по [ссылке](https://disk.yandex.ru/d/ZNfaw4CxIMtI7g).
+
+Обратите внимание на названия полей для таблицы в магазинами в геомодели - они такие же, как описаны выше в тексте, если вы называли их по-другому, то их нужно исправить в геомодели.
 :::
