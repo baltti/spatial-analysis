@@ -15,8 +15,11 @@ website:
         href: 02-location-allocation.qmd
       - text: "Гравитационная модель Хаффа"
         href: 03-gravity-model.qmd
-      - Text: "Литература"
+      - text: "Литература"
         href: References.qmd
+      - section: "Пространственные веса и пространственная автокорреляция"
+        contents: 
+          - 04-spatial-weights.qmd
 
 format:
   html:

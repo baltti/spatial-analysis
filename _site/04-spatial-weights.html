@@ -80,9 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Пространственный анализ урбанизированных территорий
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса и пространственная автокорреляция</a></li><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -126,21 +124,46 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Список литературы и дополнительные источники</span></a>
+ <span class="menu-text">Литература</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Пространственные веса и пространственная автокорреляция</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-spatial-weights.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Пространственные веса</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#теория" id="toc-теория" class="nav-link active" data-scroll-target="#теория"><span class="header-section-number">1</span> Теория</a></li>
+  <li><a href="#программа-geoda" id="toc-программа-geoda" class="nav-link" data-scroll-target="#программа-geoda"><span class="header-section-number">2</span> Программа GeoDa</a></li>
+  <li><a href="#расчет-весов-по-смежности" id="toc-расчет-весов-по-смежности" class="nav-link" data-scroll-target="#расчет-весов-по-смежности"><span class="header-section-number">3</span> Расчет весов по смежности</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса и пространственная автокорреляция</a></li><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Пространственные веса</h1>
 </div>
@@ -159,8 +182,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="теория" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="теория"><span class="header-section-number">1</span> Теория</h2>
+<p>Материалы лекции</p>
+<iframe src="https://baltti.github.io/spatial-weights/" width="800" height="400"></iframe>
+<p><a href="https://baltti.github.io/spatial-weights/" target="_blank">Открыть лекцию в новой вкладке</a></p>
+<p>Материалы лекции (eng.)</p>
+<iframe src="https://baltti.github.io/spatial-weights-eng" width="800" height="400"></iframe>
+<p><a href="https://baltti.github.io/spatial-weights-eng/" target="_blank">Открыть лекцию в новой вкладке</a></p>
+</section>
+<section id="программа-geoda" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="программа-geoda"><span class="header-section-number">2</span> Программа GeoDa</h2>
+</section>
+<section id="расчет-весов-по-смежности" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="расчет-весов-по-смежности"><span class="header-section-number">3</span> Расчет весов по смежности</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Также вы можете попробовать определить соседей по смежности, используя QGIS.</p>
+<iframe width="600" height="400" src="https://www.youtube.com/embed/c7lXotTM7vk?si=rDHN0VWZFlhMI_bh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<p>Еще один вариант расчета ближайших соседей с использованием скрипта python для QGIS рассмотрен по <a href="https://gis.stackexchange.com/questions/227431/qgis-neighborhood-analysis">ссылке</a>.</p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
