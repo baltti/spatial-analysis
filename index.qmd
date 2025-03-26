@@ -14,17 +14,21 @@ title: "Пространственный анализ урбанизирован
 
 Материалы лекций по темам:
 
--   анализ точечных паттернов и кластеризация - <https://baltti.github.io/point-pattern/> (рус.) и <https://baltti.github.io/point-pattern-eng/> (eng.)
+-   **анализ точечных паттернов и кластеризация** - <https://baltti.github.io/point-pattern/> (рус.) и <https://baltti.github.io/point-pattern-eng/> (eng.);
 
--   гравитационные модели - <https://baltti.github.io/gravity-model/> (рус.) и <https://baltti.github.io/gravity-model-eng> (eng.)
+-   **гравитационные модели** - <https://baltti.github.io/gravity-model/> (рус.) и <https://baltti.github.io/gravity-model-eng> (eng.);
 
--   пространственные веса, пространственная автокорреляция
+-   **пространственные веса** - <https://baltti.github.io/spatial-weights/> (рус.) и <https://baltti.github.io/spatial-weights-eng> (eng.);
 
--   пространственная регрессия
+-   **пространственная автокорреляция** - <https://baltti.github.io/spatial-autocorrelation/> (рус.) и <https://baltti.github.io/spatial-autocorrelation-eng> (eng.);
 
--   анализ рельефа
+-   **пространственная регрессия**
 
--   интерполяция
+-   **анализ рельефа**
+
+-   **работа с материалами дистанционного зондирования**
+
+-   **интерполяция и кригинг**
 
 ::: callout-note
 Материалы обновляются по мере прохождения курса.

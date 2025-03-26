@@ -3,7 +3,7 @@
     "path": "~/Desktop/gravity model/spatial-analysis/04-spatial-weights.qmd",
     "project_path": "04-spatial-weights.qmd",
     "type": "quarto_markdown",
-    "hash": "763419049",
+    "hash": "228748134",
     "contents": "",
     "dirty": false,
     "created": 1742291936077.0,
@@ -15,17 +15,17 @@
         "source_window_id": "",
         "Source": "Source",
         "cursorPosition": "23,0",
-        "scrollLine": "0",
+        "scrollLine": "14",
         "docOutlineVisible": "0",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "372:0"
+        "rmdVisualModeLocation": "666:617.5"
     },
     "folds": "",
-    "lastKnownWriteTime": 1742292072,
+    "lastKnownWriteTime": 1742982943,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1742292072649,
+    "last_content_update": 1742982943495,
     "read_only": false,
     "read_only_alternatives": []
 }

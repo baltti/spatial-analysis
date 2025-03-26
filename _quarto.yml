@@ -20,6 +20,7 @@ website:
       - section: "Пространственные веса и пространственная автокорреляция"
         contents: 
           - 04-spatial-weights.qmd
+          - 05-spatial-autocorrelation
 
 format:
   html:
