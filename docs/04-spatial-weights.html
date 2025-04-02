@@ -80,9 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Пространственный анализ урбанизированных территорий
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса и пространственная автокорреляция</a></li><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -123,10 +121,33 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Гравитационная модель Хаффа</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Пространственные веса и пространственная автокорреляция</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-spatial-weights.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Пространственные веса</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-spatial-autocorrelation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Пространственная автокорреляция</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Список литературы и дополнительные источники</span></a>
+ <span class="menu-text">Литература</span></a>
   </div>
 </li>
     </ul>
@@ -134,13 +155,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#теория" id="toc-теория" class="nav-link active" data-scroll-target="#теория"><span class="header-section-number">1</span> Теория</a></li>
+  <li><a href="#программа-geoda" id="toc-программа-geoda" class="nav-link" data-scroll-target="#программа-geoda"><span class="header-section-number">2</span> Программа GeoDa</a></li>
+  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link" data-scroll-target="#исходные-данные"><span class="header-section-number">3</span> Исходные данные</a></li>
+  <li><a href="#общие-инструменты-работы-с-данными" id="toc-общие-инструменты-работы-с-данными" class="nav-link" data-scroll-target="#общие-инструменты-работы-с-данными"><span class="header-section-number">4</span> Общие инструменты работы с данными</a></li>
+  <li><a href="#расчет-пространственных-весов" id="toc-расчет-пространственных-весов" class="nav-link" data-scroll-target="#расчет-пространственных-весов"><span class="header-section-number">5</span> Расчет пространственных весов</a>
+  <ul class="collapse">
+  <li><a href="#расчет-весов-по-смежности" id="toc-расчет-весов-по-смежности" class="nav-link" data-scroll-target="#расчет-весов-по-смежности"><span class="header-section-number">5.1</span> Расчет весов по смежности</a></li>
+  <li><a href="#расчет-весов-по-расстоянию" id="toc-расчет-весов-по-расстоянию" class="nav-link" data-scroll-target="#расчет-весов-по-расстоянию"><span class="header-section-number">5.2</span> Расчет весов по расстоянию</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса и пространственная автокорреляция</a></li><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Пространственные веса</h1>
 </div>
@@ -159,8 +194,520 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="теория" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="теория"><span class="header-section-number">1</span> Теория</h2>
+<p>Материалы лекции</p>
+<iframe src="https://baltti.github.io/spatial-weights/" width="800" height="400"></iframe>
+<p><a href="https://baltti.github.io/spatial-weights/" target="_blank">Открыть лекцию в новой вкладке</a></p>
+<p>Материалы лекции (eng.)</p>
+<iframe src="https://baltti.github.io/spatial-weights-eng" width="800" height="400"></iframe>
+<p><a href="https://baltti.github.io/spatial-weights-eng/" target="_blank">Открыть лекцию в новой вкладке</a></p>
+</section>
+<section id="программа-geoda" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="программа-geoda"><span class="header-section-number">2</span> Программа GeoDa</h2>
+<p><strong>GeoDa</strong> - это бесплатный программный инструмент с открытым исходным кодом, который служит для ознакомления с пространственной наукой о данных. Он разработан для того, чтобы способствовать получению новых выводов на основе анализа данных путем изучения и моделирования пространственных моделей.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/esda.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Сайт программы: <a href="https://geodacenter.github.io/" class="uri">https://geodacenter.github.io/</a> (на нем же можно скачать файл установки программы).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознакомиться с документацией можно по <a href="https://geodacenter.github.io/documentation.html">ссылке</a>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/--8vhhmpgdM?si=l5NZLgepg2xaVY4C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+
+</iframe>
+</div>
+</div>
+<p>Основной интерфейс программы состоит из панели инструментов и строки меню.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 12.28.44.png" class="img-fluid figure-img"></p>
+<figcaption>Результаты анализа, карты и атрибутивные таблицы будут открываться в отдельных окнах.</figcaption>
+</figure>
+</div>
+<p>GeoDa поддерживает основные векторные форматы пространственных данных, а также подключение к базам данных и использование векторных данных с веб-ресурсов в формате <em>.geojson</em> и <em>WFS</em>.</p>
+<p>При запуске программы у вас появится окно открытия источника данных.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 12.44.31.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В том случае, если это окно не открылось, необходимый вам файл можно открыть по клику на значок <img src="images/Снимок экрана 2025-03-26 в 14.49.38.png" class="img-fluid" width="37">.</p>
+</section>
+<section id="исходные-данные" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">3</span> Исходные данные</h2>
+<p>В качестве исходных данных будет использоваться набор данных о стоимости недвижимости в Санкт-Петербурге, который можно скачать по <a href="https://disk.yandex.ru/d/2pZazAW_vuxTuA">ссылке</a>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Относитесь к этим данным как к синтетическим, так как их источник ненадежен.</p>
+</div>
+</div>
+</section>
+<section id="общие-инструменты-работы-с-данными" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="общие-инструменты-работы-с-данными"><span class="header-section-number">4</span> Общие инструменты работы с данными</h2>
+<p>После того, как вы открыли файл с исходными данными, у вас появится окно карты.</p>
+<p><img src="images/Снимок экрана 2025-03-26 в 14.50.30.png" class="img-fluid"></p>
+<p>В этой карте как и в прочих геоинформационных системах вы можете добавить подложку для контекста с использованием иконки <img src="images/Снимок экрана 2025-03-26 в 14.50.52.png" class="img-fluid" width="48">.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.51.01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Кроме открытия слоя с имеющейся геометрией программа имеет функции по созданию геометрии точечного слоя из таблицы или создания сетки, а также пространственного объединения слоев (<em>Spatial join</em>) и слияния объектов (<em>Dissolve</em>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.56.19.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Пространственное объединение позволяет объединять объекты из разных слоев, а слияние - объекты одного слоя по значению атрибута (например, мы могли бы так объединить муниципальные образования в районы).</p>
+</div>
+</div>
+<p>Настройка карты для визуализации показателя может быть осуществлена двумя способами:</p>
+<ul>
+<li>через строку меню;</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 14.07.03.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>правым кликом на карте</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.51.42.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Настройка здесь может быть осуществлена на основе стилей/тем по умолчанию, либо создана в виде кастомных интервалов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.52.46.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>На самом деле любой стиль по умолчанию можно подредактировать при необходимости и получить свой собственный стиль. Для этого нужно просто открыть редактор категорий <img src="images/Снимок экрана 2025-03-26 в 14.57.37.png" class="img-fluid" width="36">.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.53.31.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При необходимости сохранения интервалов, вы можете это сделать, просто кликнув правой кнопкой мыши и выбрав <em>Save rates</em>. Тогда номера интервалов будут сохранены в атрибутивную таблицу.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 14.12.32.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Кроме обычной фоновой картограммы, также есть опция создания картограммы Дорлинга <img src="images/Снимок экрана 2025-03-26 в 14.57.22.png" class="img-fluid">, в которой все объекты будут заменены на круги различного диаметра в зависимости от значения показателя.</p>
+<p>Причем отдельно здесь можно указать, что будет обозначать цвет символа, а что - его размер.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 14.32.37.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Полученная картограмма также может быть отдельно донастроена по цветовой палитре.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 14.33.38.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Атрибутивную таблицу можно открыть в отдельном окне по клику на иконку <img src="images/Снимок экрана 2025-03-26 в 14.54.48.png" class="img-fluid" width="40">.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.54.59.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В строке меню есть отдельный пункт <em>Table</em>, который содержит в себе инструменты для работы с таблицами.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.55.12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>При необходимости вы можете добавлять или удалять атрибуты, а также редактировать типы данных в столбцах, если они были определены при открытии неправильно.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.55.35.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Для атрибутивной таблицы есть калькулятор полей, позволяющий осуществлять расчеты.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-26 в 14.55.53.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Также в программе есть довольно большой выбор инструментов для исследовательского анализа данных, представленных в основной панели инструментов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 12.56.43.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="расчет-пространственных-весов" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="расчет-пространственных-весов"><span class="header-section-number">5</span> Расчет пространственных весов</h2>
+<p>Для создания матрицы пространственных весов необходимо воспользоваться менеджером весов <img src="images/Снимок экрана 2025-04-02 в 15.03.14.png" class="img-fluid" width="44">, также его можно открыть из строки меню.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.03.27.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В открывшемся окне менеджера весов вы увидите опции для создания новых и загрузки уже рассчитанных матриц пространственных весов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.04.12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>После начала создания матрицы пространственных весов вы увидите окно, в котором можно выбрать тип рассчитаваемого веса.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.07.36.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Очень важно, чтобы при создании матрицы весов у каждого объекта в наборе данных был уникальный идентификатор - порядковый номер, если такого идентификатора нет, то его можно просто создать <em>Add ID variable</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.09.00.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Все матрицы весов сохраняются во внутреннем формате программы: два разных формата - один для матриц по смежности, второй - для матриц на основе расстояния. При необходимости они могут быть открыты просто в текстовом редакторе.</p>
+</div>
+</div>
+<section id="расчет-весов-по-смежности" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="расчет-весов-по-смежности"><span class="header-section-number">5.1</span> Расчет весов по смежности</h3>
+<section id="принцип-ферзя-королевы" class="level4" data-number="5.1.1">
+<h4 data-number="5.1.1" class="anchored" data-anchor-id="принцип-ферзя-королевы"><span class="header-section-number">5.1.1</span> Принцип ферзя (королевы)</h4>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для того, чтобы объекты считались соседями, достаточно, чтобы у них была хотя бы одна общая точка.</p>
+</div>
+</div>
+<p>При создании весов по смежности достаточно выбрать используемый принцип смежности и порядок (мы везде по умолчанию используем только первый порядок соседства).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.13.07.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Параметр <em>Precision threshold</em> (порог точности) здесь нужен в том счучае, если вы сомневаетесь в качестве своих исходных данных и корректном примыкании пространственных объектов друг к другу, так как позволяет задать размер потенциального зазора или наложения.</p>
+<p>После создания вам будет предложено сохранить матрицу весов в специализированном формате. Полученная матрица появится в менеджере весов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.13.14.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В менеджере весов вы можете ознакомиться с параметрами каждой матрицы:</p>
+<ul>
+<li><p>ее тип;</p></li>
+<li><p>симметричность;</p></li>
+<li><p>название файла, в котором она сохранена;</p></li>
+<li><p>атрибут с порядковым номером;</p></li>
+<li><p>порядок соседства (для матриц по смежности);</p></li>
+<li><p>количество наблюдений;</p></li>
+<li><p>минимальное и максимальное число соседей внутри набора данных;</p></li>
+<li><p>среднее и медианное число соседей;</p></li>
+<li><p>процент ненулевых элементов матрицы.</p></li>
+</ul>
+<p>Кроме того, вы можете изучить матрицу весов визуально с помощью гистограммы, карты или графа связности.</p>
+<p>На гистограмме высота столбцов показывает количество объектов, имеющее определенное число соседей, которое показано по оси X.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.17.55.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При выделении любого из столбиков вы сможете увидеть на карте, про какие именно объекты идет речь.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.20.50.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Карта связности показывает выделенный объект, на который наведен курсор (зеленым цветом) и его соседей в соответствии с матрицей весов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.22.05.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Граф связности же отображает топологические связи между объектами соседями.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.23.12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>При выделении одного из объектов на графе будут отображаться только его соседи.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.24.00.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Если вы откроете матрицу пространственных весов в текстовом редакторе вы увидите только ее ненулевые элементы.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.30.47.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="принцип-ладьи" class="level4" data-number="5.1.2">
+<h4 data-number="5.1.2" class="anchored" data-anchor-id="принцип-ладьи"><span class="header-section-number">5.1.2</span> Принцип ладьи</h4>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для того, чтобы объекты считались соседями, между ними должна быть общая ненулевая граница (то есть общей точки здесь недостаточно).</p>
+</div>
+</div>
+<p>Построение матрицы весов по принципу ладьи происходит аналогично предыдущему пункту.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.25.31.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>И после создания эта матрица также будет отображена в менеджере весов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.26.10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Аналогично матрице весов по принципу ферзя/королевы вы можете более подробно изучить структуру матрицы с помощью графиков:</p>
+<ul>
+<li>гистограмма;</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.28.07.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>карта связности;</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.28.38.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>граф связности.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.29.32.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обратите внимание, что при использовании принципа ладьи вы получаете в среднем меньше соседей для каждого из объектов.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Также вы можете попробовать определить соседей по смежности, используя QGIS.</p>
+<iframe width="600" height="400" src="https://www.youtube.com/embed/c7lXotTM7vk?si=rDHN0VWZFlhMI_bh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<p>Еще один вариант расчета ближайших соседей с использованием скрипта python для QGIS рассмотрен по <a href="https://gis.stackexchange.com/questions/227431/qgis-neighborhood-analysis">ссылке</a>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="расчет-весов-по-расстоянию" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="расчет-весов-по-расстоянию"><span class="header-section-number">5.2</span> Расчет весов по расстоянию</h3>
+<p>При расчете весов по расстоянию необходимо задать значительно больше параметров.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.34.59.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В первую очередь следует указать, как и между чем будет рассчитываеться расстояние.</p>
+<p>По умолчанию для полигональных объектов предлагается использовать центроиды по координатам, но эти же центроиды могут рассчитываться по значениям любого числового показателя. Кроме того для расчета расстояния не обязательно вообще использовать центроиды или пространственное положение объектов, вы можете воспользоваться любыми числовыми показателями вашей атрибутивной таблицы.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.37.45.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Расстояние может быть рассчитано двумя способами:</p>
+<ul>
+<li><p>евклидово расстояние на плоскости;</p></li>
+<li><p>расстояние на эллипсоиде (в милях или метрах).</p></li>
+</ul>
+<p>Далее следует выбрать метод расчета весов по расстоянию и его параметры:</p>
+<ul>
+<li><p><em>distance band</em> (гибридные веса) - объекты будут считаться соседями, если расстояние между ними не превышает заданного. Здесь в качестве параметра необходимо задать это расстояние, по умолчанию устанавливается такая величина расстояния, которая гарантирует всем объектам как минимум одного соседа (максимальное расстояние между ближайшими объектами).</p></li>
+<li><p><em>k-ближайших соседей</em>, где необходимо задать необходимое число соседей;</p></li>
+<li><p><em>ядерные веса</em>, для которых вы можете выбрать:</p>
+<ul>
+<li><p>тип функции;</p></li>
+<li><p>необходимость применения ее только в пределах определенного расстояния (<em>specify bandwidth</em>);</p></li>
+<li><p>адаптивное расстояние, которое должно включать в себя определенное заданное число соседей;</p></li>
+<li><p>возможность использовать максимальное расстояние для заданного числа соседей как ширину полосы пропускания.</p></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-02 в 15.44.04.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Попробуйте построить различные матрицы весов для разных параметров и сравнить их между собой.</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

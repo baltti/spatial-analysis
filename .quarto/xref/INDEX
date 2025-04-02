@@ -25,5 +25,8 @@
   },
   "04-spatial-weights.qmd": {
     "04-spatial-weights.html": "0033b4b0"
+  },
+  "06-spatial-regression.qmd": {
+    "06-spatial-regression.html": "8002daf4"
   }
 }
