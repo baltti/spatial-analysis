@@ -5,7 +5,7 @@ format: html
 
 # Домашнее задание
 
-В рамках домашнего задания вам нужно выбрать набор данных, построить для него матрицу пространственных весов и протестировать на пространственную автокорреляцию.
+В рамках домашнего задания вам нужно выбрать набор данных, построить для него матрицу пространственных весов и протестировать датасет на пространственную автокорреляцию.
 
 В качестве исходных данных вы можете взять любой датасет: ваш собственный, чей-то готовый (например, [отсюда](https://geodacenter.github.io/data-and-lab/)) или синтетический. Выбор исходных данных полностью за вами.
 
@@ -34,6 +34,30 @@ format: html
 Срок сдачи:
 
 # Homework
+
+As part of your homework, you need to choose a dataset, calculate a spatial weight matrix for it, and test for spatial autocorrelation.
+
+You can use any dataset as input: your own, someone else's (e.g. from [here](https://geodacenter.github.io/data-and-lab/)) or synthetic. The choice of data is entirely up to you.
+
+**You may not use a dataset that has been used in class. Those submissions will not be accepted.**
+
+What you need to do in the work and in the report:
+
+-   which dataset you used, briefly describe it;
+
+-   visualise on the map the variable you are going to test for spatial autocorrelation;
+
+-   calculate a weight matrix (you can construct several with comparison and subsequent selection of one of them);
+
+-   parameters of the weight matrix: histogram, connectivity map, connectivity graph;
+
+-   calculate global spatial autocorrelation (Moran index);
+
+-   calculate local spatial autocorrelation (local Moran index);
+
+-   calculate local spatial autocorrelation (local Moran index) and clusters of values;
+
+-   analyze and interpret your results.
 
 You can submit your free-form written report via link
 
