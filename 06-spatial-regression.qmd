@@ -2,3 +2,11 @@
 title: "spatial-regression"
 format: html
 ---
+
+Материалы лекции
+
+```{=html}
+<iframe src="https://baltti.github.io/spatial-regression/" width="800" height="400"></iframe>
+```
+
+[Открыть лекцию в новой вкладке](https://baltti.github.io/spatial-regression/){target="_blank"}
