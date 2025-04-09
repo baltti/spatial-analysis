@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Анализ рельефа – Пространственный анализ урбанизированных территорий</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Пространственный анализ урбанизированных территорий</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./Homework.html"> 
+<span class="menu-text">Homework assignment / Домашнее задание</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://t.me/geomess"> <i class="bi bi-telegram" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/baltti/spatial-analysis"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Анализ рельефа</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">О курсе</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-point-pattern-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Анализ точечных паттернов и кластеризация</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-location-allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Анализ размещения-распределения</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-gravity-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Гравитационная модель Хаффа</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Пространственные веса и пространственная автокорреляция</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-spatial-weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Пространственные веса</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-spatial-autocorrelation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Пространственная автокорреляция</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./References.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Литература</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#цифровая-модель-рельефа" id="toc-цифровая-модель-рельефа" class="nav-link active" data-scroll-target="#цифровая-модель-рельефа"><span class="header-section-number">1</span> Цифровая модель рельефа</a></li>
+  <li><a href="#теневой-рельеф3" id="toc-теневой-рельеф3" class="nav-link" data-scroll-target="#теневой-рельеф3"><span class="header-section-number">2</span> Теневой рельеф</a>
+  <ul class="collapse">
+  <li><a href="#расчет-теневого-рельефа" id="toc-расчет-теневого-рельефа" class="nav-link" data-scroll-target="#расчет-теневого-рельефа"><span class="header-section-number">2.1</span> Расчет теневого рельефа</a></li>
+  <li><a href="#настройка-теневого-рельефа-как-стиля-растрового-слоя" id="toc-настройка-теневого-рельефа-как-стиля-растрового-слоя" class="nav-link" data-scroll-target="#настройка-теневого-рельефа-как-стиля-растрового-слоя"><span class="header-section-number">2.2</span> Настройка теневого рельефа как стиля растрового слоя</a></li>
+  <li><a href="#использование-модуля-terrain-shading" id="toc-использование-модуля-terrain-shading" class="nav-link" data-scroll-target="#использование-модуля-terrain-shading"><span class="header-section-number">2.3</span> Использование модуля Terrain shading</a></li>
+  </ul></li>
+  <li><a href="#расчет-параметров-рельефа" id="toc-расчет-параметров-рельефа" class="nav-link" data-scroll-target="#расчет-параметров-рельефа"><span class="header-section-number">3</span> Расчет параметров рельефа</a>
+  <ul class="collapse">
+  <li><a href="#крутизна-склонов5" id="toc-крутизна-склонов5" class="nav-link" data-scroll-target="#крутизна-склонов5"><span class="header-section-number">3.1</span> Крутизна склонов</a></li>
+  <li><a href="#экспозиция-склонов6" id="toc-экспозиция-склонов6" class="nav-link" data-scroll-target="#экспозиция-склонов6"><span class="header-section-number">3.2</span> Экспозиция склонов</a></li>
+  <li><a href="#расчет-неоднородности-рельефа8" id="toc-расчет-неоднородности-рельефа8" class="nav-link" data-scroll-target="#расчет-неоднородности-рельефа8"><span class="header-section-number">3.3</span> Расчет неоднородности рельефа</a></li>
+  </ul></li>
+  <li><a href="#построение-трехмерной-поверхности" id="toc-построение-трехмерной-поверхности" class="nav-link" data-scroll-target="#построение-трехмерной-поверхности"><span class="header-section-number">4</span> Построение трехмерной поверхности</a></li>
+  <li><a href="#создание-горизонталей" id="toc-создание-горизонталей" class="nav-link" data-scroll-target="#создание-горизонталей"><span class="header-section-number">5</span> Создание горизонталей</a></li>
+  <li><a href="#построение-профиля-местности" id="toc-построение-профиля-местности" class="nav-link" data-scroll-target="#построение-профиля-местности"><span class="header-section-number">6</span> Построение профиля местности</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Анализ рельефа</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="цифровая-модель-рельефа" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="цифровая-модель-рельефа"><span class="header-section-number">1</span> Цифровая модель рельефа</h2>
+<p>Цифровая модель рельефа (ЦМР) — это растровое представление непрерывной поверхности, обычно относящееся к поверхности Земли<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Различают цифровую модель рельефа и цифровую модель местности. Разница между ними состоит в том, что цифровая модель местности включает в себя все объекты, расположенные на поверхности, тогда как цифровая модель рельефа - это только поверхность земли без растительности и строений.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/matrix_height_04.webp" class="img-fluid figure-img"></p>
+<figcaption>Источник: https://innoter.com/articles/matritsa-vysot/</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Цифровые модели рельефа, как правило, строят либо по результатам интерполяции, либо на основе открытых данных.</p>
+<p>Самым распространенным источником данных о рельефе является цифровая модель рельефа SRTM (shuttle radar topographic mission). Эта цифровая модель была получена в 2000 году на основе спутниковой радарной съемки. Она охватывает планету между 54 градусами южной широты и 60 градусами северной широты. Подробнее на русском можно почитать про нее <a href="https://gis-lab.info/qa/srtm.html">здесь</a></p>
+<p>Скачать данные SRTM можно на сайте Геологической службы США (<a href="https://earthexplorer.usgs.gov/" class="uri">https://earthexplorer.usgs.gov/</a>) или с помощью плагина <a href="https://plugins.qgis.org/plugins/SRTM-Downloader/">SRTM downloader</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для использования модуля и загрузки данных напрямую из QGIS все равно необходимы реквизиты аккаунта на сайте USGS.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Значительным недостатком SRTM является ее ограниченный пространственный охват, из-за которого значительная часть нашей страны не покрыта этой цифровой моделью рельефа.</p>
+</div>
+</div>
+<p>Для примера и выполнения работы были скачаны данные для окрестностей Эльбруса (файл <a href="https://drive.google.com/file/d/1FYFUxG7s_T-bEZV4Azu-G7FVfVIDZ86_/view?usp=sharing">dem_elbrus.tiff</a>).</p>
+<p>Из SRTM выгружается сразу целая 1-градусная трапеция (фрагмент 1 градус по широте и 1 градус по долготе), в этом случае трапеция была обрезана до более маленького фрагмента (вообще не очень рекомендую работать с большими растрами, охватывающими сразу градус и более по долготе и широте).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Более современной и точной цифровой моделью рельефа является модель FABDEM, к тому же она действительно глобальная и охватывает всю территорию земного шара.</p>
+<p>Немного почитать о ней на русском можно по <a href="https://cartetika.ru/tpost/0l2nfnr1l1-tsifrovaya-model-relefa-fabdem">ссылке</a>.</p>
+<p>Самое главное ее отличие от более ранних моделей в наличии процессинга и удалении из нее объектов, расположенных на поверхности Земли.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/erlac4d4ff1_hr.jpg" class="img-fluid figure-img"></p>
+<figcaption>Источник: https://iopscience.iop.org/article/10.1088/1748-9326/ac4d4f</figcaption>
+</figure>
+</div>
+<p>Сама модель является открытой и данные можно скачать по ссылке из репозитория - <a href="https://data.bris.ac.uk/data/dataset/s5hqmjcdj8yo2ibzi9b4ew3sn" class="uri">https://data.bris.ac.uk/data/dataset/s5hqmjcdj8yo2ibzi9b4ew3sn</a></p>
+<p>Все данные организованы в архивы, которые включают в себя охват 10 широты на 10 градусов долготы. Растровые данные внутри архивов - это одноградусные трапеции (как и в SRTM).</p>
+<p>Для того, чтобы понять, какой именно архив и файл из него нужен вам на исследуемую территорию, можно скачать файл <strong><em>FABDEM_v1-2_tiles.geojson</em></strong> и открыть его либо в QGIS, либо с использованием сервиса geojson.io. Прямоугольники в этом файле показывают одноградусные трапеции, а в их атрибутах указано название архива и файла.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.21.33.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>В каждой ячейке исходного растрового изображения содержится значение высоты.</p>
+<p>Добавление растрового слоя осуществляется через строку меню <em>Слой</em> <span class="math inline">\(\longrightarrow\)</span> <em>Добавить слой</em> <span class="math inline">\(\longrightarrow\)</span> <em>Добавить растровый слой</em>.</p>
+<p><img src="images/191.png" class="img-fluid"></p>
+<p>После открытия файла его лучше сразу перепроецировать на лету в EPSG:3857.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Перепроецирование на лету не будет изменять систему координат слоя, а только изменит систему координат проекта и то, как ваша карта будет отображаться на экране.</p>
+<p>Перепроецирование на лету может быть выполнено с использованием кнопки <img src="images/Снимок экрана 2025-03-03 в 17.37.13.png" class="img-fluid" width="200"> в правом нижнем углу основного окна программы.</p>
+</div>
+</div>
+<p>В результате будет открыто изображение рельефа в оттенках серого цвета.</p>
+<p><img src="images/192.PNG" class="img-fluid"></p>
+<p>Это изображение можно сделать цветным, для этого нужно открыть свойства слоя. В настройках стиля нужно выбрать тип изображения <strong>Одноканальное псевдоцветное</strong>.</p>
+<p>Одноканальное здесь очевидно потому, что изображение не поделено на каналы и существует только в одном.</p>
+<p><img src="images/193.PNG" class="img-fluid"></p>
+<p><img src="images/194.PNG" class="img-fluid"></p>
+<p>Градиент можно также создать самостоятельно с помощью редактора градиентов.</p>
+<p><img src="images/195.PNG" class="img-fluid"></p>
+<p><img src="images/196.PNG" class="img-fluid"></p>
+<p>Или выбрать из готового каталога градиентов. Для этого при создании нового градиента нужно выбрать каталог <strong>cpt-city</strong>.</p>
+<p><img src="images/198.PNG" class="img-fluid"></p>
+<p>Далее в каталоге слева выбрать тип градиента Topography и подобрать нужный градиент (можно взять elevation или с3t3).</p>
+<p><img src="images/199.PNG" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/200.PNG" class="img-fluid figure-img"></p>
+<figcaption>Градиент c3t3</figcaption>
+</figure>
+</div>
+</section>
+<section id="теневой-рельеф3" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="теневой-рельеф3"><span class="header-section-number">2</span> Теневой рельеф<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></h2>
+<section id="расчет-теневого-рельефа" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="расчет-теневого-рельефа"><span class="header-section-number">2.1</span> Расчет теневого рельефа</h3>
+<p>Для более наглядного отображения рельефа на карте рассчитывается теневой рельеф, который строится с использованием позиции источника направленного света, или теневая отмывка.</p>
+<p><img src="images/201.PNG" class="img-fluid"></p>
+<p>В данном случае одним из самых важных параметров является <strong>Масштабирование по Z -</strong> этот параметр позволяет соотнести между собой единицы измерения плановых координат и высот. В нашем случае высоты в ячейках растра приведены в метрах, а координаты - в градусах., кроме того, стоит учитывать, что в географических системах координат искажение зависит от долготы.</p>
+<p>С этим можно справиться двумя способами - перепроецировать растра в прямоугольную систему координат или задать масштабирование по Z (Z-factor). Фактически с помощью этого коэффициента мы переходим от градусов к метрам. Так как у нас окрестности Эльбруса, то можно воспользоваться значением коэффициента для 40 градусов долготы - 0.00001171.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>Азимут и вертикальный угол задают положение источника света.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/202.PNG" class="img-fluid figure-img"></p>
+<figcaption>Теневой рельеф (теневая отмывка)</figcaption>
+</figure>
+</div>
+<p>Этот теневой рельеф можно использовать, чтобы добавить дополнительный объем подложке (предварительно нужно добавить) или исходному рельефу растра. Для этого нужно открыть свойства слоя с теневым рельефом и изменить режим смешивания на Добавление, Осветление или Затемнение (также можно поэкспериментировать с настройками яркости и контрастности).</p>
+<p><img src="images/203.PNG" class="img-fluid"></p>
+<p><img src="images/204.PNG" class="img-fluid"></p>
+<p><img src="images/205.PNG" class="img-fluid"></p>
+<p><img src="images/206.PNG" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Также можно воспользоваться функцией Цветной рельеф, которая позволяет создавать классы автоматически и задавать им цвет.</p>
+<p><img src="images/209.PNG" class="img-fluid"></p>
+<p><img src="images/210.PNG" class="img-fluid"></p>
+<p>С использованием такого растра может быть построена трехмерная поверхность, отображающая рельеф местности, а также выполнен ряд вычислений для морфометрического анализа рельефа.</p>
+<p><img src="images/197.PNG" class="img-fluid"></p>
+<p>Все растровые операции здесь осуществляются за счет разности значений между ячейками.</p>
+</div>
+</div>
+</section>
+<section id="настройка-теневого-рельефа-как-стиля-растрового-слоя" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="настройка-теневого-рельефа-как-стиля-растрового-слоя"><span class="header-section-number">2.2</span> Настройка теневого рельефа как стиля растрового слоя</h3>
+<p>Рассчитывать теневой рельеф и сохранять его в отдельный слой не обязательно, вы можете просто выбрать его как тип стиля для растрового слоя в настройках свойств.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.31.31.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Полученный теневой рельеф после настройки будет отображен на карте.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.32.40.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При создании теневого рельефа с использованием настроек стиля растрового слоя на карте могут появляться артефакты - небольшая “рябь” в картинке.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.33.35.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="использование-модуля-terrain-shading" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="использование-модуля-terrain-shading"><span class="header-section-number">2.3</span> Использование модуля Terrain shading</h3>
+<p>Более художественных результатов при создании теневого рельефа позволяет добиться модуль <a href="https://plugins.qgis.org/plugins/TerrainShading/">Terrain shading</a>.</p>
+<p>Чуть подробнее про его функции можно почитать в <a href="https://landscapearchaeology.org/qgis-terrain-shading/">блоге разработчика</a>.</p>
+<p>Установка модуля осуществляется стандартно (<em>Модули</em> <span class="math inline">\(\longrightarrow\)</span> <em>Управление модулями</em>). После установки модуль должен появиться у вас в панели Инструменты анализа.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.47.37.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
+</figure>
+</div>
+<p>Модуль содержит сразу три функции, которые позволяют строить теневую отмывку:</p>
+<ul>
+<li><em>Hillshade (terrain shading)</em> - аналогичен стандартному построению теневого рельефа;</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.52.57.png" class="img-fluid figure-img"></p>
+<figcaption>Результат расчета Hillshade</figcaption>
+</figure>
+</div>
+<ul>
+<li><em>Shadow depth</em> - инструмент для генерации теней;</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.53.46.png" class="img-fluid figure-img"></p>
+<figcaption>Результат расчета Shadow depth</figcaption>
+</figure>
+</div>
+<ul>
+<li><em>Toposhade</em> - комбинация теневого рельефа и индекса топографического положения (о нем будет еще чуть дальше), который показывает выпуклость и вогнутость рельефа. Такая комбинация позволяет добиться более выраженной карты теневого рельефа.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.54.34.png" class="img-fluid figure-img"></p>
+<figcaption>Результат расчета Toposhade</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Полученные новые растры можно комбинировать друг с другом и другими слоями для получения более красивого результата.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-13 в 16.55.57.png" class="img-fluid figure-img"></p>
+<figcaption>Shadow depth и Hillshade (для обоих установлен режим смешивания Затемнение) в сочетании с подложкой 2GIS</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="расчет-параметров-рельефа" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="расчет-параметров-рельефа"><span class="header-section-number">3</span> Расчет параметров рельефа</h2>
+<section id="крутизна-склонов5" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="крутизна-склонов5"><span class="header-section-number">3.1</span> Крутизна склонов<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></h3>
+<p>Расчет крутизны склонов или их уклона и экспозиции осуществляется на основе производных первого порядка.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/800px-Geomorpho_theory_03.png" class="img-fluid figure-img"></p>
+<figcaption>Определение основных геоморфометрических параметров по Zevenbergen, Thorne (1987). Источник: https://gis-lab.info/qa/geomorphometric-parameters-theory.html</figcaption>
+</figure>
+</div>
+<section id="расчет-крутизны-склонов" class="level4" data-number="3.1.1">
+<h4 data-number="3.1.1" class="anchored" data-anchor-id="расчет-крутизны-склонов"><span class="header-section-number">3.1.1</span> Расчет крутизны склонов</h4>
+<p>Рассчитаем крутизну склонов - угол наклона каждого склона в градусах.</p>
+<p><img src="images/207.PNG" class="img-fluid"></p>
+<p><img src="images/208.PNG" class="img-fluid"></p>
+</section>
+<section id="выделение-территорий-пригодных-для-строительства-с-учетом-уклона" class="level4" data-number="3.1.2">
+<h4 data-number="3.1.2" class="anchored" data-anchor-id="выделение-территорий-пригодных-для-строительства-с-учетом-уклона"><span class="header-section-number">3.1.2</span> Выделение территорий пригодных для строительства с учетом уклона</h4>
+<p>Для того, чтобы выделить области пригодные для строительства, воспользуемся переклассификацией растра.</p>
+<p>При переклассификации будем рассматривать территории с уклоном менее 10 %.</p>
+<p>Так как уклон был рассчитан в градусах, а параметр пригодности для строительства задан в процентах, то пересчитаем этот параметр в градусы по формуле:</p>
+<p><span class="math display">\[
+Slope_{degree}=arctg(\dfrac{Slope_{percent}}{100})
+\]</span></p>
+<p>Полученное значение пригодности - 6 градусов.</p>
+<p>Переклассифицируем растр и выделим области пригодные или непригодные для строительства.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 12.12.49.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обратите внимание, что здесь в дополнительных параметрах можно указать, как именно будут задаваться границы интервалов, то есть будут ли включаться в них нижний или верхний предел интервала.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 12.18.05.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>В таблице реклассификации следует ввести границы интервалов и соответствующее им значение (эти значения должны быть целочисленными.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 12.12.25.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В результате будет получен дискретный растр с двумя значениями (или с тем количеством значений классов, которое вы указали в таблице реклассификации.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 12.21.50.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="экспозиция-склонов6" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="экспозиция-склонов6"><span class="header-section-number">3.2</span> Экспозиция склонов<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></h3>
+<p><em>Экспозиция поверхности – угол по часовой стрелке между определенным направлением (как правило, на север) и проекцией уклона на горизонтальную плоскость; фиксирует направление (азимут) максимального уклона (градиента) земной поверхности</em><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</p>
+<p>Эта функция позволяет определить ориентацию склонов по сторонам света.</p>
+<p><img src="images/211.PNG" class="img-fluid"></p>
+<p><img src="images/212.PNG" class="img-fluid"></p>
+</section>
+<section id="расчет-неоднородности-рельефа8" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="расчет-неоднородности-рельефа8"><span class="header-section-number">3.3</span> Расчет неоднородности рельефа<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></h3>
+<p>Также по растру с данными о рельефе может быть рассчитана неоднородность рельефа.</p>
+<p>Этот показатель рассчитывается на основе разности значений между пикселями в сетке 3 на 3. Таким образом, каждый полученный пиксель содержит разницу между центральным пикселем и 8 его окружащими.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-14 в 14.09.56.png" class="img-fluid figure-img"></p>
+<figcaption>Riley et al (1999) “A Terrain ruggedness Index That Quantifies Topographic heterogeneity”<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></figcaption>
+</figure>
+</div>
+<p><img src="images/213.PNG" class="img-fluid"></p>
+<p><img src="images/214.PNG" class="img-fluid"></p>
+</section>
+</section>
+<section id="построение-трехмерной-поверхности" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="построение-трехмерной-поверхности"><span class="header-section-number">4</span> Построение трехмерной поверхности</h2>
+<p>Также QGIS поддреживает отображение трехмерных поверхностей. Для этого нужно просто в строке меню выбрать <strong>Вид - Новая 3D карта</strong>.</p>
+<p><img src="images/215.png" class="img-fluid"></p>
+<p>После чего в окне программы появится окно трехмерной карты (перемещение по карте левой кнопкой мыши, поворот и наклон - колесико, приближение - правая кнопка мыши).</p>
+<p><img src="images/216.PNG" class="img-fluid"></p>
+<p>Сразу после открытия нового окна поверхность все еще является плоской, потому что не задано на основе чего строить трехмерную поверхность.</p>
+<p>В окне трехмерной карты нужно нажать кнопку <strong>Настройки</strong> (в панели значков крайняя справа) и в открывшемся окне настроек выбрать тип <strong>DEM (raster layer)</strong>, <strong>высота</strong> (растровый слой с высотами) и <strong>вертикальный масштаб</strong> (здесь лучше всзять что-то от 1 до 5, чтобы поверхность была повыразительнее).</p>
+<p>Дополнительно можно добавить <strong>Terrain shading</strong> (фактически теневая отмывка) и подкорректировать <strong>tile resolution</strong> (чем больше, тем более подробным будет рельеф), и <strong>skirt height</strong> (если правильно нашла - высота подставки под саму поверхность).</p>
+<p><img src="images/217.PNG" class="img-fluid"></p>
+<p>После чего в окне будет отображена трехмерная поверхность.</p>
+<p><img src="images/218.PNG" class="img-fluid"></p>
+</section>
+<section id="создание-горизонталей" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="создание-горизонталей"><span class="header-section-number">5</span> Создание горизонталей</h2>
+<p>Из растра со значениями высот могут быть извлечены горизонтали</p>
+<p><img src="images/219.png" class="img-fluid"></p>
+<p>Расстояние между изолиниями - это фактически высота сечения рельефа, то есть через сколько мы будем проводить горизонтали.</p>
+<p><img src="images/220.PNG" class="img-fluid"></p>
+<p>Полученные изолинии</p>
+<p><img src="images/221.PNG" class="img-fluid"></p>
+<p>Настроим горизонтали таким образом, чтобы каждая пятая была утолщенной, добавим подписи и настроим их так, чтобы они были “головой вверх”.</p>
+<p>Начнем с настройки толщины линий. Для этого в свойствах слоя выберем настройку толщины в зависимости от выражения.</p>
+<p><img src="images/222.png" class="img-fluid"></p>
+<p>Далее пропишем логическое выражение: <strong>if(“ELEV”%500=0,0.7,0.3)</strong>. В этом выражении перед запятой прописано условие - высота горизонтали делится на 500 без остатка, потом толщина линии, если условие выполняется, и толщина, если условие не выполняется.</p>
+<p><img src="images/223.PNG" class="img-fluid"></p>
+<p>Результат</p>
+<p><img src="images/224.PNG" class="img-fluid"></p>
+<p>Добавим подписи.</p>
+<p><img src="images/225.PNG" class="img-fluid"></p>
+<p>Но при таком добавлении подписей, будут подписаны все горизонтали, а мы хотим подписать только утолщенные. Для этого нужно прописать выражение, подобное тому, что мы писали выше: <strong>if(“ELEV”%500=0,“ELEV”,““).</strong></p>
+<p><img src="images/226.PNG" class="img-fluid"></p>
+<p>Добавим белую обводку подписям, чтобы они не сливались с горизонталями</p>
+<p><img src="images/227.PNG" class="img-fluid"></p>
+<p>Сделаем так, чтобы они размещались на линии и изгибались в соответствии с ней.</p>
+<p><img src="images/228.PNG" class="img-fluid"></p>
+<p>И настроим подписи так, чтобы все они смотрели головой в сторону увеличения высоты.</p>
+<p><img src="images/229.PNG" class="img-fluid"></p>
+<p><img src="images/230.PNG" class="img-fluid"></p>
+<p>В результате получим горизонтали, где каждая пятая будет утолщена и подписана головой в сторону увеличения.</p>
+<p><img src="images/231.PNG" class="img-fluid"></p>
+</section>
+<section id="построение-профиля-местности" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="построение-профиля-местности"><span class="header-section-number">6</span> Построение профиля местности</h2>
+<p>В актуальных версиях программы построения профиля местности по цифровой модели рельефа является функцией по умолчанию. Этот инструмент можно открыть из строки меню <em>Вид</em> <span class="math inline">\(\longrightarrow\)</span> <em>Профиль высот</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 13.07.28.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
+</figure>
+</div>
+<p>Окно профиля высот открывается в нижней части интерфейса. Ваша цифровая модель рельефа (если растр с ней загружен в проект должна автоматически добавиться в левую часть окна построения профиля.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 14.14.16.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Если ваша цифровая модель рельефа не добавилась в высотный профиль автоматически, то вам нужно проверить ее настройки.</p>
+<p>В свойствах слоя (открываются двойным кликом или кликом правой кнопки мыши и выбором пункта <em>Свойства</em> из открывшегося контекстного меню) необходимо найти пункт <em>Высота</em> и поставить галочку напротив настройки <em>“Представляет собой данные высоты”</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 14.16.24.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>После этого ваша цифровая модель будет автоматически добавлена в окно высотного профиля.</p>
+</div>
+</div>
+<p>Построение профиля может происходить двумя способами:</p>
+<ul>
+<li><p><em>Захват кривой</em> <img src="images/Снимок экрана 2025-03-12 в 14.19.51.png" width="35" height="32"> - отрисовка линии профиля осуществляется вручную прямо на карте;</p></li>
+<li><p><em>Захват кривой из объекта</em> <img src="images/Снимок экрана 2025-03-12 в 14.20.03.png" class="img-fluid" width="36"> - использование уже существующей линии из векторного слоя.</p></li>
+</ul>
+<p>В первом случае необходимо просто нарисовать нужную вам линию профиля (она может быть отрисована как любая ломаная линия), по которой будет происходить построения.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 14.22.05.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>При перемещении курсора по графику или линии профиля вы увидите перемещающуюся точку, показывающую конкретное положение.</p>
+<iframe width="800" height="400" src="images/Запись экрана 2025-03-12 в 14.24.11.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<p>Функция прилипания <img src="images/Снимок экрана 2025-03-12 в 14.49.40.png" width="38" height="34"> как и при обычной векторизации позволяет использовать другие объекты в качестве исходных.</p>
+<p>Полученный профиль вы можете сохранить в виде картинки графика или файла pdf <img src="images/Снимок экрана 2025-03-12 в 14.51.16.png" width="67" height="35"> или же результаты могут быть сохранены в виде линии профиля (в двумерном и трехмерном видах) для последующего использования в ГИС или CAD программах и в виде таблицы значений высот вдоль профиля.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-03-12 в 14.51.32.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Что такое цифровые модели рельефа (ЦМР) - <a href="https://pro.arcgis.com/ru/pro-app/latest/tool-reference/spatial-analyst/exploring-digital-elevation-models.htm" class="uri">https://pro.arcgis.com/ru/pro-app/latest/tool-reference/spatial-analyst/exploring-digital-elevation-models.htm</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><strong>Плагин SRTM-Downloader — загрузка SRTM с сервера прямо в QGIS</strong> <a href="https://cartetika.ru/tpost/98m7ngx971-plagin-srtm-downloader-zagruzka-srtm-s-s" class="uri">https://cartetika.ru/tpost/98m7ngx971-plagin-srtm-downloader-zagruzka-srtm-s-s</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=relief%20analysis#hillshade" class="uri">https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=relief%20analysis#hillshade</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://www.esri.com/arcgis-blog/products/product/imagery/setting-the-z-factor-parameter-correctly/" class="uri">https://www.esri.com/arcgis-blog/products/product/imagery/setting-the-z-factor-parameter-correctly/</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Документация функции <a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=relief%20analysis#slope" class="uri">https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=relief%20analysis#slope</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Экспозиция - <a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=relief%20analysis#aspect" class="uri">https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=relief%20analysis#aspect</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Основные геоморфометрические параметры: теория - <a href="https://gis-lab.info/qa/geomorphometric-parameters-theory.html#%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5_%D0%B3%D0%B5%D0%BE%D0%BC%D0%BE%D1%80%D1%84%D0%BE%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5_%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D1%8B," class="uri">https://gis-lab.info/qa/geomorphometric-parameters-theory.html#%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5_%D0%B3%D0%B5%D0%BE%D0%BC%D0%BE%D1%80%D1%84%D0%BE%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5_%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D1%8B</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=relief%20analysis#ruggedness-index" class="uri">https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=relief%20analysis#ruggedness-index</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><a href="https://download.osgeo.org/qgis/doc/reference-docs/Terrain_Ruggedness_Index.pdf" class="uri">https://download.osgeo.org/qgis/doc/reference-docs/Terrain_Ruggedness_Index.pdf</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2025, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

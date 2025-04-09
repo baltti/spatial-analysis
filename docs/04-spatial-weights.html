@@ -40,11 +40,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -67,14 +67,78 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Пространственный анализ урбанизированных территорий</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./Homework.html"> 
+<span class="menu-text">Homework assignment / Домашнее задание</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://t.me/geomess"> <i class="bi bi-telegram" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/baltti/spatial-analysis"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -83,18 +147,21 @@ ul.task-list li input[type="checkbox"] {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса и пространственная автокорреляция</a></li><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Пространственный анализ урбанизированных территорий</a> 
-    </div>
-      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -616,6 +683,19 @@ Important
 <p><img src="images/Снимок экрана 2025-04-02 в 15.28.38.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обратите внимание, что в нижней панели окна карты связности отображается номер объекта, на котором расположен курсор и номера его соседей.</p>
+</div>
+</div>
 <ul>
 <li>граф связности.</li>
 </ul>
@@ -652,6 +732,19 @@ Note
 <p>Еще один вариант расчета ближайших соседей с использованием скрипта python для QGIS рассмотрен по <a href="https://gis.stackexchange.com/questions/227431/qgis-neighborhood-analysis">ссылке</a>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Матрицы весов по смежности всегда будут симметричными относительно главной диагонали, что с точки зрения соседства значит, что объект <span class="math inline">\(i\)</span> будет соседом объекту <span class="math inline">\(j\)</span> и наоборот.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="расчет-весов-по-расстоянию" class="level3" data-number="5.2">
@@ -676,7 +769,22 @@ Note
 </ul>
 <p>Далее следует выбрать метод расчета весов по расстоянию и его параметры:</p>
 <ul>
-<li><p><em>distance band</em> (гибридные веса) - объекты будут считаться соседями, если расстояние между ними не превышает заданного. Здесь в качестве параметра необходимо задать это расстояние, по умолчанию устанавливается такая величина расстояния, которая гарантирует всем объектам как минимум одного соседа (максимальное расстояние между ближайшими объектами).</p></li>
+<li><em>distance band</em> (гибридные веса) - объекты будут считаться соседями, если расстояние между ними не превышает заданного. Здесь в качестве параметра необходимо задать это расстояние, по умолчанию устанавливается такая величина расстояния, которая гарантирует всем объектам как минимум одного соседа (максимальное расстояние между ближайшими объектами).</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обратите внимание, что здесь вы можете использовать обратное расстояние (<em>Inverse distance</em>), то есть в результате в матрице весов будет исвользоваться не само расстояние, а <span class="math inline">\(\dfrac{1}{distance^{power}}\)</span>.</p>
+</div>
+</div>
+<ul>
 <li><p><em>k-ближайших соседей</em>, где необходимо задать необходимое число соседей;</p></li>
 <li><p><em>ядерные веса</em>, для которых вы можете выбрать:</p>
 <ul>
@@ -691,6 +799,25 @@ Note
 <p><img src="images/Снимок экрана 2025-04-02 в 15.44.04.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
+<p>В текстовом виде матрицы весов будут выглядеть иначе:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 11.40.38.png" class="img-fluid figure-img"></p>
+<figcaption>Матрица весов по расстоянию (гибридные веса)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 11.40.49.png" class="img-fluid figure-img"></p>
+<figcaption>Матрица ядерных весов</figcaption>
+</figure>
+</div>
+<p>Здесь уже не будут просто перечислены ненулевые элементы, то есть список соседей для каждого объекта, а расстояние для каждой пары соседей: в случае гибридных весов и <span class="math inline">\(k\)</span>-ближайших соседей - расстояние (то, которое было рассчитано), а в случае ядерных весов - значение ядерной функции от расстояния.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 11.46.03.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -702,6 +829,19 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>Попробуйте построить различные матрицы весов для разных параметров и сравнить их между собой.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Матрицы весов по расстоянию уже не будут симметричными, то есть объект <span class="math inline">\(i\)</span> может быть соседом объекту <span class="math inline">\(j\)</span>, в то время как объект <span class="math inline">\(j\)</span> не будет являться соседом объекту <span class="math inline">\(i\)</span>.</p>
 </div>
 </div>
 
@@ -1133,6 +1273,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2025, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

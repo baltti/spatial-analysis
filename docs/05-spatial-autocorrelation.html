@@ -40,11 +40,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -67,14 +67,78 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Пространственный анализ урбанизированных территорий</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./Homework.html"> 
+<span class="menu-text">Homework assignment / Домашнее задание</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://t.me/geomess"> <i class="bi bi-telegram" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/baltti/spatial-analysis"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -83,18 +147,21 @@ ul.task-list li input[type="checkbox"] {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial-weights.html">Пространственные веса и пространственная автокорреляция</a></li><li class="breadcrumb-item"><a href="./05-spatial-autocorrelation.html">Пространственная автокорреляция</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Пространственный анализ урбанизированных территорий</a> 
-    </div>
-      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -161,6 +228,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#теория" id="toc-теория" class="nav-link active" data-scroll-target="#теория"><span class="header-section-number">1</span> Теория</a></li>
+  <li><a href="#пространственный-лаг" id="toc-пространственный-лаг" class="nav-link" data-scroll-target="#пространственный-лаг"><span class="header-section-number">2</span> Пространственный лаг</a></li>
+  <li><a href="#глобальная-пространственная-автокорреляция" id="toc-глобальная-пространственная-автокорреляция" class="nav-link" data-scroll-target="#глобальная-пространственная-автокорреляция"><span class="header-section-number">3</span> Глобальная пространственная автокорреляция</a></li>
+  <li><a href="#локальная-пространственная-автокорреляция" id="toc-локальная-пространственная-автокорреляция" class="nav-link" data-scroll-target="#локальная-пространственная-автокорреляция"><span class="header-section-number">4</span> Локальная пространственная автокорреляция</a></li>
   </ul>
 </nav>
     </div>
@@ -190,10 +260,328 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1" class="anchored" data-anchor-id="теория"><span class="header-section-number">1</span> Теория</h2>
 <p>Материалы лекции</p>
 <iframe src="https://baltti.github.io/spatial-autocorrelation/" width="800" height="400"></iframe>
-<p><a href="https://baltti.github.io/spatial-weights/" target="_blank">Открыть лекцию в новой</a><a href="https://baltti.github.io/spatial-autocorrelation/" target="_blank">вкладке</a></p>
+<p><a href="https://baltti.github.io/spatial-weights/" target="_blank">Открыть лекцию в новой вкладке</a></p>
 <p>Материалы лекции (eng.)</p>
 <iframe src="https://baltti.github.io/spatial-autocorrelation-eng" width="800" height="400"></iframe>
 <p><a href="https://baltti.github.io/spatial-autocorrelation-eng/" target="_blank">Открыть лекцию в новой вкладке</a></p>
+</section>
+<section id="пространственный-лаг" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="пространственный-лаг"><span class="header-section-number">2</span> Пространственный лаг</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Пространственный лаг</strong> - это взвешенная сумма значений для каждого из объектов. Так как веса задаются матрицей пространственных весов, то пространственный лаг фактически описывает окружение каждого объекта.</p>
+</div>
+</div>
+<p>Вычисление пространственного лага осуществляется с использованием калькулятора.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 11.57.10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Если по результатам прошлого занятия вы не сохранили себе данные как проект и у вас нет весовых матриц, вы можете просто загрузить их в менеджере весов.</p>
+<p>В том случае, если идентификаторы для матрицы весов пропали, вы можете просто добавить их заново аналогично тому, как мы добавляли их в прошлый раз.</p>
+</div>
+</div>
+<p>Для его вычисления необходимо указать:</p>
+<ul>
+<li><p>используемую матрицу весов (если у вас их несколько, то может быть выбрана одна из них);</p></li>
+<li><p>переменную, для которой осуществляется вычисление лага (здесь может быть выбрана любая количественная переменная из вашей атрибутивной таблицы);</p></li>
+<li><p>переменную для записи результата - здесь может быть выбрана существующая колонка или создана новая.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 11.57.18.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В качестве дополнительный опций вы можете указать необходимость стандартизации весов по строкам матрицы, включение диагональных элементов (фактически определяет включение значение для самого объекта в пространственный лаг).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Рекомендуется использовать стандартизованные веса для того, чтобы избежать значительных выбросов и получить более сглаженные значения.</p>
+</div>
+</div>
+<p>В результате вы получите новую переменную, которая будет содержать в себе значения пространственного лага, то есть значения исследуемой переменной в окружении каждого объекта.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 12.05.10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Попробуйте рассчитать пространственный лаг с использованием разных матриц весов и сравнить полученный результат.</p>
+</div>
+</div>
+</section>
+<section id="глобальная-пространственная-автокорреляция" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="глобальная-пространственная-автокорреляция"><span class="header-section-number">3</span> Глобальная пространственная автокорреляция</h2>
+<p>Глобальная пространственная автокорреляция позволяет выявить наличие связи значений объектов друг с другом.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Процесс тестирования на наличие пространственной автокорреляции по этапам:</p>
+<p>1. нулевая и альтернативная гипотезы <span class="math inline">\(H_0: I = E[I]\)</span> (пространственная случайность) и <span class="math inline">\(H_1: I \neq E[I]\)</span> (наличие пространственной автокорреляции);</p>
+<p>2. установление уровня значимости <span class="math inline">\(\alpha\)</span> (как правило, стандартным уровнем значимости является <span class="math inline">\(\alpha=0,05\)</span>);</p>
+<p>3. вычисление статистики тестирования <span class="math inline">\(z = \frac{I-E(I)}{Var(I)^{1/2}}\)</span>, где <span class="math inline">\(Var[I] = \frac{n^2(n-1)S_1 - n(n-1)S_2 - 2 S_0^2}{(n+1)(n-1)^2 S_0^2}\)</span> , <span class="math inline">\(S_0 = \sum_{i \neq j} w_{ij},\ S_1= \frac{1}{2}\sum_{i\neq j} (w_{ij}+w_{ji})^2\)</span> и <span class="math inline">\(S_2 = \sum_k \left(\sum_j w_{kj}+\sum_i w_{ik}\right)^2\)</span>;</p>
+<p>4. определить <span class="math inline">\(p\)</span> - значение (либо с использованием нормального распределения, либо с использованием рандомизации по методу Монте-Карло);</p>
+<p>5. определение наличия (<span class="math inline">\(p\)</span> - значение <span class="math inline">\(&lt; \alpha\)</span>) или отсутствия (<span class="math inline">\(p\)</span> - значение <span class="math inline">\(\geq \alpha\)</span>) пространственной автокорреляции.</p>
+</div>
+</div>
+<p>Расчет глобальных индексов простанственной автокорреляции может быть осуществлен либо инструментом (<em>Moran scatter plot</em>) <img src="images/Снимок экрана 2025-04-07 в 12.30.52.png" width="34" height="36">, либо с использованием пункта <em>Space</em> строки меню (здесь на данном этапе вас интересуют только пункты, перечисленные до первой горизонтальной черты).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 12.12.19.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>При использовании инструмента напрямую из панели, вы увидите выбор их нескольких вариаций коэффицента пространственной автокорреляции - индекса Морана I:</p>
+<ul>
+<li><p>вычисление индекса по одной переменной - <em>Univariate Moran’s I</em>;</p></li>
+<li><p>высисление индекса по двум переменным (для второй из них используется на само значение, а величина пространственного лага) - <em>Bivariate Moran’s I</em>;</p></li>
+<li><p>дифференциальный индекс, позволяющий выявлять временные изменения в переменной (подробнее <a href="https://geodacenter.github.io/workbook/5b_global_adv/lab5b.html#differential-moran-scatter-plot">здесь</a>) - <em>Differential Moran’s I</em>;</p></li>
+<li><p>байесовский эмпирический индекс - <em>Moran’s I with EB rate</em>.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 12.10.07.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Мы с вами будем рассчитывать только индекс Морана для одной переменной.</p>
+</div>
+</div>
+<p>В качестве параметров для расчета необходимо указать используемую переменную и матрицу весов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 12.10.32.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>По результататм расчета вы получите график Морана в отдельном окне.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 12.10.44.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>По оси <span class="math inline">\(X\)</span> графика отображается значение самой переменной, а по оси <span class="math inline">\(Y\)</span> - пространственный лаг этой переменной. Обе эти переменные нормализованы для того, чтобы график был более легко интерпретируемым. Поэтому ноли графика - это не нулевые значения, а средние.</p>
+<p>Над графиком показано значение индекса Морана для исследуемой переменной и использованной матрицы весов.</p>
+<p>По углу наклона прямой на графике и значению индекса Морана мы получаем <em>положительную</em> пространственную автокорреляцию, то есть объекты с близким значением переменной будут располагаться рядом друг с другом.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Значение индекса Морана будет варьироваться в зависимости от выбора матрицы весов даже, если вы используете одну и ту же переменную.</p>
+</div>
+</div>
+<p>Для проверки статистической значимости индекса Морана используется метод Монте-Карло, то есть выполняется случайная перестановка данных заданное количество раз и рассчитывается коэффициент пространственной автокорреляции. Полученные результаты формируют график распределения значения индекса Морана и сравниваются с фактическим значением.</p>
+<p>Запуск процесса проверки на статистическую значимость осуществляется по клику правой кнопки мыши на пустом пространстве графика Морана.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 12.10.58.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>На представленном ниже графике бордовым показан график распределения значений индекса Морана по результатам случайных перестановок, а зеленым столбцом - фактическое значение. В верхней части окна приведена величина уровня значимости, а отдельные рассчитанные значения статистической значимости под графиком.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 12.11.12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>В представленном примере фактическое значение не попадает в график распределения, полученный случайными перестановками, что говорит о статистической значимости полученного индекса. То есть для рассматриваемой величины может быть отвергнута нулевая гипотеза о пространственной случайности.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Попробуйте протестировать на пространственную автокорреляцию несколько разных переменных с разными матрицами весов.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Кроме того с использованием инструмента <em>Spatial correlogram</em> вы можете протестировать коэффициент пространственной автокорреляции на разных расстояниях.</p>
+<p>Этот график показывает зависимость коэффициента корреляции в зависимости от расстояния. Таким образом можно отследить изменение пространственного процесса в разных масштабах.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 12.14.41.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="локальная-пространственная-автокорреляция" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="локальная-пространственная-автокорреляция"><span class="header-section-number">4</span> Локальная пространственная автокорреляция</h2>
+<p>Если глобальная пространственная автокорреляция дает общую оценку, то локальная пространственная автокорреляция позволяет выявить паттерны распределения величины и найти кластеры.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Следует понимать, что здесь речь идет несколько об иных кластерах, чем мы говорили в теме “Анализ точечных паттернов”. Если в той теме кластеры - это просто близкие объекты (если говорить о чисто пространственной кластеризации) или объекты с похожими характеристиками, то здесь кластеры - это группы похожих объектов значительно отличающихся от своего окружения.</p>
+</div>
+</div>
+<p>В программе реализовано несколько различных индексов, но мы с вами будем использовать только локальную вариацию индекса Морана.</p>
+<p>Расчет индексов локальной пространственной автокорреляции осуществляется либо инструментом <em>Cluster maps</em> <img src="images/Снимок экрана 2025-04-07 в 15.07.07.png" width="29" height="28">, либо инструментом из строки меню:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 15.13.05.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>При использовании инструмента из панели инструментов меню будет немного отличаться, но будет содержать все доступные методы для тестирования на локальную пространственную автокорреляцию.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 15.07.38.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Вариации индекса Морана здесь такие же, как и для глобального индекса.</p>
+</div>
+</div>
+<p>Точно также, как и при вычислении глобального индекса необходимо выбрать интересующую вас переменную и матрицу весов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 15.15.30.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>После выбора вам предлагается несколько вариантов вывода результата расчета локальной пространственной автокорреляции:</p>
+<ul>
+<li><p><em>Significance map</em> - карта статистической значимости полученных значений локальных индексов;</p></li>
+<li><p><em>Cluster map</em> - карта выявленных кластеров;</p></li>
+<li><p><em>Moran scatter plot</em> - график Морана.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 15.15.41.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>График Морана здесь строится аналогично предыдущему разделу, но может уже более подробно интерпретироваться с точки зрения принадлежности объектов к тем или иным группам:</p>
+<ul>
+<li><p>квадрант с высоким значением переменной и высоким значением пространственного лага (High-High -квадрант);</p></li>
+<li><p>квадрант с низким значением переменной и низким значением пространственного лага (Low-low-квадрант);</p></li>
+<li><p>квадрант с высоким значением переменной и низким значением пространственного лага (High-Low-квадрант);</p></li>
+<li><p>квадрант с низким значением переменной и высоким значением пространственного лага (Low-High-квадрант).</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 15.24.38.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Полученная карта значимости показывает статистическую значимость рассчитанных коэффициентов локальной пространственной автокорреляции.</p>
+<p>В легенде указан уровень значимости для тех объектов, для которых коэффициенты являются статистически значимыми.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 15.32.21.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>На карте кластеров показаны выявленные кластеры. Фактически здесь все объекты раскрашены цветом в зависимости от того, в какой квадрант из перечисленных выше они попадают, за исключением тех из них, для которых значение локального индекса не является статистически значимым.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Снимок экрана 2025-04-07 в 15.32.39.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Здесь как и для глобальной пространственной автокорреляции будет большую роль играть матрица пространственных весов.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Попробуйте рассчитать индексы локальной пространственной автокорреляции для различных матриц пространственных весов и сравнить их между собой, а также попробовать проинтерпретировать ваши результаты.</p>
+</div>
+</div>
 
 
 </section>
@@ -622,6 +1010,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2025, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
