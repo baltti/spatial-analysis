@@ -1,12 +1,12 @@
 {
-    "id": "01F018B0",
-    "path": "~/Desktop/gravity model/spatial-analysis/05-spatial-autocorrelation.qmd",
-    "project_path": "05-spatial-autocorrelation.qmd",
+    "id": "E3E63A52",
+    "path": "~/Desktop/gravity model/spatial-analysis/index.qmd",
+    "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "2710100400",
     "contents": "",
     "dirty": false,
-    "created": 1743599000722.0,
+    "created": 1744187973913.0,
     "source_on_save": false,
     "relative_order": 5,
     "properties": {
@@ -14,18 +14,18 @@
         "rmdVisualWrapConfigured": "true",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "23,0",
-        "scrollLine": "0",
         "docOutlineVisible": "0",
-        "rmdVisualModeLocation": "999:452",
-        "rmdVisualCollapsedChunks": ""
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "2:0",
+        "cursorPosition": "0,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1744186515,
+    "lastKnownWriteTime": 1744205453,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1744186515692,
+    "last_content_update": 1744205453137,
     "read_only": false,
     "read_only_alternatives": []
 }
