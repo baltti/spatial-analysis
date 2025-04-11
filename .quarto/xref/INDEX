@@ -31,5 +31,17 @@
   },
   "07-relief.qmd": {
     "07-relief.html": "3d548270"
+  },
+  "09-remote-sensing-basics.qmd": {
+    "09-remote-sensing-basics.html": "d8b69f4b"
+  },
+  "08-remote-sensing-data.qmd": {
+    "08-remote-sensing-data.html": "5cf9db25"
+  },
+  "10-vegetation-indices.qmd": {
+    "10-vegetation-indices.html": "17ea9c75"
+  },
+  "11-surface-temperature.qmd": {
+    "11-surface-temperature.html": "4884abeb"
   }
 }
