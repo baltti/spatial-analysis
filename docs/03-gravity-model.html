@@ -7,7 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Гравитационная модель Хаффа – Пространственный анализ урбанизированных территорий</title>
+<title>Гравитационная модель Хаффа – Пространственный анализ 
+урбанизированных территорий</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,6 +119,10 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
+    <a class="nav-link" href="./Lectures.html"> 
+<span class="menu-text">Lectures / Лекции</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./Homework.html"> 
 <span class="menu-text">Homework assignment / Домашнее задание</span></a>
   </li>  
@@ -227,13 +232,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#теория" id="toc-теория" class="nav-link active" data-scroll-target="#теория"><span class="header-section-number">1</span> Теория</a></li>
-  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link" data-scroll-target="#исходные-данные"><span class="header-section-number">2</span> Исходные данные</a></li>
-  <li><a href="#geomodel" id="toc-geomodel" class="nav-link" data-scroll-target="#geomodel"><span class="header-section-number">3</span> Построение геомодели</a>
+  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link active" data-scroll-target="#исходные-данные"><span class="header-section-number">1</span> Исходные данные</a></li>
+  <li><a href="#geomodel" id="toc-geomodel" class="nav-link" data-scroll-target="#geomodel"><span class="header-section-number">2</span> Построение геомодели</a>
   <ul class="collapse">
-  <li><a href="#входные-данные" id="toc-входные-данные" class="nav-link" data-scroll-target="#входные-данные"><span class="header-section-number">3.1</span> Входные данные</a></li>
-  <li><a href="#расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" id="toc-расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" class="nav-link" data-scroll-target="#расчет-матрицы-старт-назначение-между-потребителями-и-сервисами"><span class="header-section-number">3.2</span> Расчет матрицы старт-назначение между потребителями и сервисами</a></li>
-  <li><a href="#расчет-вероятности-посещения-конкретного-сервиса" id="toc-расчет-вероятности-посещения-конкретного-сервиса" class="nav-link" data-scroll-target="#расчет-вероятности-посещения-конкретного-сервиса"><span class="header-section-number">3.3</span> Расчет вероятности посещения конкретного сервиса</a></li>
+  <li><a href="#входные-данные" id="toc-входные-данные" class="nav-link" data-scroll-target="#входные-данные"><span class="header-section-number">2.1</span> Входные данные</a></li>
+  <li><a href="#расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" id="toc-расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" class="nav-link" data-scroll-target="#расчет-матрицы-старт-назначение-между-потребителями-и-сервисами"><span class="header-section-number">2.2</span> Расчет матрицы старт-назначение между потребителями и сервисами</a></li>
+  <li><a href="#расчет-вероятности-посещения-конкретного-сервиса" id="toc-расчет-вероятности-посещения-конкретного-сервиса" class="nav-link" data-scroll-target="#расчет-вероятности-посещения-конкретного-сервиса"><span class="header-section-number">2.3</span> Расчет вероятности посещения конкретного сервиса</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -260,17 +264,8 @@ window.Quarto = {
 </header>
 
 
-<section id="теория" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="теория"><span class="header-section-number">1</span> Теория</h2>
-<p>Материалы лекции</p>
-<iframe src="https://baltti.github.io/gravity-model/" width="800" height="400"></iframe>
-<p><a href="https://baltti.github.io/gravity-model/" target="_blank">Открыть лекцию в новой вкладке</a></p>
-<p>Материалы лекции (eng.)</p>
-<iframe src="https://baltti.github.io/gravity-model-eng/" width="800" height="400"></iframe>
-<p><a href="https://baltti.github.io/gravity-model-eng/" target="_blank">Открыть лекцию в новой вкладке</a></p>
-</section>
-<section id="исходные-данные" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">2</span> Исходные данные</h2>
+<section id="исходные-данные" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">1</span> Исходные данные</h2>
 <p>В качестве исходных данных нам необходимы:</p>
 <ul>
 <li><p>жилые дома - место жизни наших потенциальных покупателей;</p></li>
@@ -312,8 +307,8 @@ Warning
 </figure>
 </div>
 </section>
-<section id="geomodel" class="level2 section" data-number="3">
-<h2 class="section anchored" data-number="3" data-anchor-id="geomodel"><span class="header-section-number">3</span> Построение геомодели</h2>
+<section id="geomodel" class="level2 section" data-number="2">
+<h2 class="section anchored" data-number="2" data-anchor-id="geomodel"><span class="header-section-number">2</span> Построение геомодели</h2>
 <p>В этой работе мы будем оценивать вероятность посещения того или иного магазина, исходя из их доступности и площади (как прокси-метрики разнообразия ассортимента), с использованием гравитационной модели Хаффа.</p>
 <p><span class="math display">\[P_{ij} = \frac{\frac{S_{j}}{T^\lambda_{ij}}}{\sum_{j}^{n}\frac{S_{j}}{T^\lambda_{ij}}}\]</span></p>
 <ul>
@@ -363,8 +358,8 @@ Tip
 <p><img src="images/Снимок экрана 2025-02-24 в 13.08.29.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
-<section id="входные-данные" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="входные-данные"><span class="header-section-number">3.1</span> Входные данные</h3>
+<section id="входные-данные" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="входные-данные"><span class="header-section-number">2.1</span> Входные данные</h3>
 <p>В первую очередь зададим для нашей модели входные данные. В нашем случае все входные данные будут представлены в виде векторных слоев:</p>
 <ul>
 <li><p>здания - обязательный параметр, полигоны;</p></li>
@@ -409,8 +404,8 @@ Warning
 </figure>
 </div>
 </section>
-<section id="расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="расчет-матрицы-старт-назначение-между-потребителями-и-сервисами"><span class="header-section-number">3.2</span> Расчет матрицы старт-назначение между потребителями и сервисами</h3>
+<section id="расчет-матрицы-старт-назначение-между-потребителями-и-сервисами" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="расчет-матрицы-старт-назначение-между-потребителями-и-сервисами"><span class="header-section-number">2.2</span> Расчет матрицы старт-назначение между потребителями и сервисами</h3>
 <p>Также как и для анализа размещения-распределения нам необходимо преобразовать полигональные здания в точечные объекты с помощью инструмента <em>Точка на поверхности</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -460,8 +455,8 @@ Warning
 </figure>
 </div>
 </section>
-<section id="расчет-вероятности-посещения-конкретного-сервиса" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="расчет-вероятности-посещения-конкретного-сервиса"><span class="header-section-number">3.3</span> Расчет вероятности посещения конкретного сервиса</h3>
+<section id="расчет-вероятности-посещения-конкретного-сервиса" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="расчет-вероятности-посещения-конкретного-сервиса"><span class="header-section-number">2.3</span> Расчет вероятности посещения конкретного сервиса</h3>
 <p>Если мы обратимся к формуле в начале раздела, то увидим, что в формуле используется не только расстояние между потребителями и сервисом, но и площадь сервиса.</p>
 <p>Поэтому атрибуты магазинов тоже следует присоединить к слою жилых домов.</p>
 <div class="quarto-figure quarto-figure-center">

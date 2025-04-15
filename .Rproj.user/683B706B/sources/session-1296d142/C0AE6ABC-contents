@@ -1,6 +1,5 @@
 project:
   type: website
-
 website:
   title: |
         Пространственный анализ 
@@ -23,19 +22,12 @@ website:
         contents: 
           - 04-spatial-weights.qmd
           - 05-spatial-autocorrelation.qmd
-          - 06-spatial-regression.qmd
-      - text: "Анализ рельефа"
-        href: 07-relief.qmd
-      - section: "Работа с данными дистанционного зондирования"
-        contents: 
-          - 08-remote-sensing-data.qmd
-          - 09-remote-sensing-basics.qmd
-          - 10-vegetation-indices.qmd
-          - 11-surface-temperature.qmd
       - text: "Литература"
         href: References.qmd
   navbar:
     left: 
+      - text: "Lectures / Лекции"
+        href: Lectures.qmd
       - text: "Homework assignment / Домашнее задание"
         href: Homework.qmd
     right: 
@@ -44,8 +36,7 @@ website:
       - icon: github
         href: https://github.com/baltti/spatial-analysis
         aria-label: GitHub
-      
-
+  
 format:
   html:
     theme: flatly

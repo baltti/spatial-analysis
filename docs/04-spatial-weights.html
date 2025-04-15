@@ -7,7 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Пространственные веса – Пространственный анализ урбанизированных территорий</title>
+<title>Пространственные веса – Пространственный анализ 
+урбанизированных территорий</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,6 +119,10 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
+    <a class="nav-link" href="./Lectures.html"> 
+<span class="menu-text">Lectures / Лекции</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./Homework.html"> 
 <span class="menu-text">Homework assignment / Домашнее задание</span></a>
   </li>  
@@ -227,14 +232,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#теория" id="toc-теория" class="nav-link active" data-scroll-target="#теория"><span class="header-section-number">1</span> Теория</a></li>
-  <li><a href="#программа-geoda" id="toc-программа-geoda" class="nav-link" data-scroll-target="#программа-geoda"><span class="header-section-number">2</span> Программа GeoDa</a></li>
-  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link" data-scroll-target="#исходные-данные"><span class="header-section-number">3</span> Исходные данные</a></li>
-  <li><a href="#общие-инструменты-работы-с-данными" id="toc-общие-инструменты-работы-с-данными" class="nav-link" data-scroll-target="#общие-инструменты-работы-с-данными"><span class="header-section-number">4</span> Общие инструменты работы с данными</a></li>
-  <li><a href="#расчет-пространственных-весов" id="toc-расчет-пространственных-весов" class="nav-link" data-scroll-target="#расчет-пространственных-весов"><span class="header-section-number">5</span> Расчет пространственных весов</a>
+  <li><a href="#программа-geoda" id="toc-программа-geoda" class="nav-link active" data-scroll-target="#программа-geoda"><span class="header-section-number">1</span> Программа GeoDa</a></li>
+  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link" data-scroll-target="#исходные-данные"><span class="header-section-number">2</span> Исходные данные</a></li>
+  <li><a href="#общие-инструменты-работы-с-данными" id="toc-общие-инструменты-работы-с-данными" class="nav-link" data-scroll-target="#общие-инструменты-работы-с-данными"><span class="header-section-number">3</span> Общие инструменты работы с данными</a></li>
+  <li><a href="#расчет-пространственных-весов" id="toc-расчет-пространственных-весов" class="nav-link" data-scroll-target="#расчет-пространственных-весов"><span class="header-section-number">4</span> Расчет пространственных весов</a>
   <ul class="collapse">
-  <li><a href="#расчет-весов-по-смежности" id="toc-расчет-весов-по-смежности" class="nav-link" data-scroll-target="#расчет-весов-по-смежности"><span class="header-section-number">5.1</span> Расчет весов по смежности</a></li>
-  <li><a href="#расчет-весов-по-расстоянию" id="toc-расчет-весов-по-расстоянию" class="nav-link" data-scroll-target="#расчет-весов-по-расстоянию"><span class="header-section-number">5.2</span> Расчет весов по расстоянию</a></li>
+  <li><a href="#расчет-весов-по-смежности" id="toc-расчет-весов-по-смежности" class="nav-link" data-scroll-target="#расчет-весов-по-смежности"><span class="header-section-number">4.1</span> Расчет весов по смежности</a></li>
+  <li><a href="#расчет-весов-по-расстоянию" id="toc-расчет-весов-по-расстоянию" class="nav-link" data-scroll-target="#расчет-весов-по-расстоянию"><span class="header-section-number">4.2</span> Расчет весов по расстоянию</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -261,17 +265,8 @@ window.Quarto = {
 </header>
 
 
-<section id="теория" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="теория"><span class="header-section-number">1</span> Теория</h2>
-<p>Материалы лекции</p>
-<iframe src="https://baltti.github.io/spatial-weights/" width="800" height="400"></iframe>
-<p><a href="https://baltti.github.io/spatial-weights/" target="_blank">Открыть лекцию в новой вкладке</a></p>
-<p>Материалы лекции (eng.)</p>
-<iframe src="https://baltti.github.io/spatial-weights-eng" width="800" height="400"></iframe>
-<p><a href="https://baltti.github.io/spatial-weights-eng/" target="_blank">Открыть лекцию в новой вкладке</a></p>
-</section>
-<section id="программа-geoda" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="программа-geoda"><span class="header-section-number">2</span> Программа GeoDa</h2>
+<section id="программа-geoda" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="программа-geoda"><span class="header-section-number">1</span> Программа GeoDa</h2>
 <p><strong>GeoDa</strong> - это бесплатный программный инструмент с открытым исходным кодом, который служит для ознакомления с пространственной наукой о данных. Он разработан для того, чтобы способствовать получению новых выводов на основе анализа данных путем изучения и моделирования пространственных моделей.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -311,8 +306,8 @@ Tip
 </div>
 <p>В том случае, если это окно не открылось, необходимый вам файл можно открыть по клику на значок <img src="images/Снимок экрана 2025-03-26 в 14.49.38.png" class="img-fluid" width="37">.</p>
 </section>
-<section id="исходные-данные" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">3</span> Исходные данные</h2>
+<section id="исходные-данные" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">2</span> Исходные данные</h2>
 <p>В качестве исходных данных будет использоваться набор данных о стоимости недвижимости в Санкт-Петербурге, который можно скачать по <a href="https://disk.yandex.ru/d/2pZazAW_vuxTuA">ссылке</a>.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -328,8 +323,8 @@ Caution
 </div>
 </div>
 </section>
-<section id="общие-инструменты-работы-с-данными" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="общие-инструменты-работы-с-данными"><span class="header-section-number">4</span> Общие инструменты работы с данными</h2>
+<section id="общие-инструменты-работы-с-данными" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="общие-инструменты-работы-с-данными"><span class="header-section-number">3</span> Общие инструменты работы с данными</h2>
 <p>После того, как вы открыли файл с исходными данными, у вас появится окно карты.</p>
 <p><img src="images/Снимок экрана 2025-03-26 в 14.50.30.png" class="img-fluid"></p>
 <p>В этой карте как и в прочих геоинформационных системах вы можете добавить подложку для контекста с использованием иконки <img src="images/Снимок экрана 2025-03-26 в 14.50.52.png" class="img-fluid" width="48">.</p>
@@ -484,8 +479,8 @@ Note
 </div>
 </div>
 </section>
-<section id="расчет-пространственных-весов" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="расчет-пространственных-весов"><span class="header-section-number">5</span> Расчет пространственных весов</h2>
+<section id="расчет-пространственных-весов" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="расчет-пространственных-весов"><span class="header-section-number">4</span> Расчет пространственных весов</h2>
 <p>Для создания матрицы пространственных весов необходимо воспользоваться менеджером весов <img src="images/Снимок экрана 2025-04-02 в 15.03.14.png" class="img-fluid" width="44">, также его можно открыть из строки меню.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -535,10 +530,10 @@ Note
 <p>Все матрицы весов сохраняются во внутреннем формате программы: два разных формата - один для матриц по смежности, второй - для матриц на основе расстояния. При необходимости они могут быть открыты просто в текстовом редакторе.</p>
 </div>
 </div>
-<section id="расчет-весов-по-смежности" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="расчет-весов-по-смежности"><span class="header-section-number">5.1</span> Расчет весов по смежности</h3>
-<section id="принцип-ферзя-королевы" class="level4" data-number="5.1.1">
-<h4 data-number="5.1.1" class="anchored" data-anchor-id="принцип-ферзя-королевы"><span class="header-section-number">5.1.1</span> Принцип ферзя (королевы)</h4>
+<section id="расчет-весов-по-смежности" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="расчет-весов-по-смежности"><span class="header-section-number">4.1</span> Расчет весов по смежности</h3>
+<section id="принцип-ферзя-королевы" class="level4" data-number="4.1.1">
+<h4 data-number="4.1.1" class="anchored" data-anchor-id="принцип-ферзя-королевы"><span class="header-section-number">4.1.1</span> Принцип ферзя (королевы)</h4>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -639,8 +634,8 @@ Note
 </div>
 </div>
 </section>
-<section id="принцип-ладьи" class="level4" data-number="5.1.2">
-<h4 data-number="5.1.2" class="anchored" data-anchor-id="принцип-ладьи"><span class="header-section-number">5.1.2</span> Принцип ладьи</h4>
+<section id="принцип-ладьи" class="level4" data-number="4.1.2">
+<h4 data-number="4.1.2" class="anchored" data-anchor-id="принцип-ладьи"><span class="header-section-number">4.1.2</span> Принцип ладьи</h4>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -747,8 +742,8 @@ Note
 </div>
 </section>
 </section>
-<section id="расчет-весов-по-расстоянию" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="расчет-весов-по-расстоянию"><span class="header-section-number">5.2</span> Расчет весов по расстоянию</h3>
+<section id="расчет-весов-по-расстоянию" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="расчет-весов-по-расстоянию"><span class="header-section-number">4.2</span> Расчет весов по расстоянию</h3>
 <p>При расчете весов по расстоянию необходимо задать значительно больше параметров.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
