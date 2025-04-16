@@ -2,8 +2,7 @@ project:
   type: website
 website:
   title: |
-        Пространственный анализ 
-        урбанизированных территорий
+        Пространственный анализ урбанизированных территорий
   page-footer: |
         © 2025, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО
   sidebar:
@@ -22,6 +21,8 @@ website:
         contents: 
           - 04-spatial-weights.qmd
           - 05-spatial-autocorrelation.qmd
+      - text: "Анализ рельефа"
+        href: 07-relief.qmd
       - text: "Литература"
         href: References.qmd
   navbar:
@@ -35,7 +36,6 @@ website:
         icon: telegram
       - icon: github
         href: https://github.com/baltti/spatial-analysis
-        aria-label: GitHub
   
 format:
   html:

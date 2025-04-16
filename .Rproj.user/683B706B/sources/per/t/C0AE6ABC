@@ -3,7 +3,7 @@
     "path": "~/Desktop/gravity model/spatial-analysis/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "3202621934",
+    "hash": "371688048",
     "contents": "",
     "dirty": false,
     "created": 1739799611222.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "23,42",
-        "scrollLine": "17"
+        "cursorPosition": "4,32",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1744712510,
+    "lastKnownWriteTime": 1744805346,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1744712510535,
+    "last_content_update": 1744805346351,
     "read_only": false,
     "read_only_alternatives": []
 }
