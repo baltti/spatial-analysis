@@ -1,0 +1,31 @@
+{
+    "id": "C01C0814",
+    "path": "~/Desktop/gravity model/spatial-analysis/07-relief.qmd",
+    "project_path": "07-relief.qmd",
+    "type": "quarto_markdown",
+    "hash": "321467922",
+    "contents": "",
+    "dirty": false,
+    "created": 1745831766692.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "5,0",
+        "scrollLine": "0",
+        "docOutlineVisible": "0",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "3301:2172"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1745832238,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1745832238932,
+    "read_only": false,
+    "read_only_alternatives": []
+}
