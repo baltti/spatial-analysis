@@ -46,5 +46,20 @@
   },
   "Lectures.qmd": {
     "Lectures.html": "653ca959"
+  },
+  "08-online-mapping.qmd": {
+    "08-online-mapping.html": "16b0e0b1"
+  },
+  "11-vegetation-indices.qmd": {
+    "11-vegetation-indices.html": "66f72b24"
+  },
+  "09-remote-sensing-data.qmd": {
+    "09-remote-sensing-data.html": "b5c6726f"
+  },
+  "10-remote-sensing-basics.qmd": {
+    "10-remote-sensing-basics.html": "092969ec"
+  },
+  "12-surface-temperature.qmd": {
+    "12-surface-temperature.html": "58ef2103"
   }
 }

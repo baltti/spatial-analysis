@@ -1,6 +1,10 @@
 {
-    "path": "~/Desktop/gravity model/spatial-analysis/images",
+    "path": "~/Desktop/gravity model/spatial-analysis",
     "sortOrder": [
+        {
+            "columnIndex": 4,
+            "ascending": false
+        },
         {
             "columnIndex": 2,
             "ascending": true
