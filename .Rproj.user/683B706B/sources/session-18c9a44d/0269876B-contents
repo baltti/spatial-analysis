@@ -45,6 +45,14 @@ format: html
 
 [Open in new tab](https://baltti.github.io/spatial-regression-eng/){target="_blank"}
 
+## Basics of remote sensing
+
+```{=html}
+<iframe src="https://baltti.github.io/remote-sensing-basics-eng/" width="800" height="400"></iframe>
+```
+
+[Open in new tab](https://baltti.github.io/remote-sensing-basics-eng/){target="_blank"}
+
 # Лекции
 
 ## Анализ точечных паттернов
@@ -86,3 +94,11 @@ format: html
 ```
 
 [Открыть в новой вкладке](https://baltti.github.io/spatial-regression/){target="_blank"}
+
+## Основы дистанционного зондирования
+
+```{=html}
+<iframe src="https://baltti.github.io/remote-sensing-basics/" width="800" height="400"></iframe>
+```
+
+[Открыть в новой вкладке](https://baltti.github.io/remote-sensing-basics/){target="_blank"}
