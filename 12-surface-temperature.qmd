@@ -14,7 +14,7 @@ format: html
 ![](images/image1.webp){fig-align="center"}
 
 | ST_URAD  | восходящее тепловое излучение                                  |
-|-----------------|-------------------------------------------------------|
+|----------|----------------------------------------------------------------|
 | ST_DRAD  | нисходящее тепловое излучение                                  |
 | ST_ATRAN | атмосферная прозрачность (проницаемость атмосферы)             |
 | ST_EMIS  | поверхностная излучательная способность                        |
@@ -99,8 +99,8 @@ $$LST_{rescaled} = LST*MSF+ AO - 273,5$$
 
 ![](images/2024_08_15.webp)
 
-![Источник: https://t.me/gisgoo/262](images/photo_2024-03-27_17-07-50.jpg){alt="Источник: https://t.me/gisgoo/262" fig-align="center"}
+![Источник: https://t.me/gisgoo/262](images/photo_2024-03-27_17-07-50.jpg){fig-align="center"}
 
-![Источник: https://app.geohub.ru/maps/1685](images/photo_2025-03-05_15-32-46.jpg){alt="Источник: https://app.geohub.ru/maps/1685"}
+![Источник: https://app.geohub.ru/maps/1685](images/photo_2025-03-05_15-32-46.jpg)
 
 Более подробно про расчет температуры поверхности можно почитать по [ссылке](https://wiki.gis-lab.info/w/%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B0_%D1%82%D0%B5%D0%BC%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B_%D0%BF%D0%BE%D0%B2%D0%B5%D1%80%D1%85%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D0%B8%D0%B7_%D1%81%D0%BD%D0%B8%D0%BC%D0%BA%D0%B0_Landsat-8_%D0%BF%D1%80%D0%B8_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%B8_Land_Surface_Temperature_QGIS_Plugin).

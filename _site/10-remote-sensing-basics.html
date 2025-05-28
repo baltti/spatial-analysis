@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU" xml:lang="ru-RU"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы работы с данными дистанционного зондирования – Пространственный анализ урбанизированных территорий</title>
+<title>Основы работы с данными дистанционного зондирования</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -53,17 +53,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Поиск не дал результатов",
+    "search-matching-documents-text": "Результаты поиска",
+    "search-copy-link-title": "Скопировать ссылку",
+    "search-hide-matches-text": "Скрыть дополнительные результаты",
+    "search-more-match-text": "дополнительный результат в этом документе",
+    "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
+    "search-clear-button-title": "Очистить",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Отменить",
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
   }
 }</script>
 
@@ -106,13 +106,8 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Пространственный анализ урбанизированных территорий</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Поиск"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Переключить навигацию" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -120,6 +115,10 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="./Lectures.html"> 
 <span class="menu-text">Lectures / Лекции</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Exam.html"> 
+<span class="menu-text">Exam questions / Вопросы к экзамену</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Homework.html"> 
@@ -145,13 +144,13 @@ window.Quarto = {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Основы работы с данными дистанционного зондирования</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-remote-sensing-data.html">Работа с данными дистанционного зондирования</a></li><li class="breadcrumb-item"><a href="./10-remote-sensing-basics.html">Основы работы с данными дистанционного зондирования</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -163,7 +162,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Поиск"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -196,7 +195,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Пространственные веса и пространственная автокорреляция</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Переключить раздел">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -224,9 +223,44 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-online-mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Онлайн-платформы</span></a>
+ <span class="menu-text">Онлайн-платформы для создания карт</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Работа с данными дистанционного зондирования</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Переключить раздел">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-remote-sensing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Загрузка данных дистанционного зондирования от открытых источников</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-remote-sensing-basics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Основы работы с данными дистанционного зондирования</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-vegetation-indices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Расчет вегетационных индексов</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-surface-temperature.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Расчет температуры поверхности</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
@@ -240,19 +274,20 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#обрезка-снимка" id="toc-обрезка-снимка" class="nav-link active" data-scroll-target="#обрезка-снимка"><span class="header-section-number">1</span> Обрезка снимка</a></li>
-  <li><a href="#создание-цветного-композитного-изображения" id="toc-создание-цветного-композитного-изображения" class="nav-link" data-scroll-target="#создание-цветного-композитного-изображения"><span class="header-section-number">2</span> Создание цветного композитного изображения</a></li>
-  <li><a href="#создание-виртуального-растра" id="toc-создание-виртуального-растра" class="nav-link" data-scroll-target="#создание-виртуального-растра"><span class="header-section-number">3</span> Создание виртуального растра</a></li>
+  <li><a href="#именование-снимков" id="toc-именование-снимков" class="nav-link active" data-scroll-target="#именование-снимков"><span class="header-section-number">1</span> Именование снимков</a></li>
+  <li><a href="#обрезка-снимка" id="toc-обрезка-снимка" class="nav-link" data-scroll-target="#обрезка-снимка"><span class="header-section-number">2</span> Обрезка снимка</a></li>
+  <li><a href="#создание-цветного-композитного-изображения" id="toc-создание-цветного-композитного-изображения" class="nav-link" data-scroll-target="#создание-цветного-композитного-изображения"><span class="header-section-number">3</span> Создание цветного композитного изображения</a></li>
+  <li><a href="#создание-виртуального-растра" id="toc-создание-виртуального-растра" class="nav-link" data-scroll-target="#создание-виртуального-растра"><span class="header-section-number">4</span> Создание виртуального растра</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-remote-sensing-data.html">Работа с данными дистанционного зондирования</a></li><li class="breadcrumb-item"><a href="./10-remote-sensing-basics.html">Основы работы с данными дистанционного зондирования</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Основы работы с данными дистанционного зондирования</h1>
 </div>
@@ -271,6 +306,8 @@ window.Quarto = {
 </header>
 
 
+<section id="именование-снимков" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="именование-снимков"><span class="header-section-number">1</span> Именование снимков</h2>
 <p>После того, как вы скачаете архив со снимками и распакуете его, вы увидите сразу несколько файлов в различных форматах. Основными из них, конечно, являются файлы в формате <em>.geotiff</em>, содержащие в себе собственно снимки.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -301,8 +338,9 @@ window.Quarto = {
 <p><strong>Example:</strong> LC08_L1GT_029030_20151209_20160131_01_RT</p>
 <p><strong>Means</strong>: Landsat 8; OLI/TIRS combined; processing correction level L1GT; path 029; row 030; acquired December 9, 2015; processed January 31, 2016; Collection 1; Real-Time</p>
 <p>Непосредственно к самим снимкам еще прибавляется номер спектрального канала в виде <code>_B1</code>, где B - band (канал) и цифра - его номер.</p>
-<section id="обрезка-снимка" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="обрезка-снимка"><span class="header-section-number">1</span> Обрезка снимка</h2>
+</section>
+<section id="обрезка-снимка" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="обрезка-снимка"><span class="header-section-number">2</span> Обрезка снимка</h2>
 <p>Снимок можно открыть как любое растровое изображение через строку меню <em>Слой</em> <span class="math inline">\(\longrightarrow\)</span> <em>Добавить слой</em> <span class="math inline">\(\longrightarrow\)</span> <em>Добавить растровый слой</em> или просто перетащив его из папки в основное окно программы.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -335,8 +373,8 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="создание-цветного-композитного-изображения" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="создание-цветного-композитного-изображения"><span class="header-section-number">2</span> Создание цветного композитного изображения</h2>
+<section id="создание-цветного-композитного-изображения" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="создание-цветного-композитного-изображения"><span class="header-section-number">3</span> Создание цветного композитного изображения</h2>
 <p>По умолчанию каждый снимок содержит в себе только часть спектра или один канал. Для того, чтобы изображение стало цветным, необходимо собрать цветной композит из отдельных каналов. Сделать это можно с использованием инструмента <em>Результат объединения</em> (в строке меню <em>Растр</em> <span class="math inline">\(\longrightarrow\)</span> <em>Прочее</em> <span class="math inline">\(\longrightarrow\)</span> <em>Результат объединения</em>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -346,9 +384,9 @@ window.Quarto = {
 <p>Комбинации каналов<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 56%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 52%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -429,7 +467,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Важное уведомление
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -469,8 +507,8 @@ Important
 </figure>
 </div>
 </section>
-<section id="создание-виртуального-растра" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="создание-виртуального-растра"><span class="header-section-number">3</span> Создание виртуального растра</h2>
+<section id="создание-виртуального-растра" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="создание-виртуального-растра"><span class="header-section-number">4</span> Создание виртуального растра</h2>
 <p>Кроме создания нового файла с растром, содержащим композитное изображение, вы можете создать виртуальный растр, который по своей сути не является растровым файлом, а скорее является каталогом уже имеющихся растров.</p>
 <p>Как правило, виртуальные растры создаются для упрощения работы, чтобы избежать необходимости создания объемных мозаик и больших растровых изображений.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -496,7 +534,7 @@ Important
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Внимание
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -508,7 +546,7 @@ Warning
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Сноски</h2>
 
 <ol>
 <li id="fn1"><p><strong>What is the naming convention for Landsat Collections Level-1 scenes? -</strong> <a href="https://www.usgs.gov/faqs/what-naming-convention-landsat-collections-level-1-scenes" class="uri">https://www.usgs.gov/faqs/what-naming-convention-landsat-collections-level-1-scenes</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -558,12 +596,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Скопировано");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Скопировано");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

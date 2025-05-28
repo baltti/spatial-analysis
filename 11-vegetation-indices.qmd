@@ -25,9 +25,9 @@ $$
 
 где $NIR$ - значение в ближайшем инфракрасном диапазоне, $RED$ - значение красного канала.
 
-![Источник: https://eos.com/ru/make-an-analysis/ndvi/](images/how-NDVI-works-RU.jpg.webp){alt="Источник: https://eos.com/ru/make-an-analysis/ndvi/" fig-align="center"}
+![Источник: https://eos.com/ru/make-an-analysis/ndvi/](images/how-NDVI-works-RU.jpg.webp){fig-align="center"}
 
-![Источник: https://www.auravant.com/en/articles/precision-agriculture/vegetation-indices-and-their-interpretation-ndvi-gndvi-msavi2-ndre-and-ndwi/](images/NDVI-values-by-crop-condition.jpeg){alt="Источник: https://www.auravant.com/en/articles/precision-agriculture/vegetation-indices-and-their-interpretation-ndvi-gndvi-msavi2-ndre-and-ndwi/" fig-align="center"}
+![Источник: https://www.auravant.com/en/articles/precision-agriculture/vegetation-indices-and-their-interpretation-ndvi-gndvi-msavi2-ndre-and-ndwi/](images/NDVI-values-by-crop-condition.jpeg){fig-align="center"}
 
 Интерпретация значений[^2]:
 
@@ -42,7 +42,7 @@ $$
 -   0,3–0,5 – это самый высокий показатель.
 
 | **Тип объекта**[^3] | **Отражение в красной области спектра** | **Отражение в инфракрасной области спектра** | **Значение NDVI** |
-|:-------------------|:----------------|:----------------|:----------------|
+|:---|:---|:---|:---|
 | **Густая растительность** | 0.1 | 0.5 | 0.7 |
 | **Разряженная растительность** | 0.1 | 0.3 | 0.5 |
 | **Открытая почва** | 0.25 | 0.3 | 0.025 |
@@ -57,7 +57,7 @@ $$
 Вегетационные индексы необходимо рассчитывать в период активной вегетации и желательно сравнивать за разные даты, чтобы получить более корректный результат.
 :::
 
-![Источник: https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index](images/SR-NDVI.png){alt="Источник: https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index" fig-align="center"}
+![Источник: https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index](images/SR-NDVI.png){fig-align="center"}
 
 **PVI (Perpendicular VI)** – несколько менее, но тоже широко распространен. Имеет узкий динамический диапазон и меньшую чувствительность и очень чувствителен к изменению атмосферы. Относительно прост в использовании и нахождении почвенной линии, что важно для использования других индексов. Иногда он лучше чем NDVI если вы имеете бедную растительность.
 
@@ -91,13 +91,13 @@ $$
 
 ![](images/Снимок%20экрана%202025-03-07%20124918.png){fig-align="center"}
 
-![Карта NDVI с использованием готового стиля](images/Снимок%20экрана%202025-03-07%20125301.png){alt="Карта NDVI с использованием готового стиля" fig-align="center"}
+![Карта NDVI с использованием готового стиля](images/Снимок%20экрана%202025-03-07%20125301.png){fig-align="center"}
 
-![Карта значений NDVI с использованием готового стиля с дискретной легендой](images/Снимок%20экрана%202025-03-07%20125347.png){alt="Карта значений NDVI с использованием готового стиля с дискретной легендой" fig-align="center"}
+![Карта значений NDVI с использованием готового стиля с дискретной легендой](images/Снимок%20экрана%202025-03-07%20125347.png){fig-align="center"}
 
 Также можно использовать более стандартную шкалу, показанную ниже.
 
-![Дискретная шкала NDVI (источник: https://gis-lab.info/qa/ndvi.html)](images/Ndvi3.gif){alt="Дискретная шкала NDVI (источник: https://gis-lab.info/qa/ndvi.html)" fig-align="center"}
+![Дискретная шкала NDVI (источник: https://gis-lab.info/qa/ndvi.html)](images/Ndvi3.gif){fig-align="center"}
 
 ::: callout-tip
 При необходимости растр можно далее переклассифицировать, чтобы получить дискретные значения, а потом векторизовать результат.

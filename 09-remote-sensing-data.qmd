@@ -1,5 +1,5 @@
 ---
-title: "Открытые источники данных дистанционного зондирования"
+title: "Загрузка данных дистанционного зондирования от открытых источников"
 format: html
 ---
 
@@ -305,7 +305,7 @@ format: html
 
 -   Landsat 8 — запущен 11 февраля 2013. 30 мая 2013 после окончания тестирования и настройки передан под управление USGS
 
-![Источник: https://landsat.gsfc.nasa.gov/satellites/timeline/](images/LNext_Revised_Timeline_Update_20240215.png){alt="Источник: https://landsat.gsfc.nasa.gov/satellites/timeline/" fig-align="center"}
+![Источник: https://landsat.gsfc.nasa.gov/satellites/timeline/](images/LNext_Revised_Timeline_Update_20240215.png){fig-align="center"}
 
 **Landsat 8/9 Operational Land Image (OLI) and Thermal Infrared Sensor (TIRS)**[^1]
 
@@ -341,7 +341,7 @@ format: html
 ::: callout-warning
 К сожалению, разрешение снимков может накладывать определенные ограничения на их использование, так как небольшие объекты могут не распознаваться на них.
 
-![Источник: https://landsat.gsfc.nasa.gov/satellites/landsat-8/](images/L8pixelsizes.png){alt="Источник: https://landsat.gsfc.nasa.gov/satellites/landsat-8/" fig-align="center"}
+![Источник: https://landsat.gsfc.nasa.gov/satellites/landsat-8/](images/L8pixelsizes.png){fig-align="center"}
 :::
 
 Кроме непосредственно миссии, в результате которой были получены снимки, следует обратить внимание на уровень их обработки[^2].

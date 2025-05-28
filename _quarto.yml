@@ -1,8 +1,6 @@
 project:
   type: website
 website:
-  title: |
-        Пространственный анализ урбанизированных территорий
   page-footer: |
         © 2025, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО
   sidebar:
@@ -23,14 +21,21 @@ website:
           - 05-spatial-autocorrelation.qmd
       - text: "Анализ рельефа"
         href: 07-relief.qmd
-      - text: "Онлайн-платформы"
-        href: 08-online-mapping.qmd
+      - href: 08-online-mapping.qmd
+      - section: "Работа с данными дистанционного зондирования"
+        contents: 
+          - 09-remote-sensing-data.qmd
+          - 10-remote-sensing-basics.qmd
+          - 11-vegetation-indices.qmd
+          - 12-surface-temperature.qmd
       - text: "Литература"
         href: References.qmd
   navbar:
     left: 
       - text: "Lectures / Лекции"
         href: Lectures.qmd
+      - text: "Exam questions / Вопросы к экзамену"
+        href: Exam.qmd
       - text: "Homework assignment / Домашнее задание"
         href: Homework.qmd
     right: 
@@ -46,10 +51,12 @@ format:
     toc: true
     number-sections: true
     number-depth: 3
-    
     shift-heading-level-by: 1
     anchor-sections: true
     link-external-icon: true
+
+lang: ru-RU    
+language: custom.yml
 
 editor: visual
 

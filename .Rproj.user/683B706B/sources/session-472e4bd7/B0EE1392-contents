@@ -1,0 +1,203 @@
+---
+title: "Онлайн-платформы для создания карт"
+format: html
+---
+
+# Сервисы визуализации
+
+## Datawrapper
+
+Не всегда для подготовки и публикации карт может быть использовано специализированное ПО. С развитием сферы инфографики и визуализации данных некоторые сервисы предлагают возможность создания и подготовки карт прямо в браузере.
+
+Одним из общедоступных онлайн-сервисов для создания графиков и диаграмм является **Datawrapper** <https://www.datawrapper.de/>, который позволяет работать в окне браузера без установки на компьютер.
+
+Почитать про создание карт и особенности можно в блоге сервиса <https://blog.datawrapper.de/category/maps/> или в общей информации о картах <https://www.datawrapper.de/maps>
+
+Для начала работы на странице <https://www.datawrapper.de/maps> нужно нажать кнопку **Build your own map**, которая переведет вас на страницу создания новой карты <https://app.datawrapper.de/select/map>.
+
+::: callout-warning
+Рекомендую аккуратно относиться к шаблонам для Российской федерации, так как они могут не соответствовать актуальным границам
+:::
+
+## Tilemapper
+
+Для создания плиточной карты России можно воспользоваться онлайн-сервисом **Tilemapper**, в котором есть шаблон плиточной карты со всеми регионами <https://mizinov.pro/tilemapper>.
+
+Сервис создан разработчиком Антоном Мизиновым (<https://t.me/antonmizinov>).
+
+```{=html}
+<iframe width="800" height="400" src="images/samples.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
+
+```{=html}
+<iframe width="800" height="400" src="images/sample.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
+
+# Платформа Foursquare studio
+
+Foursquare studio <https://studio.foursquare.com/>
+
+::: callout-note
+Изначально платформа создавалась как один из проектов для анализа данных Uber и по-прежнему существует в виде сервиса <https://kepler.gl/>. Большинство функций пришло именно оттуда.
+
+Этот сервис также можно использовать для быстрой визуализации пространственных данных, но у него нет бэк-энда, поэтому результаты не сохраняются на платформе.
+
+У платформы открытый исходный код, при желании ее можно развернуть на собственном сервере.
+
+Впоследствии разработчики организовали стартап, который был выкуплен компанией Foursquare.
+:::
+
+Большим преимуществом этой платформы, как и большинства других является то, что ваши карты сохраняются в личном кабинете и могут быть доступны с разных девайсов.
+
+Использование сервиса бесплатное, но имеет ограничения на количество загружаемых вами данных и количество созданных карт.
+
+```{=html}
+<iframe width="800" height="400" src="https://www.youtube.com/embed/3mNfeob175k?si=gwzsjERbYqvx4VVD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
+
+```{=html}
+<iframe width="800" height="400" src="https://www.youtube.com/embed/iwXWGcNwRbU?si=Zp0R-yvBOYl8mpRt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
+
+С примерами карт можно ознакомиться в галерее <https://studio.foursquare.com/sample-maps>
+
+::: callout-tip
+Для платформы разработан [модуль для QGIS](https://plugins.qgis.org/plugins/Unfolded/), позволяющий создавать карты в нем и размещать на платформе.
+
+Документацию по нему можно почитать либо на [github](https://github.com/foursquare/qgis-plugin), либо в [документации платформы](https://docs.foursquare.com/analytics-products/docs/integrations-qgis).
+
+![](images/main_dialog.png){fig-align="center"}
+:::
+
+::: callout-note
+Похожая платформа - **Felt** <https://felt.com/>
+
+Однако эта платформа предоставляет только 14 дней бесплатного пробного использования.
+
+```{=html}
+<iframe width="800" height="400" src="https://www.youtube.com/embed/1_7S2x5tPT0?si=a9-k2oIT_puNY4L_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+```{=html}
+<iframe width="800" height="400" src="images/GettingStartedin30_HelpCenter.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+```{=html}
+<iframe width="800" height="400" src="images/UploadData_HelpCenter.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+```{=html}
+<iframe width="800" height="400" src="images/StyleData_HelpCenter.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+:::
+
+# Отечественные платформы
+
+## NextGIS
+
+Ссылка на платформу <https://nextgis.ru/nextgis-com/>
+
+![](images/cloud-ru-1-1024x587.png){fig-align="center"}
+
+Наверно, один из самых старых разработчиков геоинформационных продуктов в нашей стране.
+
+Платформа является условно бесплатной, так как имеет ограниченную бесплатную версию.
+
+![](images/Снимок%20экрана%202025-04-30%20в%2011.04.15.png){fig-align="center"}
+
+Видео туториалы по работе с платформой можно посмотреть на канале <https://rutube.ru/u/nextgis/>.
+
+Документация доступна по ссылке <https://docs.nextgis.ru/docs_ngweb/source/index.html>.
+
+::: callout-tip
+Также имеет собственную вариацию программы QGIS для совместной работы с платформой.
+
+Используйте настольную программу [NextGIS QGIS](https://nextgis.ru/nextgis-qgis/?utm_source=nextgis&utm_medium=products&utm_campaign=nextgis-com&utm_term=nextgis-qgis&utm_content=ru) для управления вашими картами и данными, которые хранятся в облачной Веб ГИС.
+
+-   Публикация проектов QGIS в вашей Веб ГИС
+
+-   Мгновенное редактирование веб-карт в облаке через QGIS
+
+![](images/cloud-ru-3-1024x587.png){fig-align="center"}
+
+```{=html}
+<iframe width="720" height="405" src="https://rutube.ru/play/embed/9323ef11a606d852933f080c48e9ed1d/" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+```
+:::
+
+## Геосемантика
+
+Ссылка на платформу <https://geosemantica.ru/platforma_geosemantica>
+
+Подробные туториалы по работе с платформой:
+
+```{=html}
+<iframe width="800" height="400" src="https://www.youtube.com/embed/videoseries?si=WKj-NWS7iwlddXGP&amp;list=PLj5nOTx9W--ZvPmA2-b-smm8YNCWrYAGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+Как и предыдущая платформа является условно бесплатной.
+
+![](images/Снимок%20экрана%202025-04-30%20в%2011.52.08.png){fig-align="center"}
+
+## EverGIS
+
+Ссылка на платформу <https://evergis.ru/>
+
+Кажется единственная бесплатная платформа аналогично Foursquare studio.
+
+```{=html}
+<iframe width="800" height="400" src="images/Examples_Start.59ffe0b.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+```{=html}
+<iframe width="800" height="400" src="images/Examples_import.71bee4a.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+```{=html}
+<iframe width="800" height="400" src="images/Examples_Measure.b28b060.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+Еще большим преимуществом этой платформы является то, что здесь есть некоторые функции пространственного анализа, например:
+
+-   буферные зоны
+
+```{=html}
+<iframe width="800" height="400" src="images/6_2.e922a36.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+-   зоны доступности (изохроны)
+
+```{=html}
+<iframe width="800" height="400" src="images/7_1.6d2126f.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+```
+
+## FlexGIS
+
+Ссылка на платформу <https://flexgis.ru/>
+
+![](images/Screenshot_2024-12-0.png.webp){fig-align="center"}
+
+[![Общественные пространства Перми](images/Снимок%20экрана%202025-04-30%20в%2016.31.53.png){fig-align="center"}](https://gis.flexatel.xyz/viewer/4ebd8405-4a9b-480a-b09f-751bd1786ed4)
+
+Инструкции по работе с платформой доступны по ссылке <https://flexgis.ru/instructions>
+
+![](images/Снимок%20экрана%202025-04-30%20в%2016.30.25.png){fig-align="center"}
+
+### GeoHub
+
+Ссылка на платформу <https://geohub.ru/>
+
+Документация платформы <https://docs.geohub.ru/>
+
+![](images/Снимок%20экрана%202025-04-30%20в%2016.30.50.png){fig-align="center"}

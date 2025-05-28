@@ -1,12 +1,10 @@
 ---
-title: "О курсе"
+title: "Пространственный анализ урбанизированных территорий"
 date: today
 date-format: "D MMMM YYYY"
 author:
-  - name: Балтыжакова Татьяна 
-    affiliation: Институт дизайна и урбанистики, Университет ИТМО
-    affiliation-url: https://idu.itmo.ru/ru/
-citation: false
+  - affiliation: Институт дизайна и урбанистики, Университет ИТМО ![](images/_logo_whight_9.png) 
+    name: Балтыжакова Татьяна 
 ---
 
 Материалы для практических занятий по курсу "Пространственный анализ урбанизированных территорий", весна 2024/2025.
@@ -18,7 +16,3 @@ citation: false
 -   [QGIS](https://qgis.org/)
 
 -   [GeoDa](https://geodacenter.github.io/)
-
-::: callout-note
-Материалы обновляются по мере прохождения курса.
-:::
