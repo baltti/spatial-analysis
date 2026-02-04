@@ -1,0 +1,304 @@
+---
+title: "Общие сведения о дистанционном зондировании"
+subtitle: "Пространственный анализ урбанизированных территорий. Лекция 1"
+author: "Балтыжакова Татьяна Игоревна"
+format: 
+  revealjs:
+    slide-number: true
+    theme: [default, custom.css]
+    footer: "Балтыжакова Т.И. Пространственный анализ урбанизированных территорий: курс лекций"
+    margin: 0.1
+    reference-location: document
+    width: 1800
+    height: 1000
+---
+
+### Что такое дистанционное зондирование?
+
+**Дистанционное зондирование** - это получение данных об объекте без непосредственного контакта.
+
+Например, фотографирование объекта или его лазерное сканирование.
+
+![Источник: https://www.paititi.info/ru/tehnologija-poiskov/distancionnoe-zondirovanie-iz-kosmosa/](images/clipboard-57936016.png){fig-align="center" width="563"}
+
+::: callout-important
+Конкретно в этой теме и лекции будет говориться преимущественно про спутниковые снимки, но, конечно, этим дистанционное зондирование не ограничивается.
+:::
+
+---
+
+**Энергия, которую Земля получает от Солнца, называется называется** электромагнитным излучением.
+
+Излучение отражается, поглощается и испускается атмосферой или поверхностью Земли.
+
+![](images/Снимок экрана 2025-05-18 в 14.21.35.png){fig-align="center" width="482"}
+
+---
+
+Спутники (или другое устройство, например, беспилотное воздушное судно) несут **приборы или датчики, которые измеряют электромагнитное излучение, отраженное или испускаемое от наземных и атмосферных источников**.
+
+::: callout-note
+С помощью приборов ученые могут измерять высоту, температуру, влажность содержание (и многое другое) почти для каждой характеристики земной атмосферы, гидросферы, литосферы и биосферы.
+:::
+
+![Источник: https://gisgeography.com/remote-sensing-earth-observation-guide/](images/Pasted image 20250518145013.png){fig-align="center" width="802"}
+
+---
+
+![Источник: https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/remote-sensing](images/Pasted image 20250518145301.png){fig-align="center" width="1227"}
+
+---
+
+![Источник: https://spec.tass.ru/sfu-dzz/](images/Pasted image 20250518144757.png){fig-align="center" width="1067"}
+
+::: callout-note
+В настоящее время кроме государственных программ существует еще целый ряд коммерческих спутниковых группировок.
+:::
+
+---
+
+![Источник: https://landsat.gsfc.nasa.gov/satellites/timeline/](images/Pasted image 20250518163254.png){fig-align="center" width="1333"}
+
+# Классификация по типу сенсора
+
+![](images/Pasted image 20250518151901.png){fig-align="center" width="591"}
+
+# Классификация по типу орбиты
+
+![](images/Pasted image 20250518153418.png){fig-align="center" width="1523"}
+
+::::: columns
+::: {.column width="25%"}
+![](images/polar-orbit.en.gif){fig-align="center" width="313"}
+:::
+
+::: {.column width="25%"}
+![](images/geostationary-orbit.en.gif){fig-align="center" width="313"}
+:::
+:::::
+
+---
+
+![Источник: https://dewesoft.com/blog/every-satellite-orbiting-earth-and-who-owns-them](images/Pasted image 20250518154120.png){fig-align="center" width="1422"}
+
+# Классификация по разрешению
+
+![](images/Pasted image 20250518161254.png){fig-align="center"}
+
+## Временное разрешение
+
+Временное разрешение определяет, как часто датчик получает изображение определенной области на поверхности Земли.
+
+Зависит от высоты орбиты, количества спутников, ширины полосы охвата.
+
+![Источник: https://portal.tpu.ru/SHARED/o/OST/teaching1/IPRSD/RS_Lecture2.pdf](images/clipboard-3371542946.png){fig-align="center" width="873"}
+
+## Спектральное разрешение
+
+Соответствует количеству диапазонов электромагнитного спектра и размеру зон съемки, регистрируемых съемочной аппаратурой.
+
+::::: columns
+::: {.column width="50%"}
+Съемочная аппаратура и снимки, получаемые с ее помощью, делятся на:
+
+-   монохроматические (однозональные, интегральные или панхроматические);
+
+-   мультиспектральные (от 2 до 10 регистрируемых диапазонов);
+
+-   гиперспектральные (может быть более 100 зон).
+:::
+
+::: {.column width="50%"}
+![Источник: https://eo.belspo.be/en/iii21-spectral-resolutionИсточник: https://eo.belspo.be/en/iii21-spectral-resolution](images/Pasted image 20250518161821.png){fig-align="center"}
+:::
+:::::
+
+---
+
+![Источник: https://mining.earthdaily.com/knowledge-base/knowledge/introduction-to-remote-sensing](images/Pasted image 20250518162611.png){fig-align="center"}
+
+## Пространственное разрешение
+
+*Пространственное разрешение* (размер пиксела) — это параметр, который связан с размером пиксела — областью на поверхности земли, которая покрывается одним пикселом. Например, если площадь покрыта пикселом размером 1 на 1 метр, то пространственное разрешение будет 1 метр. Чем выше разрешение изображения, тем меньше размер пиксела, тем выше детальность.
+
+Различают системы (и космические снимки):
+
+-   низкого (R \> 500);
+
+-   среднего (20 ≤R ≤ 500 м);
+
+-   высокого ( \< 20 м);
+
+-   сверхвысокого ( R ≤ 2 м) пространственного разрешения.
+
+---
+
+![Источник: https://innoter.com/services/dannye-dzz/](images/Pasted image 20250518162935.png){fig-align="center"}
+
+---
+
+![Источник: https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/remote-sensing](images/Pasted image 20250518163853.png){fig-align="center" width="1422"}
+
+---
+
+![Источник: https://landsat.gsfc.nasa.gov/satellites/landsat-8/](images/Pasted image 20250518163408.png){fig-align="center"}
+
+---
+
+![Спутник AIRBUS Pleiades Neo. Продукт HD15. Пример космоснимка с пространственным разрешением 15 см](images/clipboard-2857141127.png){fig-align="center"}
+
+## Радиометрическое разрешение
+
+Радиометрическое разрешение снимков определяется шириной динамического диапазона используемого датчика (количеством уровней дискретизации, соответствующих переходу от яркости абсолютно черного к абсолютно белому цвету.
+
+Радиометрическое разрешение указывается числом бит. РР 8 бит соответствует 256 уровням градации яркости.
+
+![Источник: https://www.usgs.gov/media/images/radiometric-resolution-example](images/Pasted image 20250518163623.png){fig-align="center"}
+
+---
+
+![Источник: https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/remote-sensing](images/Pasted image 20250518163714.png){fig-align="center"}
+
+## Классификация по уровням обработки
+
+![](images/Pasted image 20250520120456.png){fig-align="center"}
+
+---
+
+![](images/Pasted image 20250520120503.png){fig-align="center"}
+
+## Использование материалов ДЗЗ
+
+![](images/Pasted image 20250521121129.png){fig-align="center"}
+
+---
+
+Разные материалы и объекты по-разному отражают и поглощают энергию, за счет чего возможно, например, определение материала по отраженной длине волны.
+
+![Источник: https://earth.jaxa.jp/en/eo-knowledge/remote-sensing/index.html](images/Pasted image 20250518145731.png){fig-align="center"}
+
+---
+
+::::: columns
+::: {.column width="50%"}
+![Изображение в естественных цветах](images/Pasted image 20250521123608.png){fig-align="center" width="1694"}
+:::
+
+::: {.column width="50%"}
+![Композит в искусственных цветах: растительность отображается в оттенках красного, городская застройка – зелено-голубых, а цвет почвы варьируется от темно до светло коричневого. Лед, снег и облака выглядят белыми или светло голубыми (лед и облака по краям).](images/Pasted image 20250521123617.png){fig-align="center" width="1694"}
+:::
+:::::
+
+---
+
+### Спектральные индексы
+
+Спектральные индексы основаны на том, что разные поверхности отражают и поглощают различные части электромагнитного спектра.
+
+::: callout-note
+Расчет спектральных индексов основан на локальной растровой алгебре[^1].
+
+*Локальные* операции растровой алгебры — анализируется одна ячейка растра или совпадающие в пространстве ячейки нескольких растров
+:::
+
+[^1]: Tomlin, Dana. 2012. *GIS and Cartographic Modeling*. 2nd Editio. ESRI Press
+
+![Источник: https://eos.com/ru/make-an-analysis/ndvi/](images/Pasted image 20250521122807.png){fig-align="center"}
+
+---
+
+**NDVI (Normalized Difference vegetation index)**[^2] - самый известный индекс и ему больше всего доверяют. NDVI прост для вычисления, имеет самый широкий динамический диапазон из распространенных вегетационных индексов, и лучшую чувствительность к изменениям в растительном покрове. Он умеренно чувствителен к изменениям почвенного и атмосферного фона, кроме случаев с бедной растительностью. Для того чтобы просто посмотреть на растительность на снимке с количественной точки зрения, нет ничего лучшего, чем NDVI, только если вы не имеете территорию с бедной растительностью.
+
+[^2]: <https://gis-lab.info/qa/vi.html>
+
+---
+
+![Источник: https://aeromotus.ru/obzor-vozmozhnostej-indeksa-ndvi/](images/clipboard-3692070312.png){fig-align="center" width="700"}
+
+---
+
+**PVI (Perpendicular VI)** – несколько менее, но тоже широко распространен. Имеет узкий динамический диапазон и меньшую чувствительность и очень чувствителен к изменению атмосферы. Относительно прост в использовании и нахождении почвенной линии, что важно для использования других индексов. Иногда он лучше чем NDVI если вы имеете бедную растительность.
+
+**SAVI (Soil Adjusted VI)** - хороший вариант, если цель исследования - разреженная растительность. В этом случае, если вы используете корректирующий фактор L больше чем 0.5, вы должны быть готовы к указанию статьи Huete (1988) и того факта, что корректирующий фактор должен быть больше чем 0.5, если растительный покров мал.
+
+---
+
+![Источник: https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index](images/Pasted image 20250521123207.png){fig-align="center"}
+
+---
+
+**Normalized Burn Ratio (NBR)**[^3] - индекс для идентификации и поиска сгоревших территорий.
+
+[^3]: <https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices>
+
+**Normalized Difference Snow Index (NDSI)** - нормализованная разница между зеленым каналом и коротковолновым инфракрасным.
+
+![Источник: https://www.usgs.gov/landsat-missions/landsat-normalized-burn-ratio](images/Pasted image 20250521132458.png){fig-align="center"}
+
+---
+
+![Источник: https://t.me/gisgoo/262](images/Pasted image 20250521124036.png){fig-align="center" width="1273"}
+
+---
+
+![](images/Pasted image 20250521124101.png){fig-align="center"}
+
+## Сегментация и классификация изображений
+
+-   **Классификация** присваивает метки и классы областям на изображении и предоставляет информацию о классе объекта ‑ имя и прогнозную вероятность (уровень достоверности);
+
+-   **обнаружение/распознавание объектов (object detection)** заключается в локализации и идентификации конкретных объектов, представляющих интерес, при которой получают не только класс объекта, но и его местоположение на изображении;
+
+-   **сегментация** – процесс разбиения изображения на значимые области для идентификации объектов, представляющих интерес, в ходе этого процесса информация дополняется формой объекта.
+
+---
+
+![Источник: https://www.freecodecamp.org/news/how-to-detect-objects-in-images-using-yolov8/](images/Pasted image 20250521121803.png){fig-align="center" width="1072"}
+
+---
+
+### Классификация изображений в ДЗЗ
+
+Все методы классификации здесь можно поделить на две большие группы:
+
+-   пиксельные - классификация осуществляется на основе значений в индивидуальных пикселях
+
+    -   supervised (обучение с наблюдением)
+
+    -   unsupervised (обучение без наблюдения)
+
+-   объектные - классификация осуществляется на основе заданных параметров конкретных объектов.
+
+![Источник: https://seos-project.eu/remotesensing/remotesensing-c06-p03.html](images/clipboard-2079629388.png){fig-align="center"}
+
+---
+
+::: callout-important
+При использовании объектной классификации будут учитываться не отдельные пиксели, а объекты на основе тренировочного набора данных: их форма, размер, геометрические параметры, значения электромагнитного спектра.
+:::
+
+::::: columns
+::: {.column width="50%"}
+![Источник: https://gisgeography.com/obia-object-based-image-analysis-geobia/](images/clipboard-282511287.png){alt="Источник: https://gisgeography.com/obia-object-based-image-analysis-geobia/" fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![Источник: Liu F, Dong L, Chang X and Guo X (2022) Remote sensing image classification based on object-oriented convolutional neural network. Front. Earth Sci. 10:988556. doi: 10.3389/feart.2022.988556](images/clipboard-205579230.png){alt="Источник: Liu F, Dong L, Chang X and Guo X (2022) Remote sensing image classification based on object-oriented convolutional neural network. Front. Earth Sci. 10:988556. doi: 10.3389/feart.2022.988556" fig-align="center"}
+:::
+:::::
+
+---
+
+### Сегментация
+
+При сегментации изображений на них выделяют конкретные пиксели, составляющие объекты.
+
+![Источник: https://neerc.ifmo.ru/wiki/index.php?title=Компьютерное_зрение](images/Pasted image 20250521121210.png){fig-align="center"}
+
+---
+
+![Источник: https://towardsdatascience.com/semantic-segmentation-of-remote-sensing-imagery-using-k-means-e4c165d9218e/](images/clipboard-448628038.png){fig-align="center" width="765"}
+
+---
+
+![Источник: Trujillano, F., Jimenez, G., Manrique, E. et al. Using image segmentation models to analyse high-resolution earth observation data: new tools to monitor disease risks in changing environments. Int J Health Geogr 23, 13 (2024). https://doi.org/10.1186/s12942-024-00371-w](images/clipboard-2129406359.png){fig-align="center"}

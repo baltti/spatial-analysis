@@ -1,104 +1,25 @@
 ---
-title: "Lectures / Лекции"
-format: html
+title: "Лекции"
+date: last modified
+date-format: "D MMMM YYYY"
+number-sections: true
+author:
+  - affiliation: Институт дизайна и урбанистики, Университет ИТМО 
+    name: Балтыжакова Татьяна
 ---
 
-# Lectures
+::: callout-tip
+## Как смотреть лекции
 
-## Point pattern analysis
-
-```{=html}
-<iframe src="https://baltti.github.io/point-pattern-eng/" width="800" height="400"></iframe>
-```
-
-[Open in new tab](https://baltti.github.io/point-pattern/){target="_blank"}
-
-## Gravity models
-
-```{=html}
-<iframe src="https://baltti.github.io/gravity-model-eng/" width="800" height="400"></iframe>
-```
-
-[Open in new tab](https://baltti.github.io/gravity-model-eng/){target="_blank"}
-
-## Spatial weights
-
-```{=html}
-<iframe src="https://baltti.github.io/spatial-weights-eng" width="800" height="400"></iframe>
-```
-
-[Open in new tab](https://baltti.github.io/spatial-weights-eng/){target="_blank"}
-
-## Spatial autocorrelation
-
-```{=html}
-<iframe src="https://baltti.github.io/spatial-autocorrelation-eng" width="800" height="400"></iframe>
-```
-
-[Open in new tab](https://baltti.github.io/spatial-autocorrelation-eng/){target="_blank"}
-
-## Spatial regression
-
-```{=html}
-<iframe src="https://baltti.github.io/spatial-regression-eng/" width="800" height="400"></iframe>
-```
-
-[Open in new tab](https://baltti.github.io/spatial-regression-eng/){target="_blank"}
-
-## Basics of remote sensing
-
-```{=html}
-<iframe src="https://baltti.github.io/remote-sensing-basics-eng/" width="800" height="400"></iframe>
-```
-
-[Open in new tab](https://baltti.github.io/remote-sensing-basics-eng/){target="_blank"}
+Презентации можно смотреть либо пользуясь стрелками навигации, либо, листая их стрелками на клавиатуре, после одного щелчка левой кнопки мыши. Если презентация открыта в новой вкладке браузера, вы можете развернуть ее в полноэкранный режим кнопкой `F`.
+:::
 
 # Лекции
-
-## Анализ точечных паттернов
-
-```{=html}
-<iframe src="https://baltti.github.io/point-pattern/" width="800" height="400"></iframe>
-```
-
-[Открыть лекцию в новой вкладке](https://baltti.github.io/point-pattern/){target="_blank"}
-
-## Гравитационные модели
-
-```{=html}
-<iframe src="https://baltti.github.io/gravity-model/" width="800" height="400"></iframe>
-```
-
-[Открыть лекцию в новой вкладке](https://baltti.github.io/gravity-model/){target="_blank"}
-
-## Пространственные веса
-
-```{=html}
-<iframe src="https://baltti.github.io/spatial-weights/" width="800" height="400"></iframe>
-```
-
-[Открыть лекцию в новой вкладке](https://baltti.github.io/spatial-weights/){target="_blank"}
-
-## Пространственная автокорреляция
-
-```{=html}
-<iframe src="https://baltti.github.io/spatial-autocorrelation" width="800" height="400"></iframe>
-```
-
-[Открыть лекцию в новой вкладке](https://baltti.github.io/spatial-autocorrelation/){target="_blank"}
-
-## Пространственная регрессия
-
-```{=html}
-<iframe src="https://baltti.github.io/spatial-regression/" width="800" height="400"></iframe>
-```
-
-[Открыть в новой вкладке](https://baltti.github.io/spatial-regression/){target="_blank"}
 
 ## Основы дистанционного зондирования
 
 ```{=html}
-<iframe src="https://baltti.github.io/remote-sensing-basics/" width="800" height="400"></iframe>
+<iframe src="https://baltti.github.io/spatial-analysis/01-remote-sensing-basics" width="800" height="400"></iframe>
 ```
 
-[Открыть в новой вкладке](https://baltti.github.io/remote-sensing-basics/){target="_blank"}
+[Открыть в новой вкладке](https://baltti.github.io/spatial-analysis/01-remote-sensing-basics){target="_blank"}
