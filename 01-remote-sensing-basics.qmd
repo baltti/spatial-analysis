@@ -191,6 +191,10 @@ format:
 
 ---
 
+![Шлейфы на данных MSI (Sentinel-2A, ESA), Метеор-M2-4 (КМСС 101/102, НИЦ Планета) и MODIS (AQUA) Источник: http://sci-vega.ru/mapviewer/?id=1770220387291](images/clipboard-806352641.png){fig-align="center" width="1148"}
+
+---
+
 ### Спектральные индексы
 
 Спектральные индексы основаны на том, что разные поверхности отражают и поглощают различные части электромагнитного спектра.
@@ -302,3 +306,17 @@ format:
 ---
 
 ![Источник: Trujillano, F., Jimenez, G., Manrique, E. et al. Using image segmentation models to analyse high-resolution earth observation data: new tools to monitor disease risks in changing environments. Int J Health Geogr 23, 13 (2024). https://doi.org/10.1186/s12942-024-00371-w](images/clipboard-2129406359.png){fig-align="center"}
+
+# Примеры применения в урбанистике
+
+1.  Выявление "городских островов тепла"
+
+2.  Анализ состояния растительности, определение площади озеленения
+
+3.  Анализ развития городов (urban sprawl)
+
+4.  Поиск и обнаружение строительных площадок, мониторинг строительства
+
+5.  Анализ загрязнений
+
+6.  и прочее....
