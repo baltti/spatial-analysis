@@ -59,6 +59,14 @@ format: html
 ![](images/photo_2025-04-28_12-23-16.jpg){fig-align="center"}
 :::
 
+::: callout-tip
+Еще одна современная недавно вышедшая цифровая модель рельефа FathomDEM: Uhe, P. et al. (2025). FathomDEM: an improved global terrain map using a hybrid vision transformer model. Environmental Research Letters, 20(3), 034002. <https://doi.org/10.1088/1748-9326/ada972>
+
+Данные предоставляются бесплатно по запросу Америка (<https://doi.org/10.5281/zenodo.14511570),> Евразия и Африка (<https://doi.org/10.5281/zenodo.14523356)>.
+
+Видео инструкция по работе с данными в QGIS <https://www.youtube.com/watch?v=KWwg4EmJMkk>
+:::
+
 В каждой ячейке исходного растрового изображения содержится значение высоты.
 
 Добавление растрового слоя осуществляется через строку меню *Слой* $\longrightarrow$ *Добавить слой* $\longrightarrow$ *Добавить растровый слой*.
