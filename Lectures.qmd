@@ -1,6 +1,6 @@
 ---
 title: "Лекции"
-date: last modified
+date: last-modified
 date-format: "D MMMM YYYY"
 number-sections: true
 author:

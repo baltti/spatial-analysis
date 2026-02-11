@@ -64,5 +64,20 @@
   },
   "01-remote-sensing-basics.qmd": {
     "01-remote-sensing-basics.html": "94f7877d"
+  },
+  "02-remote-sensing-data.qmd": {
+    "02-remote-sensing-data.html": "3ab89d2b"
+  },
+  "03-remote-sensing-basics.qmd": {
+    "03-remote-sensing-basics.html": "8f062e65"
+  },
+  "05-surface-temperature.qmd": {
+    "05-surface-temperature.html": "3670955f"
+  },
+  "01-relief.qmd": {
+    "01-relief.html": "9f51d3d5"
+  },
+  "04-vegetation-indices.qmd": {
+    "04-vegetation-indices.html": "25ae352c"
   }
 }

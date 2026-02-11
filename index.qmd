@@ -1,6 +1,6 @@
 ---
 title: "Пространственный анализ урбанизированных территорий"
-date: today
+date: last-modified
 date-format: "D MMMM YYYY"
 author:
   - affiliation: Институт дизайна и урбанистики, Университет ИТМО 
