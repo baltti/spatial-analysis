@@ -228,11 +228,7 @@ window.Quarto = {
   <li><a href="#построение-горизонталей-и-их-стилизация" id="toc-построение-горизонталей-и-их-стилизация" class="nav-link" data-scroll-target="#построение-горизонталей-и-их-стилизация"><span class="header-section-number">6.2</span> Построение горизонталей и их стилизация</a></li>
   <li><a href="#настройка-подписей-горизонталей" id="toc-настройка-подписей-горизонталей" class="nav-link" data-scroll-target="#настройка-подписей-горизонталей"><span class="header-section-number">6.3</span> Настройка подписей горизонталей</a></li>
   </ul></li>
-  <li><a href="#профиль-местности" id="toc-профиль-местности" class="nav-link" data-scroll-target="#профиль-местности"><span class="header-section-number">7</span> Профиль местности</a>
-  <ul class="collapse">
-  <li><a href="#построение-профиля-местности" id="toc-построение-профиля-местности" class="nav-link" data-scroll-target="#построение-профиля-местности"><span class="header-section-number">7.1</span> Построение профиля местности</a></li>
-  <li><a href="#добавление-профиля-на-макет" id="toc-добавление-профиля-на-макет" class="nav-link" data-scroll-target="#добавление-профиля-на-макет"><span class="header-section-number">7.2</span> Добавление профиля на макет</a></li>
-  </ul></li>
+  <li><a href="#построение-профиля-местности" id="toc-построение-профиля-местности" class="nav-link" data-scroll-target="#построение-профиля-местности"><span class="header-section-number">7</span> Построение профиля местности</a></li>
   <li><a href="#построение-трехмерной-поверхности" id="toc-построение-трехмерной-поверхности" class="nav-link" data-scroll-target="#построение-трехмерной-поверхности"><span class="header-section-number">8</span> Построение трехмерной поверхности</a></li>
   <li><a href="#расчет-параметров-рельефа" id="toc-расчет-параметров-рельефа" class="nav-link" data-scroll-target="#расчет-параметров-рельефа"><span class="header-section-number">9</span> Расчет параметров рельефа</a>
   <ul class="collapse">
@@ -274,9 +270,8 @@ window.Quarto = {
 <h2 data-number="1" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">1</span> Исходные данные</h2>
 <p>В качестве исходных данных мы воспользуемся слоем с границами двух природных заповедников: <em>Кавказского государственного природного биосферного заповедника</em> и <em>Приэльбрусье</em>.</p>
 <p>Слой с их границами вы можете скачать по ссылке: <a href="https://disk.yandex.ru/d/tcUoFxV-mqNang" class="uri">https://disk.yandex.ru/d/tcUoFxV-mqNang</a></p>
-<p>Вторым источником данных в нашем случае станет <strong>цифровая модель рельефа</strong> FABDEM, которая доступна по ссылке <a href="https://data.bris.ac.uk/data/dataset/s5hqmjcdj8yo2ibzi9b4ew3sn" class="uri">https://data.bris.ac.uk/data/dataset/s5hqmjcdj8yo2ibzi9b4ew3sn</a></p>
-<p>Эта цифровая модель предствалена в виде растровых данных, которые покрывают всю поверхность Земли кусочками размером 1 градус широты на 1 градус долготы (одноградусная трапеция).</p>
-<p>Нужные вам для работы одноградусные трапеции вы можете скачать по ссылке <a href="https://disk.yandex.ru/d/Q6K-Ly-kT6jiNg" class="uri">https://disk.yandex.ru/d/Q6K-Ly-kT6jiNg</a></p>
+<p>Вторым источником данных в нашем случае станет <strong>цифровая модель рельефа</strong> FABDEM.</p>
+<p>Нужные вам для работы фрагменты цифровой модели рельефа вы можете скачать по ссылке <a href="https://disk.yandex.ru/d/Q6K-Ly-kT6jiNg" class="uri">https://disk.yandex.ru/d/Q6K-Ly-kT6jiNg</a></p>
 </section>
 <section id="цифровая-модель-рельефа" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="цифровая-модель-рельефа"><span class="header-section-number">2</span> Цифровая модель рельефа</h2>
@@ -326,7 +321,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Значительным недостатком SRTM является ее ограниченный пространственный охват, из-за которого значительная часть нашей страны не покрыта этой цифровой моделью рельефа.</p>
+<p>Значительным недостатком SRTM является ее ограниченный пространственный охват: от 54 градусов южной широты до 60 градусов северной широты, из-за которого значительная часть нашей страны не покрыта этой цифровой моделью рельефа.</p>
 </div>
 </div>
 <p>Из SRTM выгружается сразу целая 1-градусная трапеция (фрагмент 1 градус по широте и 1 градус по долготе), в этом случае трапеция была обрезана до более маленького фрагмента (вообще не очень рекомендую работать с большими растрами, охватывающими сразу градус и более по долготе и широте).</p>
@@ -350,7 +345,7 @@ window.Quarto = {
 </figure>
 </div>
 <p>Сама модель является открытой и данные можно скачать по ссылке из репозитория - <a href="https://data.bris.ac.uk/data/dataset/s5hqmjcdj8yo2ibzi9b4ew3sn" class="uri">https://data.bris.ac.uk/data/dataset/s5hqmjcdj8yo2ibzi9b4ew3sn</a></p>
-<p>Все данные организованы в архивы, которые включают в себя охват 10 широты на 10 градусов долготы. Растровые данные внутри архивов - это одноградусные трапеции (как и в SRTM).</p>
+<p>Все данные организованы в архивы, которые включают в себя охват 10 широты на 10 градусов долготы. Растровые данные внутри архивов - это одноградусные трапеции.</p>
 <p>Для того, чтобы понять, какой именно архив и файл из него нужен вам на исследуемую территорию, можно скачать файл <strong><em>FABDEM_v1-2_tiles.geojson</em></strong> и открыть его либо в QGIS, либо с использованием сервиса geojson.io. Прямоугольники в этом файле показывают одноградусные трапеции, а в их атрибутах указано название архива и файла.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -387,7 +382,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Еще одна современная недавно вышедшая цифровая модель рельефа FathomDEM: Uhe, P. et al.&nbsp;(2025). FathomDEM: an improved global terrain map using a hybrid vision transformer model. Environmental Research Letters, 20(3), 034002. <a href="https://doi.org/10.1088/1748-9326/ada972" class="uri">https://doi.org/10.1088/1748-9326/ada972</a></p>
+<p>Еще одна современная недавно вышедшая цифровая модель рельефа FathomDEM: Uhe, P. et al.&nbsp;(2025). <strong>FathomDEM</strong>: an improved global terrain map using a hybrid vision transformer model. Environmental Research Letters, 20(3), 034002. <a href="https://doi.org/10.1088/1748-9326/ada972" class="uri">https://doi.org/10.1088/1748-9326/ada972</a></p>
 <p>Данные предоставляются бесплатно по запросу Америка (<a href="https://doi.org/10.5281/zenodo.14511570)," class="uri">https://doi.org/10.5281/zenodo.14511570),</a> Евразия и Африка (<a href="https://doi.org/10.5281/zenodo.14523356)" class="uri">https://doi.org/10.5281/zenodo.14523356)</a>.</p>
 <p>Видео инструкция по работе с данными в QGIS <a href="https://www.youtube.com/watch?v=KWwg4EmJMkk" class="uri">https://www.youtube.com/watch?v=KWwg4EmJMkk</a></p>
 </div>
@@ -721,6 +716,16 @@ window.Quarto = {
 <p><img src="images/clipboard-3080904326.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1220"></p>
 </figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+На заметку
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Этот инструмент комбинирует расчет теневого рельеф и так называемого индекса топографического положения.</p>
 <p>Формы рельефа определяются на основе <em>индекса топографического положения (Topographic position index - TPI)</em>. Этот индекс позволяет классифицировать формы рельефа по высоте конкретного пикселя относительно соседей: если он ниже, то значение индекса будет отрицательным и он будет отнесен к вогнутой форме рельефа; если он выше соседей, то индекс будет больше нуля и этот пиксель будет классифицирован как выпуклая часть рельефа.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -734,6 +739,8 @@ window.Quarto = {
 <p><img src="images/clipboard-3819645520.png" class="img-fluid figure-img"></p>
 <figcaption>Источник: https://chuck-sutherland.blogspot.com/2019/10/topographic-position-index-tpi-as.html</figcaption>
 </figure>
+</div>
+</div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -804,7 +811,19 @@ window.Quarto = {
 <p><img src="images/clipboard-2554289341.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Предупреждение
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Особенность виртуального растра состоит в том, что он не создает привычный файл в растровом формате, а скорее собирает уже существующие растры вместе. Отчасти это похоже на проект в QGIS, в котором тоже сохраняются связи между файлами слоев.</p>
+</div>
+</div>
 <p>В открывшемся окне необходимо выбрать нужные нам растры и указать место для сохранения. В нашем случае - это промежуточный этап, поэтому сохранять не обязательно.</p>
 <p><img src="images/clipboard-2085008369.png" class="img-fluid"></p>
 <p>Итоговый растр будет отображаться единым слоем на карте и в панели слоев.</p>
@@ -901,10 +920,8 @@ window.Quarto = {
 <p><img src="images/clipboard-2570239643.png" class="img-fluid"></p>
 </section>
 </section>
-<section id="профиль-местности" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="профиль-местности"><span class="header-section-number">7</span> Профиль местности</h2>
-<section id="построение-профиля-местности" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="построение-профиля-местности"><span class="header-section-number">7.1</span> Построение профиля местности</h3>
+<section id="построение-профиля-местности" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="построение-профиля-местности"><span class="header-section-number">7</span> Построение профиля местности</h2>
 <p>При построении профиля местности рельеф рассекается вертикальной плоскостью и путем соединения точек пересечения этой плоскости и рельефа строится профиль.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -945,9 +962,16 @@ window.Quarto = {
 <p><img src="images/clipboard-1552758214.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="615"></p>
 </figure>
 </div>
-</section>
-<section id="добавление-профиля-на-макет" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="добавление-профиля-на-макет"><span class="header-section-number">7.2</span> Добавление профиля на макет</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Дополнительно
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>При необходимости вы можете добавить высотный профиль на макет карты при ее оформлении.</p>
 <p>Он добавляется как любой элемент макета с вертикальной панели слева <img src="images/clipboard-1364603157.png" class="img-fluid" width="52">.</p>
 <p>Для того, чтобы в добавленном элементе был отображен высотный профиль, вы можете просто скопировать его из основного окна проекта.</p>
@@ -956,7 +980,8 @@ window.Quarto = {
 <p><img src="images/clipboard-3388951722.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="783"></p>
 </figure>
 </div>
-</section>
+</div>
+</div>
 </section>
 <section id="построение-трехмерной-поверхности" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="построение-трехмерной-поверхности"><span class="header-section-number">8</span> Построение трехмерной поверхности</h2>
