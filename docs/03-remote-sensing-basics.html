@@ -140,7 +140,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Основы работы с данными дистанционного зондирования</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-remote-sensing-data.html">Работа с данными дистанционного зондирования</a></li><li class="breadcrumb-item"><a href="./03-remote-sensing-basics.html">Основы работы с данными дистанционного зондирования</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -192,6 +192,18 @@ window.Quarto = {
  <span class="menu-text">Загрузка данных дистанционного зондирования из открытых источников</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-remote-sensing-basics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Основы работы с данными дистанционного зондирования</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-vegetation-indices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Расчет вегетационных индексов</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -210,17 +222,17 @@ window.Quarto = {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#именование-снимков" id="toc-именование-снимков" class="nav-link active" data-scroll-target="#именование-снимков"><span class="header-section-number">1</span> Именование снимков</a></li>
-  <li><a href="#обрезка-снимка" id="toc-обрезка-снимка" class="nav-link" data-scroll-target="#обрезка-снимка"><span class="header-section-number">2</span> Обрезка снимка</a></li>
-  <li><a href="#создание-цветного-композитного-изображения" id="toc-создание-цветного-композитного-изображения" class="nav-link" data-scroll-target="#создание-цветного-композитного-изображения"><span class="header-section-number">3</span> Создание цветного композитного изображения</a></li>
-  <li><a href="#создание-виртуального-растра" id="toc-создание-виртуального-растра" class="nav-link" data-scroll-target="#создание-виртуального-растра"><span class="header-section-number">4</span> Создание виртуального растра</a></li>
+  <li><a href="#именование-снимков" id="toc-именование-снимков" class="nav-link active" data-scroll-target="#именование-снимков">Именование снимков</a></li>
+  <li><a href="#обрезка-снимка" id="toc-обрезка-снимка" class="nav-link" data-scroll-target="#обрезка-снимка">Обрезка снимка</a></li>
+  <li><a href="#создание-цветного-композитного-изображения" id="toc-создание-цветного-композитного-изображения" class="nav-link" data-scroll-target="#создание-цветного-композитного-изображения">Создание цветного композитного изображения</a></li>
+  <li><a href="#создание-виртуального-растра" id="toc-создание-виртуального-растра" class="nav-link" data-scroll-target="#создание-виртуального-растра">Создание виртуального растра</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-remote-sensing-data.html">Работа с данными дистанционного зондирования</a></li><li class="breadcrumb-item"><a href="./03-remote-sensing-basics.html">Основы работы с данными дистанционного зондирования</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Основы работы с данными дистанционного зондирования</h1>
 </div>
@@ -239,8 +251,8 @@ window.Quarto = {
 </header>
 
 
-<section id="именование-снимков" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="именование-снимков"><span class="header-section-number">1</span> Именование снимков</h2>
+<section id="именование-снимков" class="level2">
+<h2 class="anchored" data-anchor-id="именование-снимков">Именование снимков</h2>
 <p>После того, как вы скачаете архив со снимками и распакуете его, вы увидите сразу несколько файлов в различных форматах. Основными из них, конечно, являются файлы в формате <em>.geotiff</em>, содержащие в себе собственно снимки.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -272,8 +284,8 @@ window.Quarto = {
 <p><strong>Means</strong>: Landsat 8; OLI/TIRS combined; processing correction level L1GT; path 029; row 030; acquired December 9, 2015; processed January 31, 2016; Collection 1; Real-Time</p>
 <p>Непосредственно к самим снимкам еще прибавляется номер спектрального канала в виде <code>_B1</code>, где B - band (канал) и цифра - его номер.</p>
 </section>
-<section id="обрезка-снимка" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="обрезка-снимка"><span class="header-section-number">2</span> Обрезка снимка</h2>
+<section id="обрезка-снимка" class="level2">
+<h2 class="anchored" data-anchor-id="обрезка-снимка">Обрезка снимка</h2>
 <p>Снимок можно открыть как любое растровое изображение через строку меню <em>Слой</em> <span class="math inline">\(\longrightarrow\)</span> <em>Добавить слой</em> <span class="math inline">\(\longrightarrow\)</span> <em>Добавить растровый слой</em> или просто перетащив его из папки в основное окно программы.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -306,8 +318,8 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="создание-цветного-композитного-изображения" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="создание-цветного-композитного-изображения"><span class="header-section-number">3</span> Создание цветного композитного изображения</h2>
+<section id="создание-цветного-композитного-изображения" class="level2">
+<h2 class="anchored" data-anchor-id="создание-цветного-композитного-изображения">Создание цветного композитного изображения</h2>
 <p>По умолчанию каждый снимок содержит в себе только часть спектра или один канал. Для того, чтобы изображение стало цветным, необходимо собрать цветной композит из отдельных каналов.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -446,8 +458,8 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="создание-виртуального-растра" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="создание-виртуального-растра"><span class="header-section-number">4</span> Создание виртуального растра</h2>
+<section id="создание-виртуального-растра" class="level2">
+<h2 class="anchored" data-anchor-id="создание-виртуального-растра">Создание виртуального растра</h2>
 <p>Кроме создания нового файла с растром, содержащим композитное изображение, вы можете создать виртуальный растр, который по своей сути не является растровым файлом, а скорее является каталогом уже имеющихся растров.</p>
 <p>Как правило, виртуальные растры создаются для упрощения работы, чтобы избежать необходимости создания объемных мозаик и больших растровых изображений.</p>
 <div class="quarto-figure quarto-figure-center">

@@ -27,8 +27,8 @@ website:
       - section: "Работа с данными дистанционного зондирования"
         contents: 
           - 02-remote-sensing-data.qmd
-   #       - 03-remote-sensing-basics.qmd
-   #       - 04-vegetation-indices.qmd
+          - 03-remote-sensing-basics.qmd
+          - 04-vegetation-indices.qmd
     #      - 05-surface-temperature.qmd
       - text: "Литература"
         href: References.qmd

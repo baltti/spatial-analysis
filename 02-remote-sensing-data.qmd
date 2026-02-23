@@ -1,6 +1,7 @@
 ---
 title: "Загрузка данных дистанционного зондирования из открытых источников"
 format: html
+number-sections: false
 ---
 
 Подготовлено на основе [материалов портала Gis-lab](https://gis-lab.info/qa/earthexplorer-work.html).
@@ -171,7 +172,7 @@ format: html
 **Табл. 1. Описание источников данных архива Landsat**
 
 | № | Источник | Описание | Период действия |
-|:---|:---|:---|:---|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | 1 | L8 OLI/TIRS | Материалы спутника № 8 миссии Landsat после выхода его на траекторию WRS – основной источник данных этого спутника | 10 апреля 2013 – н.в. |
 | 2 | L8 OLI/TIRS Pre-WRS-2 | Материалы Landsat 8 до выхода на траекторию WRS | 11 февраля 2013 – 10 апреля 2013 |
 | 3 | L7 ETM+ SLC-off (2003-present) | Материалы спутника № 7 миссии Landsat после того как на его борту вышел из строя модуль SLC | 31 мая 2003 – н.в. |
@@ -215,7 +216,7 @@ format: html
 **Табл. 2. Инструменты просмотра и заказа материалов**
 
 | № | Инструмент | Название | Описание |
-|:---|:---|:---|:---|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | 1 | ![EarthEx T2 1.jpg](https://wiki.gis-lab.info/images/d/d7/EarthEx_T2_1.jpg){alt="EarthEx T2 1.jpg"} | Show Footprint | Показать отпечаток |
 | 2 | ![EarthEx T2 2.jpg](https://wiki.gis-lab.info/images/f/fd/EarthEx_T2_2.jpg){alt="EarthEx T2 2.jpg"} | Show Browse Overlay | Показать наложенное изображение |
 | 3 | ![EarthEx T2 3.jpg](https://wiki.gis-lab.info/images/e/ef/EarthEx_T2_3.jpg){alt="EarthEx T2 3.jpg"} | Compare Browse | Сравнить сцены |
@@ -312,7 +313,7 @@ format: html
 [^1]: Источники: <https://www.usgs.gov/faqs/what-are-best-landsat-spectral-bands-use-my-research>, <https://innoter.com/sputniki/landsat-8/>
 
 | **Band** |   | **Wavelength** | **Useful for mapping** | Использование |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | Band 1 - coastal aerosol | Побережья и аэрозоли (Coastal / Aerosol, New Deep Blue) | 0.43-0.45 | Coastal and aerosol studies | Анализ аэрозольных частиц в атмосфере |
 | Band 2 - blue | синий | 0.45-0.51 | Bathymetric mapping, distinguishing soil from vegetation and deciduous from coniferous vegetation | Батиметрическое картографирование, разграничение почвы и растительности, а также хвойной и лиственной растительности |
 | Band 3 - green | зеленый | 0.53-0.59 | Emphasizes peak vegetation, which is useful for assessing plant vigor | Акцентирует пик вегетации, может использоваться для оценки состояния ратительности |
@@ -328,7 +329,7 @@ format: html
  **Landsat 4-5 Thematic Mapper (TM) and Landsat 7 Enhanced Thematic Mapper Plus (ETM+)**
 
 | **Band** | **Wavelength** | **Useful for mapping** | Использование |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Band 1 - blue | 0.45-0.52 | Bathymetric mapping, distinguishing soil from vegetation and deciduous from coniferous vegetation | Анализ аэрозольных частиц в атмосфере |
 | Band 2 - green | 0.52-0.60 | Emphasizes peak vegetation, which is useful for assessing plant vigor | Батиметрическое картографирование, разграничение почвы и растительности, а также хвойной и лиственной растительности |
 | Band 3 - red | 0.63-0.69 | Discriminates vegetation slopes | Акцентирует пик вегетации, может использоваться для оценки состояния ратительности |
@@ -405,7 +406,7 @@ format: html
 **Табл. 3. Анкета по интересам пользователя и применению данных**
 
 | № | Вопрос | Перевод вопроса | Возможный ответ |
-|:---|:---|:---|:---|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | 1 | In what sector do you work? | В каком секторе народного хозяйства вы работаете? | Выбрать в списке пункт Academic Institution (ВУЗ) |
 | 2 | Which of the following characterizes you as a user of remotely sensed data from USGS? | Что лучше характеризует вас как пользователя данных ДЗЗ из архива ГС США? | Отметить галочкой пункт «End user» (Конечный пользователь) |
 | 3 | Does your work use remotely sensed data from the USGS? | Требуется ли для вашей работы использовать данные ДЗЗ из архива ГС США? | Выбрать вариант Yes (Да) |
