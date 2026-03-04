@@ -79,5 +79,8 @@
   },
   "04-vegetation-indices.qmd": {
     "04-vegetation-indices.html": "25ae352c"
+  },
+  "06-image-classification.qmd": {
+    "06-image-classification.html": "ad8b274a"
   }
 }
