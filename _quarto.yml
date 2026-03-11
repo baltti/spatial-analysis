@@ -9,8 +9,6 @@ website:
     search: true
     logo: "images/logo.png"
     contents:
-      - text: "О курсе"
-        href: index.qmd
  #     - text: "Анализ точечных паттернов и кластеризация"
  #       href: 01-point-pattern-analysis.qmd
  #      - text: "Анализ размещения-распределения"
@@ -34,6 +32,8 @@ website:
         href: References.qmd
   navbar:
     left: 
+      - text: "О курсе"
+        href: index.qmd
       - text: "Курс лекций"
         href: Lectures.qmd
   #    - text: "Exam questions / Вопросы к экзамену"

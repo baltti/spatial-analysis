@@ -2,7 +2,7 @@
 title: "Лекции"
 date: last-modified
 date-format: "D MMMM YYYY"
-number-sections: true
+number-sections: false
 author:
   - affiliation: Институт дизайна и урбанистики, Университет ИТМО 
     name: Балтыжакова Татьяна
@@ -23,3 +23,11 @@ author:
 ```
 
 [Открыть в новой вкладке](https://baltti.github.io/spatial-analysis/01-remote-sensing-basics){target="_blank"}
+
+## Пространственные веса
+
+```{=html}
+<iframe src="https://baltti.github.io/spatial-weights/" width="800" height="400"></iframe>
+```
+
+[Открыть в новой вкладке](https://baltti.github.io/spatial-weights/){target="_blank"}
