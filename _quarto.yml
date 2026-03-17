@@ -7,7 +7,7 @@ website:
   sidebar:
     style: "docked"
     search: true
-    logo: "images/logo.png"
+    logo: "images/logo_urbanistika_ITMO_itog_RUS_plashka_ikonka_white.png"
     contents:
  #     - text: "Анализ точечных паттернов и кластеризация"
  #       href: 01-point-pattern-analysis.qmd
@@ -41,8 +41,6 @@ website:
    #   - text: "Homework assignment / Домашнее задание"
   #      href: Homework.qmd
     right: 
-      - href: https://t.me/geomess
-        icon: telegram
       - icon: github
         href: https://github.com/baltti/spatial-analysis
   
