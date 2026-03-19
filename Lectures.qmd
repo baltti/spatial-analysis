@@ -39,3 +39,11 @@ author:
 ```
 
 [Открыть в новой вкладке](https://baltti.github.io/spatial-autocorrelation/){target="_blank"}
+
+## Пространственная регрессия
+
+```{=html}
+<iframe src="https://baltti.github.io/spatial-regression/" width="800" height="400"></iframe>
+```
+
+[Открыть в новой вкладке](https://baltti.github.io/spatial-regression/){target="_blank"}
