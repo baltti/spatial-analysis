@@ -82,5 +82,11 @@
   },
   "06-image-classification.qmd": {
     "06-image-classification.html": "ad8b274a"
+  },
+  "08-spatial-autocorrelation.qmd": {
+    "08-spatial-autocorrelation.html": "ccd10a07"
+  },
+  "07-spatial-weights.qmd": {
+    "07-spatial-weights.html": "5695c7b9"
   }
 }

@@ -3,7 +3,7 @@ project:
   output-dir: docs
 website:
   page-footer: |
-        © 2025, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО
+        © 2026, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО
   sidebar:
     style: "docked"
     search: true
@@ -15,10 +15,6 @@ website:
  #     href: 02-location-allocation.qmd
  #     - text: "Гравитационная модель Хаффа"
 #        href: 03-gravity-model.qmd
- #     - section: "Пространственные веса и пространственная автокорреляция"
-  #      contents: 
- #         - 04-spatial-weights.qmd
-  #        - 05-spatial-autocorrelation.qmd
       - text: "Анализ рельефа"
         href: 01-relief.qmd
       - section: "Работа с данными дистанционного зондирования"
@@ -28,6 +24,10 @@ website:
           - 04-vegetation-indices.qmd
           - 05-surface-temperature.qmd
           - 06-image-classification.qmd
+      - section: "Основы пространственной статистики"
+        contents: 
+          - 07-spatial-weights.qmd
+          - 08-spatial-autocorrelation.qmd
       - text: "Литература"
         href: References.qmd
   navbar:
@@ -38,7 +38,7 @@ website:
         href: Lectures.qmd
   #    - text: "Exam questions / Вопросы к экзамену"
   #      href: Exam.qmd
-   #   - text: "Homework assignment / Домашнее задание"
+   #   - text: "Домашнее задание"
   #      href: Homework.qmd
     right: 
       - icon: github

@@ -139,7 +139,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Пространственные веса</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-spatial-weights.html">Основы пространственной статистики</a></li><li class="breadcrumb-item"><a href="./07-spatial-weights.html">Пространственные веса</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -211,6 +211,29 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Основы пространственной статистики</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Переключить раздел">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-spatial-weights.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Пространственные веса</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-spatial-autocorrelation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Пространственная автокорреляция</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
@@ -227,13 +250,13 @@ window.Quarto = {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#программа-geoda" id="toc-программа-geoda" class="nav-link active" data-scroll-target="#программа-geoda"><span class="header-section-number">1</span> Программа GeoDa</a></li>
-  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link" data-scroll-target="#исходные-данные"><span class="header-section-number">2</span> Исходные данные</a></li>
-  <li><a href="#общие-инструменты-работы-с-данными" id="toc-общие-инструменты-работы-с-данными" class="nav-link" data-scroll-target="#общие-инструменты-работы-с-данными"><span class="header-section-number">3</span> Общие инструменты работы с данными</a></li>
-  <li><a href="#расчет-пространственных-весов" id="toc-расчет-пространственных-весов" class="nav-link" data-scroll-target="#расчет-пространственных-весов"><span class="header-section-number">4</span> Расчет пространственных весов</a>
+  <li><a href="#программа-geoda" id="toc-программа-geoda" class="nav-link active" data-scroll-target="#программа-geoda">Программа GeoDa</a></li>
+  <li><a href="#исходные-данные" id="toc-исходные-данные" class="nav-link" data-scroll-target="#исходные-данные">Исходные данные</a></li>
+  <li><a href="#общие-инструменты-работы-с-данными" id="toc-общие-инструменты-работы-с-данными" class="nav-link" data-scroll-target="#общие-инструменты-работы-с-данными">Общие инструменты работы с данными</a></li>
+  <li><a href="#расчет-пространственных-весов" id="toc-расчет-пространственных-весов" class="nav-link" data-scroll-target="#расчет-пространственных-весов">Расчет пространственных весов</a>
   <ul class="collapse">
-  <li><a href="#расчет-весов-по-смежности" id="toc-расчет-весов-по-смежности" class="nav-link" data-scroll-target="#расчет-весов-по-смежности"><span class="header-section-number">4.1</span> Расчет весов по смежности</a></li>
-  <li><a href="#расчет-весов-по-расстоянию" id="toc-расчет-весов-по-расстоянию" class="nav-link" data-scroll-target="#расчет-весов-по-расстоянию"><span class="header-section-number">4.2</span> Расчет весов по расстоянию</a></li>
+  <li><a href="#расчет-весов-по-смежности" id="toc-расчет-весов-по-смежности" class="nav-link" data-scroll-target="#расчет-весов-по-смежности">Расчет весов по смежности</a></li>
+  <li><a href="#расчет-весов-по-расстоянию" id="toc-расчет-весов-по-расстоянию" class="nav-link" data-scroll-target="#расчет-весов-по-расстоянию">Расчет весов по расстоянию</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -241,7 +264,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-spatial-weights.html">Основы пространственной статистики</a></li><li class="breadcrumb-item"><a href="./07-spatial-weights.html">Пространственные веса</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Пространственные веса</h1>
 </div>
@@ -260,8 +283,8 @@ window.Quarto = {
 </header>
 
 
-<section id="программа-geoda" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="программа-geoda"><span class="header-section-number">1</span> Программа GeoDa</h2>
+<section id="программа-geoda" class="level2">
+<h2 class="anchored" data-anchor-id="программа-geoda">Программа GeoDa</h2>
 <p><strong>GeoDa</strong> - это бесплатный программный инструмент с открытым исходным кодом, который служит для ознакомления с пространственной наукой о данных. Он разработан для того, чтобы способствовать получению новых выводов на основе анализа данных путем изучения и моделирования пространственных моделей.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -301,9 +324,8 @@ window.Quarto = {
 </div>
 <p>В том случае, если это окно не открылось, необходимый вам файл можно открыть по клику на значок <img src="images/Снимок экрана 2025-03-26 в 14.49.38.png" class="img-fluid" width="37">.</p>
 </section>
-<section id="исходные-данные" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="исходные-данные"><span class="header-section-number">2</span> Исходные данные</h2>
-<p>В качестве исходных данных будет использоваться набор данных о стоимости недвижимости в Санкт-Петербурге, который можно скачать по <a href="https://disk.yandex.ru/d/2pZazAW_vuxTuA">ссылке</a>.</p>
+<section id="исходные-данные" class="level2">
+<h2 class="anchored" data-anchor-id="исходные-данные">Исходные данные</h2>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -318,8 +340,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="общие-инструменты-работы-с-данными" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="общие-инструменты-работы-с-данными"><span class="header-section-number">3</span> Общие инструменты работы с данными</h2>
+<section id="общие-инструменты-работы-с-данными" class="level2">
+<h2 class="anchored" data-anchor-id="общие-инструменты-работы-с-данными">Общие инструменты работы с данными</h2>
 <p>После того, как вы открыли файл с исходными данными, у вас появится окно карты.</p>
 <p><img src="images/Снимок экрана 2025-03-26 в 14.50.30.png" class="img-fluid"></p>
 <p>В этой карте как и в прочих геоинформационных системах вы можете добавить подложку для контекста с использованием иконки <img src="images/Снимок экрана 2025-03-26 в 14.50.52.png" class="img-fluid" width="48">.</p>
@@ -474,8 +496,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="расчет-пространственных-весов" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="расчет-пространственных-весов"><span class="header-section-number">4</span> Расчет пространственных весов</h2>
+<section id="расчет-пространственных-весов" class="level2">
+<h2 class="anchored" data-anchor-id="расчет-пространственных-весов">Расчет пространственных весов</h2>
 <p>Для создания матрицы пространственных весов необходимо воспользоваться менеджером весов <img src="images/Снимок экрана 2025-04-02 в 15.03.14.png" class="img-fluid" width="44">, также его можно открыть из строки меню.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -525,10 +547,10 @@ window.Quarto = {
 <p>Все матрицы весов сохраняются во внутреннем формате программы: два разных формата - один для матриц по смежности, второй - для матриц на основе расстояния. При необходимости они могут быть открыты просто в текстовом редакторе.</p>
 </div>
 </div>
-<section id="расчет-весов-по-смежности" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="расчет-весов-по-смежности"><span class="header-section-number">4.1</span> Расчет весов по смежности</h3>
-<section id="принцип-ферзя-королевы" class="level4" data-number="4.1.1">
-<h4 data-number="4.1.1" class="anchored" data-anchor-id="принцип-ферзя-королевы"><span class="header-section-number">4.1.1</span> Принцип ферзя (королевы)</h4>
+<section id="расчет-весов-по-смежности" class="level3">
+<h3 class="anchored" data-anchor-id="расчет-весов-по-смежности">Расчет весов по смежности</h3>
+<section id="принцип-ферзя-королевы" class="level4">
+<h4 class="anchored" data-anchor-id="принцип-ферзя-королевы">Принцип ферзя (королевы)</h4>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -629,8 +651,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="принцип-ладьи" class="level4" data-number="4.1.2">
-<h4 data-number="4.1.2" class="anchored" data-anchor-id="принцип-ладьи"><span class="header-section-number">4.1.2</span> Принцип ладьи</h4>
+<section id="принцип-ладьи" class="level4">
+<h4 class="anchored" data-anchor-id="принцип-ладьи">Принцип ладьи</h4>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -737,8 +759,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="расчет-весов-по-расстоянию" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="расчет-весов-по-расстоянию"><span class="header-section-number">4.2</span> Расчет весов по расстоянию</h3>
+<section id="расчет-весов-по-расстоянию" class="level3">
+<h3 class="anchored" data-anchor-id="расчет-весов-по-расстоянию">Расчет весов по расстоянию</h3>
 <p>При расчете весов по расстоянию необходимо задать значительно больше параметров.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1248,7 +1270,7 @@ window.Quarto = {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>© 2025, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО</p>
+<p>© 2026, Татьяна Балтыжакова, Институт дизайна и урбанистики, Университет ИТМО</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
