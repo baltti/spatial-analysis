@@ -36,10 +36,11 @@ website:
         href: index.qmd
       - text: "Курс лекций"
         href: Lectures.qmd
+      - text: "Домашнее задание"
+        href: Homework.qmd
   #    - text: "Exam questions / Вопросы к экзамену"
   #      href: Exam.qmd
-   #   - text: "Домашнее задание"
-  #      href: Homework.qmd
+
     right: 
       - icon: github
         href: https://github.com/baltti/spatial-analysis
