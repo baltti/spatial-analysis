@@ -13,8 +13,6 @@ website:
  #       href: 01-point-pattern-analysis.qmd
  #      - text: "Анализ размещения-распределения"
  #     href: 02-location-allocation.qmd
- #     - text: "Гравитационная модель Хаффа"
-#        href: 03-gravity-model.qmd
       - text: "Анализ рельефа"
         href: 01-relief.qmd
       - section: "Работа с данными дистанционного зондирования"
@@ -28,6 +26,8 @@ website:
         contents: 
           - 07-spatial-weights.qmd
           - 08-spatial-autocorrelation.qmd
+      - text: "Гравитационная модель Хаффа"
+        href: 09-gravity-model.qmd
       - text: "Литература"
         href: References.qmd
   navbar:

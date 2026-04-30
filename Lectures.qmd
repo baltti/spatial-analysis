@@ -47,3 +47,11 @@ author:
 ```
 
 [Открыть в новой вкладке](https://baltti.github.io/spatial-regression/){target="_blank"}
+
+# Гравитационные модели
+
+```{=html}
+<iframe src="https://baltti.github.io/gravity-model/" width="800" height="400"></iframe>
+```
+
+[Открыть в новой вкладке](https://baltti.github.io/gravity-model/){target="_blank"}

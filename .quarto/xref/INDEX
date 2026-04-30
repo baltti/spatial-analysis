@@ -88,5 +88,8 @@
   },
   "07-spatial-weights.qmd": {
     "07-spatial-weights.html": "5695c7b9"
+  },
+  "09-gravity-model.qmd": {
+    "09-gravity-model.html": "5cf631a4"
   }
 }
