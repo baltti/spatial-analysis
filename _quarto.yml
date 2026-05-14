@@ -9,8 +9,6 @@ website:
     search: true
     logo: "images/logo_urbanistika_ITMO_itog_RUS_plashka_ikonka_white.png"
     contents:
- #     - text: "Анализ точечных паттернов и кластеризация"
- #       href: 01-point-pattern-analysis.qmd
  #      - text: "Анализ размещения-распределения"
  #     href: 02-location-allocation.qmd
       - text: "Анализ рельефа"
@@ -28,6 +26,8 @@ website:
           - 08-spatial-autocorrelation.qmd
       - text: "Гравитационная модель Хаффа"
         href: 09-gravity-model.qmd
+      - text: "Анализ точечных паттернов и кластеризация"
+        href: 10-point-pattern-analysis.qmd
       - text: "Литература"
         href: References.qmd
   navbar:
@@ -38,8 +38,8 @@ website:
         href: Lectures.qmd
       - text: "Домашнее задание"
         href: Homework.qmd
-  #    - text: "Exam questions / Вопросы к экзамену"
-  #      href: Exam.qmd
+      - text: "Вопросы к экзамену"
+        href: Exam.qmd
 
     right: 
       - icon: github

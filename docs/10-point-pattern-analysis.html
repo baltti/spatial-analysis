@@ -125,6 +125,10 @@ window.Quarto = {
     <a class="nav-link" href="./Homework.html"> 
 <span class="menu-text">Домашнее задание</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Exam.html"> 
+<span class="menu-text">Вопросы к экзамену</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -143,7 +147,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Анализ точечных паттернов и кластеризация</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-point-pattern-analysis.html">Анализ точечных паттернов и кластеризация</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -246,6 +250,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./10-point-pattern-analysis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Анализ точечных паттернов и кластеризация</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Литература</span></a>
   </div>
@@ -290,160 +300,23 @@ window.Quarto = {
 </header>
 
 
-<p>Для практической работы по теме используется геоинформационная система <a href="https://qgis.org/">QGIS</a>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-На заметку
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Весь приведенный ниже порядок действий показан для версии QGIS 3.34, поэтому возможны небольшие расхождения в названиях функций/инструментов, если у вас установлена другая версия.</p>
-</div>
-</div>
 <section id="data" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Исходные данные</h2>
-<p>В качестве исходных данных для работы будут использованы сведения о преступлениях в Сан-Франциско.</p>
-<p>Все наборы данных доступен по <a href="https://geodacenter.github.io/data-and-lab/SFcrimes_vars/">ссылке</a>.</p>
-<p>В скачанном архиве вы найдете две папки:</p>
-<ul>
-<li><p><strong>Crime events</strong> - векторные слои точечных объектов в формате shapefile для нескольких типов преступлений;</p></li>
-<li><p><strong>SF PD Plots</strong> - агрегированные по округам данные.</p></li>
-</ul>
-<p>Так как темой занятия является анализ точечных паттернов, то вам понадобится один из слоев из папки <em>Crime events</em>:</p>
-<ul>
-<li><p><em>sf_cartheft.shp</em> - угоны машин;</p></li>
-<li><p><em>sf_drugs.shp</em> - случаи торговли наркотиками;</p></li>
-<li><p><em>sf_roberry.shp</em> - ограбления;</p></li>
-<li><p><em>sf_vandalism.shp</em> - случаи вандализма.</p></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
+<p>В качестве исходных данных для работы будут использованы сведения о дорожно-транспортных происшествиях с портала <a href="https://new.dtp-stat.ru/" class="uri">https://new.dtp-stat.ru/</a>.</p>
+<p>На портале вы можете сами выбрать регион и период поиска.</p>
+<p>После выбора основных параметров поиска на панели слева необходимо нажать <em>Найти</em>. Результаты поиска появятся на карте в виде тепловой карты, а загрузить данные в формате <em>.geojson</em> вы можете по нажатию на кнопку <em>Выгрузить данные</em>.</p>
+<p><img src="images/clipboard-1416429148.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание
+Предупреждение
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Не забывайте, что shapefile - это коварный формат и вам нужен не только файл с расширением <em>.shp</em>, но и все другие с таким же именем, но другими расширениями.</p>
-</div>
-</div>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Variable</strong></th>
-<th style="text-align: left;"><strong>Description</strong></th>
-<th>Описание атрибута</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">IncidntNum</td>
-<td style="text-align: left;">Unique identifier for each incident report</td>
-<td>Идентификатор инцидента</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">X_pr</td>
-<td style="text-align: left;">Projected X-coordinates</td>
-<td>Координата Х в прямоугнольной системе координат</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Y_pr</td>
-<td style="text-align: left;">Projected Y-coordinates</td>
-<td>Координата Y в прямоугнольной системе координат</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Category</td>
-<td style="text-align: left;">Crime classification (robberies, drugs/narcotics possession or sale, vehicle theft, and vandalism)</td>
-<td>Тип преступления</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Descript</td>
-<td style="text-align: left;">Description of the crime</td>
-<td>Описание</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">DayOfWeek</td>
-<td style="text-align: left;">Day of the week that crime was reported</td>
-<td>День недели, в который было подано заявление</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Date</td>
-<td style="text-align: left;">Date of the report</td>
-<td>Дата заявления</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Time</td>
-<td style="text-align: left;">Time of report</td>
-<td>Время заявления</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">PdDistrict</td>
-<td style="text-align: left;">Police district</td>
-<td>Полицейский участок</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Resolution</td>
-<td style="text-align: left;">Outcome of the report, e.g.&nbsp;None, Arrest, Unfounded, etc</td>
-<td>Результат работы по заявлению</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Location</td>
-<td style="text-align: left;">Street address where the crime occurred</td>
-<td>Название улицы, где произошло преступление</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">X</td>
-<td style="text-align: left;">X-Coordinates of crime location</td>
-<td>Долгота</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Y</td>
-<td style="text-align: left;">Y-Coordinates of crime location</td>
-<td>Широта</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Дополнительно
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Открыть данные вы можете, просто перетащив файл с расширением <em>.shp</em> в пустое окно QGIS или через строку меню <em>Слой</em> <span class="math inline">\(\longrightarrow\)</span> Добавить слой <span class="math inline">\(\longrightarrow\)</span> Добавить векторный слой.</p>
-</div>
-</div>
-<p>После добавления векторного слоя и открытия подложки (опционально), вы должны увидеть что-то похожее на картинку ниже.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Снимок экрана 2025-02-18 в 11.23.06.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-На заметку
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Локальная оценка плотности по квадрантам рассмотрена по <a href="https://baltti.github.io/gis-itmo/spatial-basics.html#%D0%B0%D0%B3%D1%80%D0%B5%D0%B3%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2">ссылке</a></p>
+<p>Ниже работа продемонстрирована на другом наборе данных, но на последовательность выполнения и использование инструментов это никак не влияет.</p>
 </div>
 </div>
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Перечень вопросов и заданий к экзамену</title>
+<title>Примерный перечень вопросов и заданий к экзамену</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -125,6 +96,10 @@ window.Quarto = {
     <a class="nav-link" href="./Homework.html"> 
 <span class="menu-text">Домашнее задание</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Exam.html"> 
+<span class="menu-text">Вопросы к экзамену</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -143,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Перечень вопросов и заданий к экзамену</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Примерный перечень вопросов и заданий к экзамену</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -246,6 +221,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./10-point-pattern-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Анализ точечных паттернов и кластеризация</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./References.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Литература</span></a>
   </div>
@@ -260,22 +241,12 @@ window.Quarto = {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#перечень-вопросов" id="toc-перечень-вопросов" class="nav-link active" data-scroll-target="#перечень-вопросов"><span class="header-section-number">1</span> Перечень вопросов</a>
-  <ul class="collapse">
-  <li><a href="#анализ-точечных-паттернов-и-кластеризация" id="toc-анализ-точечных-паттернов-и-кластеризация" class="nav-link" data-scroll-target="#анализ-точечных-паттернов-и-кластеризация"><span class="header-section-number">1.1</span> Анализ точечных паттернов и кластеризация</a></li>
-  <li><a href="#гравитационные-модели" id="toc-гравитационные-модели" class="nav-link" data-scroll-target="#гравитационные-модели"><span class="header-section-number">1.2</span> Гравитационные модели</a></li>
-  <li><a href="#пространственные-веса-и-пространственная-автокорреляция" id="toc-пространственные-веса-и-пространственная-автокорреляция" class="nav-link" data-scroll-target="#пространственные-веса-и-пространственная-автокорреляция"><span class="header-section-number">1.3</span> Пространственные веса и пространственная автокорреляция</a></li>
-  <li><a href="#пространственная-регрессия" id="toc-пространственная-регрессия" class="nav-link" data-scroll-target="#пространственная-регрессия"><span class="header-section-number">1.4</span> Пространственная регрессия</a></li>
-  <li><a href="#анализ-данных-дистанционного-зондирования" id="toc-анализ-данных-дистанционного-зондирования" class="nav-link" data-scroll-target="#анализ-данных-дистанционного-зондирования"><span class="header-section-number">1.5</span> Анализ данных дистанционного зондирования</a></li>
-  </ul></li>
-  <li><a href="#list-of-exam-questions" id="toc-list-of-exam-questions" class="nav-link" data-scroll-target="#list-of-exam-questions"><span class="header-section-number">2</span> List of exam questions</a>
-  <ul class="collapse">
-  <li><a href="#point-pattern-analysis-and-clusterisation" id="toc-point-pattern-analysis-and-clusterisation" class="nav-link" data-scroll-target="#point-pattern-analysis-and-clusterisation"><span class="header-section-number">2.1</span> Point pattern analysis and clusterisation</a></li>
-  <li><a href="#gravity-models" id="toc-gravity-models" class="nav-link" data-scroll-target="#gravity-models"><span class="header-section-number">2.2</span> Gravity models</a></li>
-  <li><a href="#spatial-weights-and-spatial-autocorrelation" id="toc-spatial-weights-and-spatial-autocorrelation" class="nav-link" data-scroll-target="#spatial-weights-and-spatial-autocorrelation"><span class="header-section-number">2.3</span> Spatial weights and spatial autocorrelation</a></li>
-  <li><a href="#spatial-regression" id="toc-spatial-regression" class="nav-link" data-scroll-target="#spatial-regression"><span class="header-section-number">2.4</span> Spatial regression</a></li>
-  <li><a href="#analysis-of-remote-sensing-data" id="toc-analysis-of-remote-sensing-data" class="nav-link" data-scroll-target="#analysis-of-remote-sensing-data"><span class="header-section-number">2.5</span> Analysis of remote sensing data</a></li>
-  </ul></li>
+  <li><a href="#анализ-данных-дистанционного-зондирования" id="toc-анализ-данных-дистанционного-зондирования" class="nav-link active" data-scroll-target="#анализ-данных-дистанционного-зондирования"><span class="header-section-number">1</span> Анализ данных дистанционного зондирования</a></li>
+  <li><a href="#пространственные-веса-и-пространственная-автокорреляция" id="toc-пространственные-веса-и-пространственная-автокорреляция" class="nav-link" data-scroll-target="#пространственные-веса-и-пространственная-автокорреляция"><span class="header-section-number">2</span> Пространственные веса и пространственная автокорреляция</a></li>
+  <li><a href="#пространственная-регрессия" id="toc-пространственная-регрессия" class="nav-link" data-scroll-target="#пространственная-регрессия"><span class="header-section-number">3</span> Пространственная регрессия</a></li>
+  <li><a href="#гравитационные-модели" id="toc-гравитационные-модели" class="nav-link" data-scroll-target="#гравитационные-модели"><span class="header-section-number">4</span> Гравитационные модели</a></li>
+  <li><a href="#анализ-точечных-паттернов-и-кластеризация" id="toc-анализ-точечных-паттернов-и-кластеризация" class="nav-link" data-scroll-target="#анализ-точечных-паттернов-и-кластеризация"><span class="header-section-number">5</span> Анализ точечных паттернов и кластеризация</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">6</span> </a></li>
   </ul>
 </nav>
     </div>
@@ -284,7 +255,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Перечень вопросов и заданий к экзамену</h1>
+<h1 class="title">Примерный перечень вопросов и заданий к экзамену</h1>
 </div>
 
 
@@ -301,65 +272,8 @@ window.Quarto = {
 </header>
 
 
-<section id="перечень-вопросов" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="перечень-вопросов"><span class="header-section-number">1</span> Перечень вопросов</h2>
-<section id="анализ-точечных-паттернов-и-кластеризация" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="анализ-точечных-паттернов-и-кластеризация"><span class="header-section-number">1.1</span> Анализ точечных паттернов и кластеризация</h3>
-<ol type="1">
-<li>Что такое точечный паттерн?</li>
-<li>Какие виды точечных паттернов есть?</li>
-<li>Основные виды пространственных эффектов точечного процесса.</li>
-<li>Основные подходы к анализу точечных паттернов.</li>
-<li>В чем разница между глобальной и локальной плотностью?</li>
-<li>Анализ точечных паттернов на основе плотности.</li>
-<li>Анализ точечных паттернов на основе расстояния между наблюдениями.</li>
-<li>Ядерная оценка плотности.</li>
-<li>Анализ ближайших соседей.</li>
-<li><span class="math inline">\(k\)</span>-функция и ее вариации.</li>
-<li>Что такое кластеризация?</li>
-<li>Методы кластеризации.</li>
-</ol>
-</section>
-<section id="гравитационные-модели" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="гравитационные-модели"><span class="header-section-number">1.2</span> Гравитационные модели</h3>
-<ol type="1">
-<li>Первый закон географии.</li>
-<li>Что такое затухание расстояния?</li>
-<li>Что такое сжатие пространства и времени?</li>
-<li>На чем основаны гравитационные модели?</li>
-<li>Гравитационная модель Хаффа.</li>
-<li>Какие есть гравитационные модели?</li>
-<li>Как применяются гравитационные модели?</li>
-<li>От чего зависит вероятность использования сервиса в гравитационной модели Хаффа?</li>
-<li>Как на вероятность использования сервиса влияет расстояние/площадь сервиса?</li>
-</ol>
-</section>
-<section id="пространственные-веса-и-пространственная-автокорреляция" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="пространственные-веса-и-пространственная-автокорреляция"><span class="header-section-number">1.3</span> Пространственные веса и пространственная автокорреляция</h3>
-<ol type="1">
-<li>Что такое пространственные веса?</li>
-<li>Методы расчета пространственных весов.</li>
-<li>Основное применение пространственных весов.</li>
-<li>Что такое пространственная автокорреляция?</li>
-<li>В чем разница между глобальной и локальной пространственной автокорреляцией?</li>
-<li>Что такое пространственный лаг?</li>
-<li>Кластеры, выявляемые при расчете локальной пространственной автокорреляции.</li>
-<li>Графическая интерпретация индекса Морана.</li>
-</ol>
-</section>
-<section id="пространственная-регрессия" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="пространственная-регрессия"><span class="header-section-number">1.4</span> Пространственная регрессия</h3>
-<ol type="1">
-<li><p>Как пространственная составляющая может быть включена в уравнение регрессии?</p></li>
-<li><p>Что такое пространственные эффекты?</p></li>
-<li><p>Что такое пространственная неоднородность?</p></li>
-<li><p>Что подразумевает метод пространственных режимов?</p></li>
-<li><p>Что такое географическая взвешенная регрессия?</p></li>
-<li><p>Что такое пространственная зависимость и как она может влиять на регрессионную модель?</p></li>
-</ol>
-</section>
-<section id="анализ-данных-дистанционного-зондирования" class="level3" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="анализ-данных-дистанционного-зондирования"><span class="header-section-number">1.5</span> Анализ данных дистанционного зондирования</h3>
+<section id="анализ-данных-дистанционного-зондирования" class="level3" data-number="1">
+<h3 data-number="1" class="anchored" data-anchor-id="анализ-данных-дистанционного-зондирования"><span class="header-section-number">1</span> Анализ данных дистанционного зондирования</h3>
 <ol type="1">
 <li><p>Что такое дистанционное зондирование?</p></li>
 <li><p>Как можно классифицировать спутниковые снимки?</p></li>
@@ -370,81 +284,64 @@ window.Quarto = {
 <li><p>Для чего составляются композиты в искусственных цветах?</p></li>
 </ol>
 </section>
-</section>
-<section id="list-of-exam-questions" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="list-of-exam-questions"><span class="header-section-number">2</span> List of exam questions</h2>
-<section id="point-pattern-analysis-and-clusterisation" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="point-pattern-analysis-and-clusterisation"><span class="header-section-number">2.1</span> Point pattern analysis and clusterisation</h3>
+<section id="пространственные-веса-и-пространственная-автокорреляция" class="level3" data-number="2">
+<h3 data-number="2" class="anchored" data-anchor-id="пространственные-веса-и-пространственная-автокорреляция"><span class="header-section-number">2</span> Пространственные веса и пространственная автокорреляция</h3>
 <ol type="1">
-<li>What is point pattern?</li>
-<li>Name types of point patterns.</li>
-<li>Main types of spatial effects in point process.</li>
-<li>Main approaches in point pattern analysis.</li>
-<li>Difference between global and local spatial density.</li>
-<li>Density based point pattern analysis.</li>
-<li>Distance based point pattern analysis.</li>
-<li>Quadrant local density estimation.</li>
-<li>Kernel density estimation.</li>
-<li>Nearest neighbour analysis.</li>
-<li><span class="math inline">\(k\)</span>-function and its variations.</li>
-<li>What is clusterisation?</li>
-<li>Hierarchical clusterisation methods.</li>
-<li>Partitioning clusterisation methods.</li>
-<li>Density based clusterisation methods.</li>
+<li><p>Что такое пространственные веса?</p></li>
+<li><p>Методы расчета пространственных весов.</p></li>
+<li><p>Основное применение пространственных весов.</p></li>
+<li><p>Что такое пространственная автокорреляция?</p></li>
+<li><p>В чем разница между глобальной и локальной пространственной автокорреляцией?</p></li>
+<li><p>Что такое пространственный лаг?</p></li>
+<li><p>Кластеры, выявляемые при расчете локальной пространственной автокорреляции.</p></li>
+<li><p>Графическая интерпретация индекса Морана.</p></li>
 </ol>
 </section>
-<section id="gravity-models" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="gravity-models"><span class="header-section-number">2.2</span> Gravity models</h3>
+<section id="пространственная-регрессия" class="level3" data-number="3">
+<h3 data-number="3" class="anchored" data-anchor-id="пространственная-регрессия"><span class="header-section-number">3</span> Пространственная регрессия</h3>
 <ol type="1">
-<li>First law of geography.</li>
-<li>What is distance decay?</li>
-<li>What is time-space compression?</li>
-<li>Foundation for gravity models.</li>
-<li>Huff’s gravity model.</li>
-<li>What types of gravity models exist?</li>
-<li>How gravity models can be applied?</li>
-<li>In Huff’s model, what parameters does probability depend on?</li>
-<li>What impact does the distance/area of the service have on the probability of its use?</li>
+<li><p>Как пространственная составляющая может быть включена в уравнение регрессии?</p></li>
+<li><p>Что такое пространственные эффекты?</p></li>
+<li><p>Что такое пространственная неоднородность?</p></li>
+<li><p>Что подразумевает метод пространственных режимов?</p></li>
+<li><p>Что такое географическая взвешенная регрессия?</p></li>
+<li><p>Что такое пространственная зависимость и как она может влиять на регрессионную модель?</p></li>
 </ol>
 </section>
-<section id="spatial-weights-and-spatial-autocorrelation" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="spatial-weights-and-spatial-autocorrelation"><span class="header-section-number">2.3</span> Spatial weights and spatial autocorrelation</h3>
+<section id="гравитационные-модели" class="level3" data-number="4">
+<h3 data-number="4" class="anchored" data-anchor-id="гравитационные-модели"><span class="header-section-number">4</span> Гравитационные модели</h3>
 <ol type="1">
-<li>What are spatial weights?</li>
-<li>Spatial weights calculation methods.</li>
-<li>Main application of spatial weights.</li>
-<li>What is spatial autocorrelation?</li>
-<li>Difference between global and local spatial autocorrelation?</li>
-<li>What is spatial lag?</li>
-<li>Clusters calculated through local spatial autocorrelation.</li>
-<li>Moran graph.</li>
+<li><p>Первый закон географии.</p></li>
+<li><p>Что такое затухание расстояния?</p></li>
+<li><p>Что такое сжатие пространства и времени?</p></li>
+<li><p>На чем основаны гравитационные модели?</p></li>
+<li><p>Гравитационная модель Хаффа.</p></li>
+<li><p>Какие есть гравитационные модели?</p></li>
+<li><p>Как применяются гравитационные модели?</p></li>
+<li><p>От чего зависит вероятность использования сервиса в гравитационной модели Хаффа?</p></li>
+<li><p>Как на вероятность использования сервиса влияет расстояние/площадь сервиса?</p></li>
 </ol>
 </section>
-<section id="spatial-regression" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="spatial-regression"><span class="header-section-number">2.4</span> Spatial regression</h3>
+<section id="анализ-точечных-паттернов-и-кластеризация" class="level3" data-number="5">
+<h3 data-number="5" class="anchored" data-anchor-id="анализ-точечных-паттернов-и-кластеризация"><span class="header-section-number">5</span> Анализ точечных паттернов и кластеризация</h3>
 <ol type="1">
-<li><p>How can a spatial component be included in a regression equation?</p></li>
-<li><p>What are spatial effects?</p></li>
-<li><p>What is spatial heterogeneity?</p></li>
-<li><p>What does the spatial modes method imply?</p></li>
-<li><p>What is geographically weighted regression?</p></li>
-<li><p>How can spatial dependence affect a regression model?</p></li>
+<li><p>Что такое точечный паттерн?</p></li>
+<li><p>Какие виды точечных паттернов есть?</p></li>
+<li><p>Основные виды пространственных эффектов точечного процесса.</p></li>
+<li><p>Основные подходы к анализу точечных паттернов.</p></li>
+<li><p>В чем разница между глобальной и локальной плотностью?</p></li>
+<li><p>Анализ точечных паттернов на основе плотности.</p></li>
+<li><p>Анализ точечных паттернов на основе расстояния между наблюдениями.</p></li>
+<li><p>Ядерная оценка плотности.</p></li>
+<li><p>Анализ ближайших соседей.</p></li>
+<li><p>Что такое кластеризация?</p></li>
+<li><p>Методы кластеризации.</p></li>
 </ol>
 </section>
-<section id="analysis-of-remote-sensing-data" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="analysis-of-remote-sensing-data"><span class="header-section-number">2.5</span> Analysis of remote sensing data</h3>
-<ol type="1">
-<li><p>What is remote sensing?</p></li>
-<li><p>How can satellite imagery be categorised?</p></li>
-<li><p>What are spatial and spectral resolutions?</p></li>
-<li><p>What is the basis for calculating spectral indices, and how are they used?</p></li>
-<li><p>How can you make a colour image from images for each band?</p></li>
-<li><p>What are spectral indices?</p></li>
-<li><p>What are composite images in false colours used for?</p></li>
-</ol>
+<section id="section" class="level3" data-number="6">
+<h3 data-number="6" class="anchored" data-anchor-id="section"><span class="header-section-number">6</span> </h3>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
